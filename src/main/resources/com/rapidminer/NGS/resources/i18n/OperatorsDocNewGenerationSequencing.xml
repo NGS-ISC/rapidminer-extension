@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<operatorHelp lang="en_EN">
+    <!--  This is an example how to specify the translation of operator keys to names. -->
+    <group>
+      <key>NGS_group</key>
+      <name>NGS</name>
+    </group>
+
+    <!-- This is how group keys are translated: -->
+    <operator>
+      <key>mothur_operator_key</key>
+      <name>Mothur</name>
+    </operator>
+
+</operatorHelp>
