@@ -18,3 +18,6 @@ A template project for creating a RapidMiner Studio extension.
 5. Build and install your extension by executing the _installExtension_ Gradle task 
 
 6. Start RapidMiner Studio and check whether your extension has been loaded
+
+
+Icons taken from http://www.flaticon.com/free-icon/dna_450590#term=genetic&page=1&position=92

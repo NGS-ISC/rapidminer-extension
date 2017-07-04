@@ -16,7 +16,7 @@ repositories {
 extensionConfig {
 
     // The extension name
-    name 'Template'
+    name 'New Generation Sequencing'
 
     /*
      * The artifact group which will be used when publishing the extensions Jar
@@ -32,7 +32,7 @@ extensionConfig {
      *
      * It is 'RapidMiner GmbH' by default.
      */
-    //vendor = "RapidMiner GmbH"
+    vendor = "Irkutsk Scientific Center at SB RAS"
 
     /*
      * The vendor homepage which will be displayed in the extensions about box
@@ -53,3 +53,5 @@ extensionConfig {
 dependencies {
 	//compile 'com.google.guava:guava:18.0'
 }
+
+
