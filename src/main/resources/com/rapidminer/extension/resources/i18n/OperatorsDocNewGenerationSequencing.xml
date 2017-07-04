@@ -8,7 +8,7 @@
 
     <!-- This is how group keys are translated: -->
     <operator>
-      <key>mothur_operator</key>
+      <key>mothur_operator_key</key>
       <name>Mothur</name>
     </operator>
 
