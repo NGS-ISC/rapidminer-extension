@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.rapidminer.NGS.operator;
+package com.rapidminer.ngs.operator;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -41,7 +41,7 @@ public class MothurOperator extends Operator {
 		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '"+text+"'.");
 		fileSetOutput.deliver(files);
 	}
-	
+
 	@Override
 	public List<ParameterType> getParameterTypes(){
 	    List<ParameterType> types = super.getParameterTypes();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<operators name="new_generation_sequencing" version="6.0" docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocNewGenerationSequencing">
+<operators name="new_generation_sequencing" version="6.0" docbundle="com/rapidminer/ngs/resources/i18n/OperatorsDocNewGenerationSequencing">
     <group key="">
         <!-- This is an example how to specify Operators and Operator groups. The Operator groups define
                 where Operators will be located in the Operator tree. -->
@@ -14,7 +14,7 @@
         <group key="NGS_group">
         	<operator>
         		<key>mothur_operator_key</key>
-        		<class>com.rapidminer.NGS.operator.MothurOperator</class>
+        		<class>com.rapidminer.ngs.operator.MothurOperator</class>
         		<icon>icon-96.png</icon>
 			</operator>
 		</group>
