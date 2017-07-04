@@ -14,7 +14,7 @@
         <group key="NGS_group">
         	<operator>
         		<key>mothur_operator_key</key>
-        		<class>com.rapidminer.extension.operator.MothurOperator</class>
+        		<class>com.rapidminer.NGS.operator.MothurOperator</class>
         		<icon>icon-96.png</icon>
 			</operator>
 		</group>
