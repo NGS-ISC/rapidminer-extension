@@ -21,8 +21,8 @@ public class MothurTrimOperator extends MothurOperator {
     private InputPort namesInPort = getInputPorts().createPort("names");
 
     private OutputPort fastaTrimOutPort = getOutputPorts().createPort("trim.fasta");
-    private OutputPort fastaScrapOutPort = getOutputPorts().createPort("scrap.fasta");
 	private OutputPort namesTrimOutPort = getOutputPorts().createPort("trim.names");
+    private OutputPort fastaScrapOutPort = getOutputPorts().createPort("scrap.fasta");
 	private OutputPort namesScrapOutPort = getOutputPorts().createPort("scrap.names");
 	private OutputPort groupsOutPort = getOutputPorts().createPort("groups");
 

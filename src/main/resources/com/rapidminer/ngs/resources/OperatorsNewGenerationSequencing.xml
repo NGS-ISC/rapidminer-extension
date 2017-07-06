@@ -7,6 +7,11 @@
           <class>com.rapidminer.ngs.operator.MothurTrimOperator</class>
           <icon>icon-operator-trim.png</icon>
         </operator>
+        <operator>
+          <key>mothur_summary_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurSummaryOperator</class>
+          <icon>icon-operator-summary.png</icon>
+        </operator>
       </group>
       <operator>
         <key>mothur_operator_fileset</key>
