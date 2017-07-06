@@ -25,8 +25,6 @@ public class MothurOperator extends Operator {
 
 	private static final String PARAMETER_TEXT = "Length of the data:";
 	private static final String OLIGOS_LABEL = "Oligos filename:";
-	private InputPort fileSetInput = getInputPorts().createPort("fasta");
-	private OutputPort fileSetOutput = getOutputPorts().createPort("names");
 
 	/**
 	 * @param description
@@ -38,10 +36,14 @@ public class MothurOperator extends Operator {
 
 	@Override
 	public void doWork() throws OperatorException {
+		/*
 		FileNameObject file = fileSetInput.getData(FileNameObject.class);
+		*/
 		String text = getParameterAsString(PARAMETER_TEXT);
 		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '" + text + "'.");
+		/*
 		fileSetOutput.deliver(file);
+		*/
 	}
 
 	@Override

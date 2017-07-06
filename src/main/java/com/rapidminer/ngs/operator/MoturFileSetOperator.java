@@ -33,6 +33,7 @@ public class MoturFileSetOperator extends Operator {
 	private static final String NAMES_LABEL = "File .names:";
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort namesOutPort = getOutputPorts().createPort("names");
+	private OutputPort bacteriaFastaOutPort = getOutputPorts().createPort("bacteria.names");
 
 	public MoturFileSetOperator(OperatorDescription description) {
 		super(description);

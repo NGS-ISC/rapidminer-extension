@@ -5,15 +5,15 @@
     <name>NGS</name>
   </group>
   <group>
-    <key>Mothur_group</key>
+    <key>mothur_group</key>
     <name>Mothur</name>
   </group>
   <operator>
     <key>mothur_trim_operator</key>
     <name>Trim</name>
   </operator>
-  <operator xmlns="">
-    <key>motur_operator_fileset</key>
+  <operator>
+    <key>mothur_operator_fileset</key>
     <name>Source Files</name>
   </operator>
 </operatorHelp>
