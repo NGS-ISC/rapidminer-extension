@@ -37,3 +37,5 @@ config/pmd/ruleset.xml
 .pmd
 /nbproject/private/
 /nbbuild/
+/out
+
