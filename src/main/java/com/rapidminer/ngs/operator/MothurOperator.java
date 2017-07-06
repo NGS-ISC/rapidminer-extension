@@ -36,10 +36,10 @@ public class MothurOperator extends Operator {
 
 	@Override
 	public void doWork() throws OperatorException {
-		ExampleSet files = fileSetInput.getData(ExampleSet.class);
+		FileNameObject file = fileSetInput.getData(FileNameObject.class);
 		String text = getParameterAsString(PARAMETER_TEXT);
 		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '"+text+"'.");
-		fileSetOutput.deliver(files);
+		fileSetOutput.deliver(file);
 	}
 
 	@Override
