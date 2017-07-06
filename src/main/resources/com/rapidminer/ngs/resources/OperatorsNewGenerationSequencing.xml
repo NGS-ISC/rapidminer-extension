@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><operators name="new_generation_sequencing" version="6.0" docbundle="com/rapidminer/ngs/resources/i18n/OperatorsDocNewGenerationSequencing">
   <group key="">
     <group key="NGS_group">
+      <group key="Mothur_group">
       <operator>
-        <key>mothur_operator</key>
-        <class>com.rapidminer.ngs.operator.MothurOperator</class>
-        <icon>icon.png</icon>
+        <key>mothur_trim_operator</key>
+        <class>com.rapidminer.ngs.operator.MothurTrimOperator</class>
+        <icon>icon-operator-trim.png</icon>
       </operator>
+      </group>
       <operator xmlns="">
       	<key>motur_operator_fileset</key>
       	<class>com.rapidminer.ngs.operator.MoturFileSetOperator</class>
+        <icon>icon-operator-fileset.png</icon>
       </operator>
     </group>
   </group>

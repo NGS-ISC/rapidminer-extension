@@ -4,9 +4,13 @@
     <key>NGS_group</key>
     <name>NGS</name>
   </group>
-  <operator>
-    <key>mothur_operator</key>
+  <group>
+    <key>Mothur_group</key>
     <name>Mothur</name>
+  </group>
+  <operator>
+    <key>mothur_trim_operator</key>
+    <name>Trim</name>
   </operator>
   <operator xmlns="">
     <key>motur_operator_fileset</key>

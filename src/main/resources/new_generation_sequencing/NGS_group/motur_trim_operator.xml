@@ -7,7 +7,7 @@
     <operator key="operator.new_generation_sequencing:example_operator_key" locale="en"
               version="6.0.000">
         <title>Example Operator</title>
-        <synopsis>Defines an motur operator. Nothing special. Just test.
+        <synopsis>Defines an mothur trim operator. Nothing special. Just test.
         </synopsis>
         <text>
             <paragraph>First paragraph.</paragraph>
