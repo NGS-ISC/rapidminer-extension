@@ -21,6 +21,11 @@ public class FileNameObject extends SimpleResultObject {
 		super(name, text);
         this.fileType = fileType;
 	}
+	
+	public FileNameObject(String name, String fileType) {
+		super(name, String.format("File of type '%s'", fileType));
+		this.fileType = fileType;
+	}
 
     public String getFileType() {
         return fileType;

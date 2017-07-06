@@ -2,14 +2,20 @@ package com.rapidminer.ngs.operator;
 
 import java.util.List;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import com.rapidminer.MacroHandler;
 import com.rapidminer.operator.Operator;
 import com.rapidminer.operator.OperatorDescription;
 import com.rapidminer.operator.OperatorException;
 import com.rapidminer.operator.ports.InputPort;
 import com.rapidminer.operator.ports.OutputPort;
 import com.rapidminer.parameter.ParameterType;
+import com.rapidminer.parameter.ParameterTypeDirectory;
+import com.rapidminer.parameter.ParameterTypeFile;
 import com.rapidminer.parameter.ParameterTypeString;
-
+import com.rapidminer.parameter.UndefinedParameterError;
 
 public class MoturFileSetOperator extends Operator {
 
@@ -22,13 +28,12 @@ public class MoturFileSetOperator extends Operator {
 	 * @param description
 	 *            the opreator description
 	 */
-	private static final String DOT_FASTA_LABEL = ".fasta Filename:";
-	private static final String DOT_NAMES_LABEL = ".names Filename:";
-	private static final String OLIGOS_LABEL = "oligos Filename:";
-	private OutputPort dotFastaOutPort = getOutputPorts().createPort(".fasta");
-	private OutputPort dotNamesOutPort= getOutputPorts().createPort(".names");
-	private OutputPort oligosOutPort = getOutputPorts().createPort("oligos");
-	
+	private static final String DIRECTORY_LABEL = "File .fasta:";
+	private static final String FASTA_LABEL = "File .fasta:";
+	private static final String NAMES_LABEL = "File .names:";
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort namesOutPort = getOutputPorts().createPort("names");
+
 	public MoturFileSetOperator(OperatorDescription description) {
 		super(description);
 
@@ -53,8 +58,10 @@ public class MoturFileSetOperator extends Operator {
 		// ExampleSet data = inputPort.getData(ExampleSet.class);
 		// // implement operator logic here
 		// outputPort.deliver(data);
-		String oligosName = getParameterAsString(OLIGOS_LABEL);
-		oligosOutPort.deliver(new FileNameObject(oligosName, "Description of Oligos FileName", "oligos"));
+		String fastaName = getParameterAsString(FASTA_LABEL);
+		String namesName = getParameterAsString(NAMES_LABEL);
+		fastaOutPort.deliver(new FileNameObject(fastaName, "fasta"));
+		fastaOutPort.deliver(new FileNameObject(namesName, "names"));
 	}
 
 	@Override
@@ -62,13 +69,15 @@ public class MoturFileSetOperator extends Operator {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 
 		// add parameter types here
-		
-		
-	    parameterTypes.add(new ParameterTypeString(
-		        OLIGOS_LABEL,
-		        "This parameter defines an oligos file.",
-		        "oligos",
-		        false));
+
+		parameterTypes.add(
+				new ParameterTypeDirectory(DIRECTORY_LABEL, "A project directory, containing the file set.", false));
+
+		parameterTypes.add(new ParameterTypeFile(FASTA_LABEL, "File of .fasta format, containing ...", ".fsta", "file.fasta"));
+
+		parameterTypes
+				.add(new ParameterTypeFile(NAMES_LABEL, "File of .fasta format, containing ...", ".names", "file.names"));
+
 		return parameterTypes;
 	}
 

@@ -8,7 +8,7 @@
       </operator>
       <operator xmlns="">
       	<key>motur_operator_fileset</key>
-      	<class>com.rapidminer.extension.operator.MoturFileSetOperator</class>
+      	<class>com.rapidminer.ngs.operator.MoturFileSetOperator</class>
       </operator>
     </group>
   </group>
