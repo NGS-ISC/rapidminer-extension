@@ -12,6 +12,16 @@
           <class>com.rapidminer.ngs.operator.MothurSummaryOperator</class>
           <icon>icon-operator-summary.png</icon>
         </operator>
+        <operator>
+          <key>mothur_unique_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurUniqueOperator</class>
+          <icon>icon-operator-unique.png</icon>
+        </operator>
+        <operator>
+          <key>mothur_align_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurAlignOperator</class>
+          <icon>icon-operator-unique.png</icon>
+        </operator>
       </group>
       <operator>
         <key>mothur_operator_fileset</key>

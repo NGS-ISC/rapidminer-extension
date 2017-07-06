@@ -17,6 +17,14 @@
     <name>Summary</name>
   </operator>
   <operator>
+    <key>mothur_unique_operator</key>
+    <name>Unique</name>
+  </operator>
+  <operator>
+    <key>mothur_align_operator</key>
+    <name>Unique</name>
+  </operator>
+  <operator>
     <key>mothur_operator_fileset</key>
     <name>Source Files</name>
   </operator>
