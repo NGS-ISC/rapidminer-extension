@@ -7,7 +7,7 @@
     <operator key="operator.new_generation_sequencing:moturfileset" locale="en"
               version="6.0.000">
         <title>MoturFileSet</title>
-        <synopsis>This is a short example synopsis which needs to be replaced.
+        <synopsis>Operator defines a file set used as input filenames for NGS executable modules.
         </synopsis>
         <text>
             <paragraph>First paragraph.</paragraph>

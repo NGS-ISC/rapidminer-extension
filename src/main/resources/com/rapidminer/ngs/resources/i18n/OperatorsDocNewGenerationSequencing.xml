@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><operatorHelp lang="en_EN">
+<?xml version="1.0" encoding="UTF-8"?>
+<operatorHelp lang="en_EN">
   <group>
     <key>NGS_group</key>
     <name>NGS</name>
   </group>
   <operator>
-    <key>mothur_operator_key</key>
+    <key>mothur_operator</key>
     <name>Mothur</name>
   </operator>
   <operator xmlns="">
-    <key>moturfileset</key>
-    <name>MoturFileSet</name>
+    <key>motur_operator_fileset</key>
+    <name>Source Files</name>
   </operator>
 </operatorHelp>

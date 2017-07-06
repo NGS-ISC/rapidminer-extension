@@ -23,8 +23,8 @@ import com.rapidminer.tools.LogService;
 public class MothurOperator extends Operator {
 
 	private static final String PARAMETER_TEXT = "Length of the data:";
-	private InputPort fileSetInput = getInputPorts().createPort("file set");
-	private OutputPort fileSetOutput = getOutputPorts().createPort("file set");
+	private InputPort fileSetInput = getInputPorts().createPort("file name");
+	private OutputPort fileSetOutput = getOutputPorts().createPort("file name");
 
 	/**
 	 * @param description
