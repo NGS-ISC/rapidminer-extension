@@ -19,7 +19,7 @@ public class MothurAlignOperator extends MothurOperator {
 
 
     private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private InputPort namesInPort = getInputPorts().createPort("names");
+	private InputPort bacteriaFastaInPort = getInputPorts().createPort("bacteria.fasta");
 
     private OutputPort alignOutPort = getOutputPorts().createPort("align");
 	private OutputPort alignReportOutPort = getOutputPorts().createPort("align.report");

@@ -22,7 +22,15 @@
   </operator>
   <operator>
     <key>mothur_align_operator</key>
-    <name>Unique</name>
+    <name>Align</name>
+  </operator>
+  <operator>
+    <key>mothur_screen_operator</key>
+    <name>Screen</name>
+  </operator>
+  <operator>
+    <key>mothur_filter_operator</key>
+    <name>Filter</name>
   </operator>
   <operator>
     <key>mothur_operator_fileset</key>

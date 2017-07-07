@@ -20,7 +20,17 @@
         <operator>
           <key>mothur_align_operator</key>
           <class>com.rapidminer.ngs.operator.MothurAlignOperator</class>
-          <icon>icon-operator-unique.png</icon>
+          <icon>icon-operator-align.png</icon>
+        </operator>
+        <operator>
+          <key>mothur_screen_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurScreenOperator</class>
+          <icon>icon-operator-screen.png</icon>
+        </operator>
+        <operator>
+          <key>mothur_filter_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurFilterOperator</class>
+          <icon>icon-operator-filter.png</icon>
         </operator>
       </group>
       <operator>
