@@ -21,8 +21,8 @@ public class MothurFilterOperator extends MothurOperator {
     private InputPort alignInPort = getInputPorts().createPort("align");
 	// private InputPort namesInPort = getInputPorts().createPort("fasta"); // FIXME: fasta внутри align?
 
-    private OutputPort filterOutPort = getOutputPorts().createPort("filter");
 	private OutputPort filterFastaOutPort = getOutputPorts().createPort("filter.fasta");
+    private OutputPort filterOutPort = getOutputPorts().createPort("filter");
 
 
 	public MothurFilterOperator(OperatorDescription description) {

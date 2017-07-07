@@ -32,6 +32,16 @@
           <class>com.rapidminer.ngs.operator.MothurFilterOperator</class>
           <icon>icon-operator-filter.png</icon>
         </operator>
+        <operator>
+          <key>mothur_pre_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurPreOperator</class>
+          <icon>icon-operator-pre.png</icon>
+        </operator>
+        <operator>
+          <key>mothur_chimera_operator</key>
+          <class>com.rapidminer.ngs.operator.MothurChimeraOperator</class>
+          <icon>icon-operator-chimera.png</icon>
+        </operator>
       </group>
       <operator>
         <key>mothur_operator_fileset</key>

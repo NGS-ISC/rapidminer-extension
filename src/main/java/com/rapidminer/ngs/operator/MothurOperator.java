@@ -43,11 +43,12 @@ public class MothurOperator extends Operator {
 		*/
 	}
 
-	@Override
-	public List<ParameterType> getParameterTypes() {
-		List<ParameterType> types = super.getParameterTypes();
-
-		return types;
-	}
+//  R.I.P. for a time being.
+// 	@Override
+//	public List<ParameterType> getParameterTypes() {
+//		List<ParameterType> types = super.getParameterTypes();
+//
+//		return types;
+//	}
 
 }

@@ -33,6 +33,14 @@
     <name>Filter</name>
   </operator>
   <operator>
+    <key>mothur_pre_operator</key>
+    <name>Pre (cluster)</name>
+  </operator>
+  <operator>
+    <key>mothur_chimera_operator</key>
+    <name>Chimera detect</name>
+  </operator>
+  <operator>
     <key>mothur_operator_fileset</key>
     <name>Source Files</name>
   </operator>
