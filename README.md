@@ -20,3 +20,9 @@ A template project for creating a RapidMiner Studio extension.
 
 
 Icons taken from http://www.flaticon.com/free-icon/dna_450590#term=genetic&page=1&position=92
+
+### Interesting references
+
+Presentation on NGS and Software used there https://www.slideshare.net/tillmanneitelberg1/bioinformatics-on-azure-62334970
+
+
