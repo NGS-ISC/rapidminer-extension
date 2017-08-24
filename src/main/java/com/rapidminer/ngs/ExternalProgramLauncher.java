@@ -34,11 +34,11 @@ public class ExternalProgramLauncher {
 //        InputStream stdout = process.getInputStream();
 //        InputStreamReader isrStdout = new InputStreamReader(stdout);
 //        BufferedReader brStdout = new BufferedReader(isrStdout);
-//
+
 //        String line = null;
 //        while((line = brStdout.readLine()) != null) {
 //            LogService.getRoot().log(Level.INFO, "ExternalProgramLauncher: '" + line + "'.");
-        }
+//        }
 
         // ждем пока завершится вызванная программа
         // и сохраняем код, с которым она завершилась в
