@@ -20,14 +20,14 @@ public class ExternalProgramLauncher {
 
         // указываем в конструкторе ProcessBuilder,
         // что нужно запустить программу ls с параметрами -l /dev
-//        ProcessBuilder procBuilder = new ProcessBuilder("echo","123");
+        ProcessBuilder procBuilder = new ProcessBuilder("echo","123");
 //
 //        // перенаправляем стандартный поток ошибок на
 //        // стандартный вывод
 //        procBuilder.redirectErrorStream(true);
 //
 //        // запуск программы
-//        Process process = procBuilder.start();
+        Process process = procBuilder.start();
 //
 //        // читаем стандартный поток вывода
 //        // и выводим на экран
