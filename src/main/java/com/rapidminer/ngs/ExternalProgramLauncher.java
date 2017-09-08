@@ -20,29 +20,29 @@ public class ExternalProgramLauncher {
 
         // указываем в конструкторе ProcessBuilder,
         // что нужно запустить программу ls с параметрами -l /dev
-        ProcessBuilder procBuilder = new ProcessBuilder("echo","123");
-//
-//        // перенаправляем стандартный поток ошибок на
-//        // стандартный вывод
-//        procBuilder.redirectErrorStream(true);
-//
-//        // запуск программы
-        Process process = procBuilder.start();
-//
-//        // читаем стандартный поток вывода
-//        // и выводим на экран
-//        InputStream stdout = process.getInputStream();
-//        InputStreamReader isrStdout = new InputStreamReader(stdout);
-//        BufferedReader brStdout = new BufferedReader(isrStdout);
+        ProcessBuilder procBuilder = new ProcessBuilder("echo","321");
 
-//        String line = null;
-//        while((line = brStdout.readLine()) != null) {
-//            LogService.getRoot().log(Level.INFO, "ExternalProgramLauncher: '" + line + "'.");
-//        }
+        // перенаправляем стандартный поток ошибок на
+        // стандартный вывод
+        procBuilder.redirectErrorStream(true);
+
+        // запуск программы
+        Process process = procBuilder.start();
+
+        // читаем стандартный поток вывода
+        // и выводим на экран
+        InputStream stdout = process.getInputStream();
+        InputStreamReader isrStdout = new InputStreamReader(stdout);
+        BufferedReader brStdout = new BufferedReader(isrStdout);
+
+        String line = null;
+        while((line = brStdout.readLine()) != null) {
+            LogService.getRoot().log(Level.INFO, "ExternalProgramLauncher: '" + line + "'.");
+        }
 
         // ждем пока завершится вызванная программа
         // и сохраняем код, с которым она завершилась в
         // в переменную exitVal
-//        int exitVal = process.waitFor();
+        int exitVal = process.waitFor();
     }
 }
