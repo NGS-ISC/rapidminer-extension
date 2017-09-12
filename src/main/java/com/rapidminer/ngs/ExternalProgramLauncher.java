@@ -12,15 +12,16 @@ import com.rapidminer.tools.LogService;
  * Created by paskal on 25.07.17.
  */
 public class ExternalProgramLauncher {
-//    public static void main(String[] args)
-    public static void main()
+
+    public static void main(String command, String args)
+    //public static void main()
             throws IOException, InterruptedException {
 
-        LogService.getRoot().log(Level.INFO, "ExternalProgramLauncher: 'test'.");
+        //LogService.getRoot().log(Level.INFO, "ExternalProgramLauncher: 'test'.");
 
         // указываем в конструкторе ProcessBuilder,
         // что нужно запустить программу ls с параметрами -l /dev
-        ProcessBuilder procBuilder = new ProcessBuilder("echo","321");
+        ProcessBuilder procBuilder = new ProcessBuilder(command, args);
 
         // перенаправляем стандартный поток ошибок на
         // стандартный вывод

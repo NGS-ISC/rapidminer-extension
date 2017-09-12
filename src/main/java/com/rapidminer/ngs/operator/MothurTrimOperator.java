@@ -47,6 +47,7 @@ public class MothurTrimOperator extends MothurOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> types = super.getParameterTypes();
 
+		// TODO: Не удается открыть файл без расширения. мб есть возможность исправить
 		types.add(new ParameterTypeFile(OLIGOS_LABEL, "This parameter defines file, containing....", "oligos", true));
 		types.add(new ParameterTypeInt(PARAMETR_MAXHOMOP, "", 0, 10, 8));
 		types.add(new ParameterTypeInt(PARAMETR_PDIFFS, "", 0, 10, 2));
@@ -63,14 +64,38 @@ public class MothurTrimOperator extends MothurOperator {
 		// TODO Auto-generated constructor stub
 	}
 
+	// TODO: добавить обработку отсутсвия каких-либо параметров
 	@Override
 	public void doWork() throws OperatorException {
+//		if (fastaInPort.isConnected()) {
+		final FileNameObject fastaIn = fastaInPort.getData(FileNameObject.class);
+//			LogService.getRoot().log(Level.INFO, "FASTA: '" + fastaIn.getName() + "'.");
+//		}
+//		if (namesInPort.isConnected()) {
+		final FileNameObject namesIn = namesInPort.getData(FileNameObject.class);
+//			LogService.getRoot().log(Level.INFO, "NAMES: '" + namesIn.getName() + "'.");
+//		}
+		final String oligos = getParameterAsString(OLIGOS_LABEL);
+		final Integer maxhomop = getParameterAsInt(PARAMETR_MAXHOMOP);
+		final Integer pdiffs = getParameterAsInt(PARAMETR_PDIFFS);
+		final Integer bdiffs = getParameterAsInt(PARAMETR_BDIFFS);
+		final Integer minlength = getParameterAsInt(PARAMETR_MINLENGTH);
+		final Integer processors = getParameterAsInt(PARAMETR_PROCESSORS);
+
 		/*
 		FileNameObject file = fileSetInput.getData(FileNameObject.class);
 		*/
 		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
 		try {
-			externalProgramLauncher.main();
+			externalProgramLauncher.main("mothur",
+					"#trim.seqs(fasta=" + fastaIn.getName() +
+							", oligos=" + oligos + ", " +
+							"name=" + namesIn.getName() +
+							", maxhomop=" + maxhomop +
+							", pdiffs=" + pdiffs +
+							", bdiffs=" + bdiffs +
+							", minlength=" + minlength +
+							", processors=" + processors + ")");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {

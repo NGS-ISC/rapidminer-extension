@@ -62,7 +62,7 @@ public class MoturFileSetOperator extends Operator {
 		String fastaName = getParameterAsString(FASTA_LABEL);
 		String namesName = getParameterAsString(NAMES_LABEL);
 		fastaOutPort.deliver(new FileNameObject(fastaName, "fasta"));
-		fastaOutPort.deliver(new FileNameObject(namesName, "names"));
+		namesOutPort.deliver(new FileNameObject(namesName, "names"));
 	}
 
 	@Override
@@ -74,10 +74,10 @@ public class MoturFileSetOperator extends Operator {
 		parameterTypes.add(
 				new ParameterTypeDirectory(DIRECTORY_LABEL, "A project directory, containing the file set.", false));
 
-		parameterTypes.add(new ParameterTypeFile(FASTA_LABEL, "File of .fasta format, containing ...", ".fsta", "file.fasta"));
+		parameterTypes.add(new ParameterTypeFile(FASTA_LABEL, "File of .fasta format, containing ...", "fasta", "file.fasta"));
 
 		parameterTypes
-				.add(new ParameterTypeFile(NAMES_LABEL, "File of .fasta format, containing ...", ".names", "file.names"));
+				.add(new ParameterTypeFile(NAMES_LABEL, "File of .fasta format, containing ...", "names", "file.names"));
 
 		return parameterTypes;
 	}
