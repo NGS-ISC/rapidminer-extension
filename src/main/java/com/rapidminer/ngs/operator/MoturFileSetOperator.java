@@ -31,9 +31,10 @@ public class MoturFileSetOperator extends Operator {
 	private static final String DIRECTORY_LABEL = "File .fasta:";
 	private static final String FASTA_LABEL = "File .fasta:";
 	private static final String NAMES_LABEL = "File .names:";
+	private static final String REFERENCE_FASTA_LABEL = "File reference.fasta:";
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort namesOutPort = getOutputPorts().createPort("names");
-	private OutputPort bacteriaFastaOutPort = getOutputPorts().createPort("bacteria.names");
+	private OutputPort referenceFastaOutPort = getOutputPorts().createPort("reference.fasta");
 
 	public MoturFileSetOperator(OperatorDescription description) {
 		super(description);
@@ -61,8 +62,10 @@ public class MoturFileSetOperator extends Operator {
 		// outputPort.deliver(data);
 		String fastaName = getParameterAsString(FASTA_LABEL);
 		String namesName = getParameterAsString(NAMES_LABEL);
+		String referenceFastaName = getParameterAsString(REFERENCE_FASTA_LABEL);
 		fastaOutPort.deliver(new FileNameObject(fastaName, "fasta"));
 		namesOutPort.deliver(new FileNameObject(namesName, "names"));
+		referenceFastaOutPort.deliver(new FileNameObject(referenceFastaName, "fasta"));
 	}
 
 	@Override
@@ -71,13 +74,23 @@ public class MoturFileSetOperator extends Operator {
 
 		// add parameter types here
 
-		parameterTypes.add(
-				new ParameterTypeDirectory(DIRECTORY_LABEL, "A project directory, containing the file set.", false));
+		parameterTypes.add(new ParameterTypeDirectory(DIRECTORY_LABEL,
+				"A project directory, containing the file set.",
+				false));
 
-		parameterTypes.add(new ParameterTypeFile(FASTA_LABEL, "File of .fasta format, containing ...", "fasta", "file.fasta"));
+		parameterTypes.add(new ParameterTypeFile(FASTA_LABEL,
+				"File of .fasta format, containing ...",
+				"fasta",
+				"file.fasta"));
 
-		parameterTypes
-				.add(new ParameterTypeFile(NAMES_LABEL, "File of .fasta format, containing ...", "names", "file.names"));
+		parameterTypes.add(new ParameterTypeFile(NAMES_LABEL,
+				"File of .fasta format, containing ...",
+				"names",
+				"file.names"));
+		parameterTypes.add(new ParameterTypeFile(REFERENCE_FASTA_LABEL,
+				"File of .fasta format, containing reference data",
+				"fasta",
+				"reference.fasta"));
 
 		return parameterTypes;
 	}

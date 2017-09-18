@@ -4,6 +4,7 @@
 package com.rapidminer.ngs.operator;
 
 import com.rapidminer.ngs.ExternalProgramLauncher;
+import com.rapidminer.ngs.MothurConstants;
 import com.rapidminer.operator.OperatorDescription;
 import com.rapidminer.operator.OperatorException;
 import com.rapidminer.operator.ports.InputPort;
@@ -29,15 +30,8 @@ public class MothurTrimOperator extends MothurOperator {
 	 * @param description
 	 */
 
-	private static final String OLIGOS_LABEL = "Oligos filename:";
-	private static final String PARAMETR_MAXHOMOP = "maxhomop";
-	private static final String PARAMETR_PDIFFS = "pdiffs";
-	private static final String PARAMETR_BDIFFS = "bdiffs";
-	private static final String PARAMETR_MINLENGTH = "minlength";
-	private static final String PARAMETR_PROCESSORS = "processors";
-
-	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-    private InputPort namesInPort = getInputPorts().createPort("names");
+	private InputPort fastaInPort = getInputPorts().createPort(MothurConstants.Parameters.FASTA);
+    private InputPort namesInPort = getInputPorts().createPort(MothurConstants.Parameters.NAME);
 
     private OutputPort fastaTrimOutPort = getOutputPorts().createPort("trim.fasta");
 	private OutputPort namesTrimOutPort = getOutputPorts().createPort("trim.names");
@@ -50,12 +44,15 @@ public class MothurTrimOperator extends MothurOperator {
 		List<ParameterType> types = super.getParameterTypes();
 
 		// TODO: Не удается открыть файл без расширения. мб есть возможность исправить
-		types.add(new ParameterTypeFile(OLIGOS_LABEL, "This parameter defines file, containing....", "oligos", true));
-		types.add(new ParameterTypeInt(PARAMETR_MAXHOMOP, "", 0, 10, 8));
-		types.add(new ParameterTypeInt(PARAMETR_PDIFFS, "", 0, 10, 2));
-		types.add(new ParameterTypeInt(PARAMETR_BDIFFS, "", 0, 10, 1));
-		types.add(new ParameterTypeInt(PARAMETR_MINLENGTH, "", 0, 500, 100));
-		types.add(new ParameterTypeInt(PARAMETR_PROCESSORS, "", 0, 10, 2));
+		types.add(new ParameterTypeFile(MothurConstants.Parameters.OLIGOS,
+				"This parameter defines file, containing....",
+				MothurConstants.Parameters.OLIGOS,
+				true));
+		types.add(new ParameterTypeInt(MothurConstants.Parameters.MAXHOMOP, "", 0, 10, 8));
+		types.add(new ParameterTypeInt(MothurConstants.Parameters.PDIFFS, "", 0, 10, 2));
+		types.add(new ParameterTypeInt(MothurConstants.Parameters.BDIFFS, "", 0, 10, 1));
+		types.add(new ParameterTypeInt(MothurConstants.Parameters.MINLENGTH, "", 0, 500, 100));
+		types.add(new ParameterTypeInt(MothurConstants.Parameters.PROCESSORS, "", 0, 10, 2));
 
 		return types;
 	}
@@ -63,12 +60,13 @@ public class MothurTrimOperator extends MothurOperator {
 
 	public MothurTrimOperator(OperatorDescription description) {
 		super(description);
+		this.command = MothurConstants.Commands.TRIM_SEQS;
 		// TODO Auto-generated constructor stub
 	}
 
 	// TODO: добавить обработку отсутсвия каких-либо параметров
 	@Override
-	public void doWork() throws OperatorException {
+	protected Map<String, Object> getParametersValues() throws OperatorException{
 //		if (fastaInPort.isConnected()) {
 		final FileNameObject fastaIn = fastaInPort.getData(FileNameObject.class);
 //			LogService.getRoot().log(Level.INFO, "FASTA: '" + fastaIn.getName() + "'.");
@@ -78,34 +76,38 @@ public class MothurTrimOperator extends MothurOperator {
 //			LogService.getRoot().log(Level.INFO, "NAMES: '" + namesIn.getName() + "'.");
 //		}
 		final Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("fasta", fastaIn.getName());
-		parameters.put("name", namesIn.getName());
-		parameters.put("oligos", getParameterAsString(OLIGOS_LABEL));
-		parameters.put("maxhomop", getParameterAsInt(PARAMETR_MAXHOMOP));
-		parameters.put("pdiffs", getParameterAsInt(PARAMETR_PDIFFS));
-		parameters.put("bdiffs", getParameterAsInt(PARAMETR_BDIFFS));
-		parameters.put("minlength", getParameterAsInt(PARAMETR_MINLENGTH));
-		parameters.put("processors", getParameterAsInt(PARAMETR_PROCESSORS));
+		parameters.put(MothurConstants.Parameters.FASTA, fastaIn.getName());
+		parameters.put(MothurConstants.Parameters.NAME, namesIn.getName());
+		parameters.put(MothurConstants.Parameters.OLIGOS,
+				getParameterAsString(MothurConstants.Parameters.OLIGOS));
 
-		/*
-		FileNameObject file = fileSetInput.getData(FileNameObject.class);
-		*/
-		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
-		try {
-			externalProgramLauncher.main("mothur",
-					"#trim.seqs(" + parameters.toString()
-												   .replaceAll("\\{", "")
-							                       .replaceAll("}", "") + ")");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		String[] paramList = new String[] {
+				MothurConstants.Parameters.MAXHOMOP,
+				MothurConstants.Parameters.PDIFFS,
+				MothurConstants.Parameters.BDIFFS,
+				MothurConstants.Parameters.MINLENGTH,
+				MothurConstants.Parameters.PROCESSORS
+		};
+		for (String param : paramList) {
+			parameters.put(param, getParameterAsInt(param));
 		}
-		String text = "This Trim Operator is work"; // getParameterAsString(PARAMETER_TEXT);
-		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '" + text + "'.");
-		/*
-		fileSetOutput.deliver(file);
-		*/
+//		parameters.put("pdiffs", getParameterAsInt(PARAMETR_PDIFFS));
+//		parameters.put("bdiffs", getParameterAsInt(PARAMETR_BDIFFS));
+//		parameters.put("minlength", getParameterAsInt(PARAMETR_MINLENGTH));
+//		parameters.put("processors", getParameterAsInt(PARAMETR_PROCESSORS));
+		return parameters;
 	}
+
+//	public void doWork() throws OperatorException {
+//
+//		/*
+//		FileNameObject file = fileSetInput.getData(FileNameObject.class);
+//		*/
+//		String text = "This Trim Operator is work"; // getParameterAsString(PARAMETER_TEXT);
+//		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '" + text + "'.");
+//		/*
+//		fileSetOutput.deliver(file);
+//		*/
+//	}
 
 }
