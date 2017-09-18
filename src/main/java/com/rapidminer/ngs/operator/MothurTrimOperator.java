@@ -54,19 +54,20 @@ public class MothurTrimOperator extends MothurOperator {
 
 	@Override
 	public void doWork() throws OperatorException {
+		super.doWork();
 		/*
 		FileNameObject file = fileSetInput.getData(FileNameObject.class);
 		*/
-		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
-		try {
-			externalProgramLauncher.main();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		String text = "This Trim Operator is work"; // getParameterAsString(PARAMETER_TEXT);
-		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '" + text + "'.");
+//		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
+//		try {
+//			externalProgramLauncher.main();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		String text = "This Trim Operator is work"; // getParameterAsString(PARAMETER_TEXT);
+//		LogService.getRoot().log(Level.INFO, "Running acme program mothur: '" + text + "'.");
 		/*
 		fileSetOutput.deliver(file);
 		*/

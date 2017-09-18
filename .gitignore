@@ -39,3 +39,4 @@ config/pmd/ruleset.xml
 /nbbuild/
 /out
 
+doc/
