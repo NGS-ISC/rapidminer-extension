@@ -14,7 +14,9 @@ import com.rapidminer.parameter.ParameterTypeInt;
 import com.rapidminer.tools.LogService;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 
 /**
@@ -75,12 +77,15 @@ public class MothurTrimOperator extends MothurOperator {
 		final FileNameObject namesIn = namesInPort.getData(FileNameObject.class);
 //			LogService.getRoot().log(Level.INFO, "NAMES: '" + namesIn.getName() + "'.");
 //		}
-		final String oligos = getParameterAsString(OLIGOS_LABEL);
-		final Integer maxhomop = getParameterAsInt(PARAMETR_MAXHOMOP);
-		final Integer pdiffs = getParameterAsInt(PARAMETR_PDIFFS);
-		final Integer bdiffs = getParameterAsInt(PARAMETR_BDIFFS);
-		final Integer minlength = getParameterAsInt(PARAMETR_MINLENGTH);
-		final Integer processors = getParameterAsInt(PARAMETR_PROCESSORS);
+		final Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("fasta", fastaIn.getName());
+		parameters.put("name", namesIn.getName());
+		parameters.put("oligos", getParameterAsString(OLIGOS_LABEL));
+		parameters.put("maxhomop", getParameterAsInt(PARAMETR_MAXHOMOP));
+		parameters.put("pdiffs", getParameterAsInt(PARAMETR_PDIFFS));
+		parameters.put("bdiffs", getParameterAsInt(PARAMETR_BDIFFS));
+		parameters.put("minlength", getParameterAsInt(PARAMETR_MINLENGTH));
+		parameters.put("processors", getParameterAsInt(PARAMETR_PROCESSORS));
 
 		/*
 		FileNameObject file = fileSetInput.getData(FileNameObject.class);
@@ -88,14 +93,9 @@ public class MothurTrimOperator extends MothurOperator {
 		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
 		try {
 			externalProgramLauncher.main("mothur",
-					"#trim.seqs(fasta=" + fastaIn.getName() +
-							", oligos=" + oligos + ", " +
-							"name=" + namesIn.getName() +
-							", maxhomop=" + maxhomop +
-							", pdiffs=" + pdiffs +
-							", bdiffs=" + bdiffs +
-							", minlength=" + minlength +
-							", processors=" + processors + ")");
+					"#trim.seqs(" + parameters.toString()
+												   .replaceAll("\\{", "")
+							                       .replaceAll("}", "") + ")");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
