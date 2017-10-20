@@ -32,6 +32,7 @@ public final class MothurConstants {
         public static final String NAME = "name";
         public static final String GROUPS = "groups";
         public static final String OLIGOS = "oligos";
+        public static final String REFERENCE = "reference";
 
         public static final String MAXHOMOP = "maxhomop";
         public static final String PDIFFS = "pdiffs";

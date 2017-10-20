@@ -4,9 +4,7 @@
 package com.rapidminer.ngs.operator;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 
 import com.rapidminer.example.ExampleSet;
@@ -27,13 +25,26 @@ import com.rapidminer.tools.LogService;
  */
 public class MothurOperator extends Operator {
 
-	protected static String command;
+	protected String command;
+	protected Map<Object, String> outputFiles;
+
 
 	/**
 	 * @param description
 	 */
 	public MothurOperator(OperatorDescription description) {
 		super(description);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
+	 * @param description
+	 */
+	public MothurOperator(OperatorDescription description, String command, Map<Object, String> outputFiles) {
+		super(description);
+		this.command = command;
+		this.outputFiles = outputFiles;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -45,10 +56,21 @@ public class MothurOperator extends Operator {
 	public void doWork() throws OperatorException {
 		ExternalProgramLauncher externalProgramLauncher = new ExternalProgramLauncher();
 		try {
-			externalProgramLauncher.main("mothur",
+			Map<Object, String> outputFilesMap = externalProgramLauncher.main("mothur",
 					"#" + this.command + "(" + getParametersValues().toString()
 							.replaceAll("\\{", "")
-							.replaceAll("}", "") + ")");
+							.replaceAll("}", "") + ")", outputFiles);
+
+			for (Map.Entry<Object, String> pair : outputFilesMap.entrySet()) {
+				String[] ext = pair.getValue().split("\\.");
+				if (ext.length > 0) {
+					((OutputPort) pair.getKey()).deliver(new FileNameObject(pair.getValue(), ext[ext.length - 1]));
+				}
+				else {
+					LogService.getRoot().log(Level.INFO, "MothurOperator pair.getValue().split().length <= 0: '" + pair.getValue() + "'.");
+				}
+
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {

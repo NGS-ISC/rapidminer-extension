@@ -15,6 +15,7 @@ import com.rapidminer.parameter.ParameterTypeInt;
 import com.rapidminer.tools.LogService;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +60,12 @@ public class MothurTrimOperator extends MothurOperator {
 
 
 	public MothurTrimOperator(OperatorDescription description) {
-		super(description);
-		this.command = MothurConstants.Commands.TRIM_SEQS;
+		super(description, MothurConstants.Commands.TRIM_SEQS, new HashMap<>());
+		this.outputFiles.put(fastaTrimOutPort, "trim.fasta");
+		this.outputFiles.put(namesTrimOutPort, "trim.names");
+		this.outputFiles.put(fastaScrapOutPort, "scrap.fasta");
+		this.outputFiles.put(namesScrapOutPort, "scrap.names");
+		this.outputFiles.put(groupsOutPort, "groups");
 		// TODO Auto-generated constructor stub
 	}
 

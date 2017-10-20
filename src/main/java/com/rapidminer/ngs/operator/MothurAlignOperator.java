@@ -44,8 +44,10 @@ public class MothurAlignOperator extends MothurOperator {
 	}
 
 	public MothurAlignOperator(OperatorDescription description) {
-		super(description);
-		this.command = MothurConstants.Commands.ALIGN_SEQS;
+		super(description, MothurConstants.Commands.ALIGN_SEQS, new HashMap<>());
+		this.outputFiles.put(alignOutPort, "align");
+		this.outputFiles.put(alignReportOutPort, "align.report");
+		this.outputFiles.put(flipAccnosOutPort, "flip.accnos");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -57,7 +59,7 @@ public class MothurAlignOperator extends MothurOperator {
 
 		final Map<String, Object> parameters = new HashMap<>();
 		parameters.put(MothurConstants.Parameters.FASTA, fastaIn.getName());
-		parameters.put(MothurConstants.Parameters.NAME, referenceFastaIn.getName());
+		parameters.put(MothurConstants.Parameters.REFERENCE, referenceFastaIn.getName());
 		parameters.put(MothurConstants.Parameters.PROCESSORS,
 				getParameterAsInt(MothurConstants.Parameters.PROCESSORS));
 		return parameters;
