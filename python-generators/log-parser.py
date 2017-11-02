@@ -1,4 +1,5 @@
 import re
+import yaml
 
 def getCommands(path):
 	''' get mothur commands from logfile with keyphrase 'mothur > '. Return List type '''
@@ -31,11 +32,16 @@ def parse(commandsList):
 		if not command_struct.get(command_name):
 			command_struct[command_name] = []
 		command_struct[command_name].append(params_list.copy())
-	for cs, p in command_struct.items():
-		print (cs, ': ', p)
+	return command_struct
+
+def save_yaml(name, data):
+    f = open(name, 'w')
+    yaml.dump(data, f)
+    f.close()
 
 if __name__== '__main__':
 	mothurCommands = getCommands('/home/user/Загрузки/rapidminer_test/mothur.1494905879.logfile')
-	parse(mothurCommands)
+	save_yaml('/home/user/Загрузки/rapidminer_test/yaml/test.yaml', parse(mothurCommands))
+
 	#^([a-zA-Z.]+?)\((([a-zA-Z]+?)\=([a-zA-Z.]+?)\,{0,1})+?\)$
 	#^([a-zA-Z.]+?)\(([a-zA-Z0-9=., ]+?)\)$
