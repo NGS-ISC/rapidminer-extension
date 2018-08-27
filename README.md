@@ -1,3 +1,5 @@
+RapidMiner Extension Supporting NGS
+===================================
 
 # rapidminer-extension
 A template project for creating a RapidMiner Studio extension. 

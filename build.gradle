@@ -5,7 +5,7 @@ buildscript {
 	}
 }
 
-plugins { id 'com.rapidminer.extension' version '0.9.2' }
+plugins { id 'com.rapidminer.extension' version '0.9.3' }
 
 // Define Maven artifact repositories
 repositories {
@@ -44,14 +44,12 @@ extensionConfig {
 
     // define RapidMiner version and extension dependencies
     dependencies {
-        rapidminer '7.4.0'
-        //extension namespace: 'text', version: '7.4.1'
+        rapidminer '9.0.0'
+        //extension namespace: 'text', version: '8.1.0'
     }
 }
 
 // Define third party library dependencies
 dependencies {
-	//compile 'com.google.guava:guava:18.0'
+	//compile 'com.google.guava:guava:26.0'
 }
-
-
