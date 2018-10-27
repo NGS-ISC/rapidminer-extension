@@ -2,6 +2,7 @@ package com.rapidminer.ngs.operator;
 
 import java.util.List;
 
+import java.lang.String;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
