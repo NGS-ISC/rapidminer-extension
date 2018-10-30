@@ -14,4 +14,7 @@ public class MothurGeneratedOperator extends MothurOperator {
         super(description);
     }
 
+    public String getOutputPattern(String type) {
+        return null;
+    }
 }
