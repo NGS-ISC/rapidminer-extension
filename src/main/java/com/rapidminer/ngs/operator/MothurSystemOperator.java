@@ -13,7 +13,7 @@ public class MothurSystemOperator extends MothurGeneratedOperator {
 
 	public MothurSystemOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -35,8 +35,6 @@ public class MothurSystemOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

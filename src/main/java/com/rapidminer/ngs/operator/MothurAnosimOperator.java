@@ -20,7 +20,7 @@ public class MothurAnosimOperator extends MothurGeneratedOperator {
 
 	public MothurAnosimOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -59,9 +59,7 @@ public class MothurAnosimOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("anosim")) return "[filename],anosim";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

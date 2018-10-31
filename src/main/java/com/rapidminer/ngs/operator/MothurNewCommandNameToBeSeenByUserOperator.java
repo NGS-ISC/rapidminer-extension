@@ -33,7 +33,7 @@ public class MothurNewCommandNameToBeSeenByUserOperator extends MothurGeneratedO
 
 	public MothurNewCommandNameToBeSeenByUserOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -94,11 +94,9 @@ public class MothurNewCommandNameToBeSeenByUserOperator extends MothurGeneratedO
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fileType1")) return "[filename],tag1";
 		if (type.equals("fileType2")) return "[filename],tag2";
 		if (type.equals("fileType3")) return "[filename],tag3";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

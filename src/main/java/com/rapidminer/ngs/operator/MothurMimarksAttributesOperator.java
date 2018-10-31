@@ -18,7 +18,7 @@ public class MothurMimarksAttributesOperator extends MothurGeneratedOperator {
 
 	public MothurMimarksAttributesOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -52,9 +52,7 @@ public class MothurMimarksAttributesOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("source")) return "[filename],source";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

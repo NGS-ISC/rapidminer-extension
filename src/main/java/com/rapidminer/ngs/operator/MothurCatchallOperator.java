@@ -25,7 +25,7 @@ public class MothurCatchallOperator extends MothurGeneratedOperator {
 
 	public MothurCatchallOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -69,14 +69,12 @@ public class MothurCatchallOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("analysis")) return "[filename],_Analysis.csv";
 		if (type.equals("summary")) return "[filename],catchall.summary";
 		if (type.equals("models")) return "[filename],_BestModelsAnalysis.csv";
 		if (type.equals("sabund")) return "[filename],[distance],csv";
 		if (type.equals("bubble")) return "[filename],_BubblePlot.csv";
 		if (type.equals("bestanalysis")) return "[filename],_BestModelsAnalysis.csv";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

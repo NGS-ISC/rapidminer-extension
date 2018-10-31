@@ -20,7 +20,7 @@ public class MothurKruskalWallisOperator extends MothurGeneratedOperator {
 
 	public MothurKruskalWallisOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -59,9 +59,7 @@ public class MothurKruskalWallisOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("kruskall-wallis")) return "[filename],[distance],kruskall_wallis";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

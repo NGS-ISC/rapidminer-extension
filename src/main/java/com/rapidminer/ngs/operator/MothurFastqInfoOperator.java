@@ -34,7 +34,7 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 
 	public MothurFastqInfoOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -104,11 +104,9 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],fasta-[filename],[group],[tag],fasta-[filename],[group],fasta";
 		if (type.equals("fastq")) return "[filename],[group],fastq-[filename],[group],[tag],fastq";
 		if (type.equals("qfile")) return "[filename],qual-[filename],[group],[tag],qual-[filename],[group],qual";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -27,7 +27,7 @@ public class MothurRemoveOtusOperator extends MothurGeneratedOperator {
 
 	public MothurRemoveOtusOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -75,13 +75,11 @@ public class MothurRemoveOtusOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
 		if (type.equals("otucorr")) return "[filename],pick,[extension]";
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("corraxes")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

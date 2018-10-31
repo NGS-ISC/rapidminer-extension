@@ -31,7 +31,7 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 
 	public MothurRarefactionSharedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -96,10 +96,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("sharedrarefaction")) return "[filename],shared.rarefaction";
 		if (type.equals("sharedr_nseqs")) return "[filename],shared.r_nseqs";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -21,7 +21,7 @@ public class MothurMakeFastqOperator extends MothurGeneratedOperator {
 
 	public MothurMakeFastqOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -58,9 +58,7 @@ public class MothurMakeFastqOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fastq")) return "[filename],fastq";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

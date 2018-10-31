@@ -33,7 +33,7 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraVsearchOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -102,12 +102,10 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],[tag],vsearch.accnos";
 		if (type.equals("alns")) return "[filename],[tag],vsearch.alns";
 		if (type.equals("chimera")) return "[filename],[tag],vsearch.chimeras";
 		if (type.equals("count")) return "[filename],[tag],vsearch.pick.count_table";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

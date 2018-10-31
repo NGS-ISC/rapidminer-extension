@@ -34,7 +34,7 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurRenameSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -92,7 +92,6 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("map")) return "[filename],renamed_map";
 		if (type.equals("name")) return "[filename],renamed,[extension]";
 		if (type.equals("contigsreport")) return "[filename],renamed,[extension]";
@@ -100,7 +99,6 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("count")) return "[filename],renamed,[extension]";
 		if (type.equals("fasta")) return "[filename],renamed,[extension]";
 		if (type.equals("qfile")) return "[filename],renamed,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

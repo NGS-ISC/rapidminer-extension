@@ -25,7 +25,7 @@ public class MothurChimeraPintailOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraPintailOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -75,10 +75,8 @@ public class MothurChimeraPintailOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("chimera")) return "[filename],[tag],pintail.chimeras-[filename],pintail.chimeras";
 		if (type.equals("accnos")) return "[filename],[tag],pintail.accnos-[filename],pintail.accnos";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

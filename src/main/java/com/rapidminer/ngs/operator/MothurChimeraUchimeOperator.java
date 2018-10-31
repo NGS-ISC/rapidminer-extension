@@ -44,7 +44,7 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraUchimeOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -146,12 +146,10 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("alns")) return "[filename],[tag],uchime.alns";
 		if (type.equals("chimera")) return "[filename],[tag],uchime.chimeras";
 		if (type.equals("count")) return "[filename],[tag],uchime.pick.count_table";
 		if (type.equals("accnos")) return "[filename],[tag],uchime.accnos";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

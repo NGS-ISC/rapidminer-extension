@@ -31,7 +31,7 @@ public class MothurShhhFlowsOperator extends MothurGeneratedOperator {
 
 	public MothurShhhFlowsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -89,13 +89,11 @@ public class MothurShhhFlowsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("name")) return "[filename],shhh.names";
 		if (type.equals("fasta")) return "[filename],shhh.fasta";
 		if (type.equals("group")) return "[filename],shhh.groups";
 		if (type.equals("qfile")) return "[filename],shhh.qual";
 		if (type.equals("counts")) return "[filename],shhh.counts";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -31,7 +31,7 @@ public class MothurTreeSharedOperator extends MothurGeneratedOperator {
 
 	public MothurTreeSharedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -95,9 +95,7 @@ public class MothurTreeSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("tree")) return "[filename],[calc],[distance],[tag],tre-[filename],tre";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

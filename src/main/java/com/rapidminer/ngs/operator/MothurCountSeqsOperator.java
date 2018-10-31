@@ -20,7 +20,7 @@ public class MothurCountSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurCountSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -58,9 +58,7 @@ public class MothurCountSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("count")) return "[filename],count_table-[filename],[distance],count_table";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

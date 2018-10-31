@@ -22,7 +22,7 @@ public class MothurPcaOperator extends MothurGeneratedOperator {
 
 	public MothurPcaOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -65,10 +65,8 @@ public class MothurPcaOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("loadings")) return "[filename],[distance],pca.loadings";
 		if (type.equals("pca")) return "[filename],[distance],pca.axes";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

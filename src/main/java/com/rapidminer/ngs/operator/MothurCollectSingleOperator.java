@@ -55,7 +55,7 @@ public class MothurCollectSingleOperator extends MothurGeneratedOperator {
 
 	public MothurCollectSingleOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -137,7 +137,6 @@ public class MothurCollectSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("simpson")) return "[filename],simpson";
 		if (type.equals("shannonrange")) return "[filename],shannonrange";
 		if (type.equals("shannoneven")) return "[filename],shannoneven";
@@ -164,7 +163,6 @@ public class MothurCollectSingleOperator extends MothurGeneratedOperator {
 		if (type.equals("qstat")) return "[filename],qstat";
 		if (type.equals("bstick")) return "[filename],bstick";
 		if (type.equals("chao")) return "[filename],chao";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

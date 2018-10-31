@@ -38,7 +38,7 @@ public class MothurRemoveSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurRemoveSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -102,7 +102,6 @@ public class MothurRemoveSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
 		if (type.equals("count")) return "[filename],pick,[extension]";
@@ -112,7 +111,6 @@ public class MothurRemoveSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("alignreport")) return "[filename],pick.align.report";
 		if (type.equals("qfile")) return "[filename],pick,[extension]";
 		if (type.equals("fasta")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

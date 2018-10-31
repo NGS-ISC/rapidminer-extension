@@ -36,7 +36,7 @@ public class MothurGetLineageOperator extends MothurGeneratedOperator {
 
 	public MothurGetLineageOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -100,7 +100,6 @@ public class MothurGetLineageOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],pick,[extension]";
 		if (type.equals("count")) return "[filename],pick,[extension]";
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
@@ -110,7 +109,6 @@ public class MothurGetLineageOperator extends MothurGeneratedOperator {
 		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -25,7 +25,7 @@ public class MothurConsensusSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurConsensusSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -71,12 +71,10 @@ public class MothurConsensusSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("name")) return "[filename],cons.names-[filename],[tag],cons.names";
 		if (type.equals("summary")) return "[filename],cons.summary-[filename],[tag],cons.summary";
 		if (type.equals("count")) return "[filename],cons.count_table-[filename],[tag],cons.count_table";
 		if (type.equals("fasta")) return "[filename],cons.fasta-[filename],[tag],cons.fasta";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

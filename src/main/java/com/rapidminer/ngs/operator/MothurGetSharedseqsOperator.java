@@ -29,7 +29,7 @@ public class MothurGetSharedseqsOperator extends MothurGeneratedOperator {
 
 	public MothurGetSharedseqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -83,11 +83,9 @@ public class MothurGetSharedseqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],[distance],[group],accnos";
 		if (type.equals("sharedseqs")) return "[filename],[distance],[group],shared.seqs";
 		if (type.equals("fasta")) return "[filename],[distance],[group],shared.fasta";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

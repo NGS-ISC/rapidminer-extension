@@ -47,7 +47,7 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 
 	public MothurClassifySeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -142,12 +142,10 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
 		if (type.equals("taxonomy")) return "[filename],[tag],[tag2],taxonomy";
 		if (type.equals("accnos")) return "[filename],[tag],[tag2],flip.accnos";
 		if (type.equals("matchdist")) return "[filename],[tag],[tag2],match.dist";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

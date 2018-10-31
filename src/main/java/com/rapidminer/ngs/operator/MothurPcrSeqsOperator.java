@@ -38,7 +38,7 @@ public class MothurPcrSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurPcrSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -111,14 +111,12 @@ public class MothurPcrSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],bad.accnos";
 		if (type.equals("name")) return "[filename],pcr,[extension]";
 		if (type.equals("fasta")) return "[filename],pcr,[extension]-[filename],[tag],pcr,[extension]";
 		if (type.equals("taxonomy")) return "[filename],pcr,[extension]";
 		if (type.equals("group")) return "[filename],pcr,[extension]";
 		if (type.equals("count")) return "[filename],pcr,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

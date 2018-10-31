@@ -37,7 +37,7 @@ public class MothurRemoveGroupsOperator extends MothurGeneratedOperator {
 
 	public MothurRemoveGroupsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -100,7 +100,6 @@ public class MothurRemoveGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],pick,[extension]";
 		if (type.equals("phylip")) return "[filename],pick,[extension]";
 		if (type.equals("name")) return "[filename],pick,[extension]";
@@ -111,7 +110,6 @@ public class MothurRemoveGroupsOperator extends MothurGeneratedOperator {
 		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
 		if (type.equals("column")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

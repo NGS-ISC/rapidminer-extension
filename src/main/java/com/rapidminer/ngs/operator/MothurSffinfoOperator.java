@@ -35,7 +35,7 @@ public class MothurSffinfoOperator extends MothurGeneratedOperator {
 
 	public MothurSffinfoOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -109,13 +109,11 @@ public class MothurSffinfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],fasta-[filename],[tag],fasta";
 		if (type.equals("qfile")) return "[filename],qual-[filename],[tag],qual";
 		if (type.equals("flow")) return "[filename],flow";
 		if (type.equals("sfftxt")) return "[filename],sff.txt";
 		if (type.equals("sff")) return "[filename],[group],sff";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

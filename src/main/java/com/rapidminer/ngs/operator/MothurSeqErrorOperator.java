@@ -35,7 +35,7 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 
 	public MothurSeqErrorOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -95,7 +95,6 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("errorforward")) return "[filename],error.seq.forward";
 		if (type.equals("errorseq")) return "[filename],error.seq";
 		if (type.equals("errormatrix")) return "[filename],error.matrix";
@@ -107,7 +106,6 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 		if (type.equals("errorqualforward")) return "[filename],error.qual.forward";
 		if (type.equals("errorcount")) return "[filename],error.count";
 		if (type.equals("errorqualreverse")) return "[filename],error.qual.reverse";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

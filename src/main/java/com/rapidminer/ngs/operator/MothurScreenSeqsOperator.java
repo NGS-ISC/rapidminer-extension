@@ -50,7 +50,7 @@ public class MothurScreenSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurScreenSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -154,7 +154,6 @@ public class MothurScreenSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("taxonomy")) return "[filename],good,[extension]";
 		if (type.equals("contigsreport")) return "[filename],good.contigs.report";
 		if (type.equals("fasta")) return "[filename],good,[extension]";
@@ -165,7 +164,6 @@ public class MothurScreenSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("alignreport")) return "[filename],good.align.report";
 		if (type.equals("group")) return "[filename],good,[extension]";
 		if (type.equals("qfile")) return "[filename],good,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -49,7 +49,7 @@ public class MothurTrimSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurTrimSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -164,13 +164,11 @@ public class MothurTrimSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],[tag],fasta";
 		if (type.equals("name")) return "[filename],[tag],names";
 		if (type.equals("group")) return "[filename],groups";
 		if (type.equals("qfile")) return "[filename],[tag],qual";
 		if (type.equals("count")) return "[filename],[tag],count_table-[filename],count_table";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

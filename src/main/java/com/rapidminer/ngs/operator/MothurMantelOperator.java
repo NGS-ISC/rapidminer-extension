@@ -22,7 +22,7 @@ public class MothurMantelOperator extends MothurGeneratedOperator {
 
 	public MothurMantelOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -62,9 +62,7 @@ public class MothurMantelOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("mantel")) return "[filename],mantel";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

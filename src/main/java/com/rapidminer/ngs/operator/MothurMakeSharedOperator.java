@@ -24,7 +24,7 @@ public class MothurMakeSharedOperator extends MothurGeneratedOperator {
 
 	public MothurMakeSharedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -69,11 +69,9 @@ public class MothurMakeSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("map")) return "[filename],map";
 		if (type.equals("shared")) return "[filename],shared-[filename],[distance],shared";
 		if (type.equals("group")) return "[filename],[group],groups";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

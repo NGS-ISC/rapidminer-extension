@@ -54,7 +54,7 @@ public class MothurClusterSplitOperator extends MothurGeneratedOperator {
 
 	public MothurClusterSplitOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -160,14 +160,12 @@ public class MothurClusterSplitOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("column")) return "[filename],dist";
 		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
 		if (type.equals("sensspec")) return "[filename],[clustertag],sensspec";
 		if (type.equals("file")) return "[filename],file";
 		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

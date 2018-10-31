@@ -35,7 +35,7 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 
 	public MothurGetCommunitytypeOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -100,14 +100,12 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("parameters")) return "[filename],[distance],[method],mix.parameters";
 		if (type.equals("relabund")) return "[filename],[distance],[method],[tag],mix.relabund";
 		if (type.equals("design")) return "[filename],[distance],[method],mix.design";
 		if (type.equals("matrix")) return "[filename],[distance],[method],[tag],mix.posterior";
 		if (type.equals("summary")) return "[filename],[distance],[method],mix.summary";
 		if (type.equals("fit")) return "[filename],[distance],[method],mix.fit";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

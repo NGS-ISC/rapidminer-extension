@@ -31,7 +31,7 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 
 	public MothurSummarySharedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -92,10 +92,8 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("phylip")) return "[filename],[calc],[distance],[outputtag],[tag2],dist";
 		if (type.equals("summary")) return "[filename],summary-[filename],[tag],summary";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

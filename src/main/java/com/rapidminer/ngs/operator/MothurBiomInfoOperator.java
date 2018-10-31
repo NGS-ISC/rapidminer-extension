@@ -29,7 +29,7 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 
 	public MothurBiomInfoOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -80,12 +80,10 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("taxonomy")) return "[filename],[tag],taxonomy";
 		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
 		if (type.equals("shared")) return "[filename],[tag],shared";
 		if (type.equals("constaxonomy")) return "[filename],[tag],cons.taxonomy";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

@@ -31,7 +31,7 @@ public class MothurPhyloDiversityOperator extends MothurGeneratedOperator {
 
 	public MothurPhyloDiversityOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -97,11 +97,9 @@ public class MothurPhyloDiversityOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("phylodiv")) return "[filename],[tag],phylodiv";
 		if (type.equals("summary")) return "[filename],[tag],phylodiv.summary";
 		if (type.equals("rarefy")) return "[filename],[tag],phylodiv.rarefaction";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

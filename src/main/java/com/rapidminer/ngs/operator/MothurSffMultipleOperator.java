@@ -48,7 +48,7 @@ public class MothurSffMultipleOperator extends MothurGeneratedOperator {
 
 	public MothurSffMultipleOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -162,11 +162,9 @@ public class MothurSffMultipleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("group")) return "[filename],groups";
 		if (type.equals("name")) return "[filename],names";
 		if (type.equals("fasta")) return "[filename],fasta";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

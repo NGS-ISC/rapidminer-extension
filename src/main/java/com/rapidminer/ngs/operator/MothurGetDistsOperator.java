@@ -20,7 +20,7 @@ public class MothurGetDistsOperator extends MothurGeneratedOperator {
 
 	public MothurGetDistsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -56,10 +56,8 @@ public class MothurGetDistsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("phylip")) return "[filename],pick,[extension]";
 		if (type.equals("column")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

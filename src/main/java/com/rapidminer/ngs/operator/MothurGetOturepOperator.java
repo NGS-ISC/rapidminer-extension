@@ -34,7 +34,7 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 
 	public MothurGetOturepOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -101,11 +101,9 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("count")) return "[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		if (type.equals("name")) return "[filename],[tag],rep.names-[filename],[tag],[group],rep.names";
 		if (type.equals("fasta")) return "[filename],[tag],rep.fasta-[filename],[tag],[group],rep.fasta";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

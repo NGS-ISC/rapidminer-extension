@@ -24,7 +24,7 @@ public class MothurChimeraCcodeOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraCcodeOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -71,11 +71,9 @@ public class MothurChimeraCcodeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("chimera")) return "[filename],[tag],ccode.chimeras-[filename],ccode.chimeras";
 		if (type.equals("accnos")) return "[filename],[tag],ccode.accnos-[filename],ccode.accnos";
 		if (type.equals("mapinfo")) return "[filename],mapinfo";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

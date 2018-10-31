@@ -30,7 +30,7 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 
 	public MothurSplitAbundOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -86,14 +86,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("name")) return "[filename],[tag],names-[filename],[group],[tag],names";
 		if (type.equals("accnos")) return "[filename],[tag],[tag2],accnos-[filename],[tag],[group],[tag2],accnos";
 		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta-[filename],[tag],[group],[tag2],fasta";
 		if (type.equals("list")) return "[filename],[tag],[tag2],list-[filename],[group],[tag],[tag2],list";
 		if (type.equals("group")) return "[filename],[tag],[tag2],groups-[filename],[tag],[group],[tag2],groups";
 		if (type.equals("count")) return "[filename],[tag],[tag2],count_table-[filename],[tag],count_table";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

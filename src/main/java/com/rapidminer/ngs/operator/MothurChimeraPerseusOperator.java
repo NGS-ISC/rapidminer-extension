@@ -27,7 +27,7 @@ public class MothurChimeraPerseusOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraPerseusOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -81,11 +81,9 @@ public class MothurChimeraPerseusOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],perseus.accnos";
 		if (type.equals("count")) return "[filename],perseus.pick.count_table";
 		if (type.equals("chimera")) return "[filename],perseus.chimeras";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

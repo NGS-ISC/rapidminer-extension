@@ -25,7 +25,7 @@ public class MothurNmdsOperator extends MothurGeneratedOperator {
 
 	public MothurNmdsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -75,11 +75,9 @@ public class MothurNmdsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("stress")) return "[filename],nmds.stress";
 		if (type.equals("iters")) return "[filename],nmds.iters";
 		if (type.equals("nmds")) return "[filename],nmds.axes";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

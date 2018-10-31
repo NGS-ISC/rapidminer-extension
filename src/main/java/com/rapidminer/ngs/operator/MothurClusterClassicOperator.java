@@ -27,7 +27,7 @@ public class MothurClusterClassicOperator extends MothurGeneratedOperator {
 
 	public MothurClusterClassicOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -77,11 +77,9 @@ public class MothurClusterClassicOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
 		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

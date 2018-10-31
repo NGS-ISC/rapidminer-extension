@@ -22,7 +22,7 @@ public class MothurChimeraCheckOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraCheckOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -66,9 +66,7 @@ public class MothurChimeraCheckOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("chimera")) return "[filename],chimeracheck.chimeras";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

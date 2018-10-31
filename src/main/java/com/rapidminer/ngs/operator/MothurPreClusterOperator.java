@@ -33,7 +33,7 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 
 	public MothurPreClusterOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -98,12 +98,10 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("count")) return "[filename],precluster.count_table";
 		if (type.equals("map")) return "[filename],precluster.map";
 		if (type.equals("fasta")) return "[filename],precluster,[extension]";
 		if (type.equals("name")) return "[filename],precluster.names";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

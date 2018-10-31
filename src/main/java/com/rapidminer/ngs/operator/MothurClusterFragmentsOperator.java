@@ -23,7 +23,7 @@ public class MothurClusterFragmentsOperator extends MothurGeneratedOperator {
 
 	public MothurClusterFragmentsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -66,11 +66,9 @@ public class MothurClusterFragmentsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("count")) return "[filename],fragclust.count_table";
 		if (type.equals("fasta")) return "[filename],fragclust.fasta";
 		if (type.equals("name")) return "[filename],fragclust.names";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

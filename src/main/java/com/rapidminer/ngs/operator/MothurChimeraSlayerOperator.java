@@ -45,7 +45,7 @@ public class MothurChimeraSlayerOperator extends MothurGeneratedOperator {
 
 	public MothurChimeraSlayerOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -145,12 +145,10 @@ public class MothurChimeraSlayerOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("chimera")) return "[filename],slayer.chimeras";
 		if (type.equals("fasta")) return "[filename],slayer.fasta";
 		if (type.equals("accnos")) return "[filename],slayer.accnos";
 		if (type.equals("count")) return "[filename],slayer.pick.count_table";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

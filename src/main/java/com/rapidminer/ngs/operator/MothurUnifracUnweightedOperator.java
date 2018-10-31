@@ -34,7 +34,7 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 
 	public MothurUnifracUnweightedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -100,13 +100,11 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("unweighted")) return "[filename],unweighted-[filename],[tag],unweighted";
 		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("uwsummary")) return "[filename],uwsummary";
 		if (type.equals("phylip")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("tree")) return "[filename],[tag],[tag2],tre";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

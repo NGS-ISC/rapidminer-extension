@@ -34,7 +34,7 @@ public class MothurAlignSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurAlignSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -101,11 +101,9 @@ public class MothurAlignSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],flip.accnos";
 		if (type.equals("alignreport")) return "[filename],align.report";
 		if (type.equals("fasta")) return "[filename],align";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

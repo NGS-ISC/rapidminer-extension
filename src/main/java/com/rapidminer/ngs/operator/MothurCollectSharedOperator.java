@@ -64,7 +64,7 @@ public class MothurCollectSharedOperator extends MothurGeneratedOperator {
 
 	public MothurCollectSharedOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -151,7 +151,6 @@ public class MothurCollectSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("thetayc")) return "[filename],thetayc";
 		if (type.equals("memchord")) return "[filename],memchord";
 		if (type.equals("rjsd")) return "[filename],rjsd";
@@ -193,7 +192,6 @@ public class MothurCollectSharedOperator extends MothurGeneratedOperator {
 		if (type.equals("structkulczynski")) return "[filename],structkulczynski";
 		if (type.equals("sharedace")) return "[filename],shared.ace";
 		if (type.equals("braycurtis")) return "[filename],braycurtis";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

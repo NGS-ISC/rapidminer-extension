@@ -47,7 +47,7 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 
 	public MothurRarefactionSingleOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -125,7 +125,6 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("rarefaction")) return "[filename],rarefaction";
 		if (type.equals("r_chao")) return "[filename],r_chao";
 		if (type.equals("r_bootstrap")) return "[filename],r_bootstrap";
@@ -142,7 +141,6 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 		if (type.equals("r_invsimpson")) return "[filename],r_invsimpson";
 		if (type.equals("r_shannon")) return "[filename],r_shannon";
 		if (type.equals("r_simpsoneven")) return "[filename],r_simpsoneven";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

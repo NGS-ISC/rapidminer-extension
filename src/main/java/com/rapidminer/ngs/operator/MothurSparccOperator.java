@@ -28,7 +28,7 @@ public class MothurSparccOperator extends MothurGeneratedOperator {
 
 	public MothurSparccOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -83,11 +83,9 @@ public class MothurSparccOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("pvalue")) return "[filename],[distance],sparcc_pvalue";
 		if (type.equals("sparccrelabund")) return "[filename],[distance],sparcc_relabund";
 		if (type.equals("corr")) return "[filename],[distance],sparcc_correlation";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

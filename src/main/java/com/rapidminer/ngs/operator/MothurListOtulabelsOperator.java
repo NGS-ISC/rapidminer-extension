@@ -21,7 +21,7 @@ public class MothurListOtulabelsOperator extends MothurGeneratedOperator {
 
 	public MothurListOtulabelsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -62,9 +62,7 @@ public class MothurListOtulabelsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("otulabels")) return "[filename],[distance],otulabels";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

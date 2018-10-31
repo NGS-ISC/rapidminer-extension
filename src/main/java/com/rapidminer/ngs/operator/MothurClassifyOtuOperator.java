@@ -35,7 +35,7 @@ public class MothurClassifyOtuOperator extends MothurGeneratedOperator {
 
 	public MothurClassifyOtuOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -104,10 +104,8 @@ public class MothurClassifyOtuOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("constaxonomy")) return "[filename],[distance],cons.taxonomy";
 		if (type.equals("taxsummary")) return "[filename],[distance],cons.tax.summary";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

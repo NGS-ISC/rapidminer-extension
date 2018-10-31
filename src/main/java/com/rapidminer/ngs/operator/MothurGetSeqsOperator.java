@@ -40,7 +40,7 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurGetSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -107,7 +107,6 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("fasta")) return "[filename],pick,[extension]";
 		if (type.equals("accnosreport")) return "[filename],pick.accnos.report";
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
@@ -118,7 +117,6 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("alignreport")) return "[filename],pick.align.report";
 		if (type.equals("count")) return "[filename],pick,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

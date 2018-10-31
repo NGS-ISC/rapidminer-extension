@@ -23,7 +23,7 @@ public class MothurShhhSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurShhhSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -66,11 +66,9 @@ public class MothurShhhSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("name")) return "[filename],shhh_seqs.names";
 		if (type.equals("map")) return "[filename],shhh_seqs.map";
 		if (type.equals("fasta")) return "[filename],shhh_seqs.fasta";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

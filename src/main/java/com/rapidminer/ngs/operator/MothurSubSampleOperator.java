@@ -37,7 +37,7 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 
 	public MothurSubSampleOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -104,7 +104,6 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("sabund")) return "[filename],subsample,[extension]";
 		if (type.equals("count")) return "[filename],subsample,[extension]";
 		if (type.equals("group")) return "[filename],subsample,[extension]";
@@ -114,7 +113,6 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		if (type.equals("name")) return "[filename],subsample,[extension]";
 		if (type.equals("list")) return "[filename],[distance],subsample,[extension]";
 		if (type.equals("fasta")) return "[filename],subsample,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

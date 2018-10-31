@@ -31,7 +31,7 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurSortSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -85,7 +85,6 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("flow")) return "[filename],sorted,[extension]";
 		if (type.equals("qfile")) return "[filename],sorted,[extension]";
 		if (type.equals("group")) return "[filename],sorted,[extension]";
@@ -93,7 +92,6 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("fasta")) return "[filename],sorted,[extension]";
 		if (type.equals("name")) return "[filename],sorted,[extension]";
 		if (type.equals("count")) return "[filename],sorted,[extension]";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }

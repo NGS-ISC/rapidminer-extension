@@ -34,7 +34,7 @@ public class MothurChopSeqsOperator extends MothurGeneratedOperator {
 
 	public MothurChopSeqsOperator (OperatorDescription description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		// NOTE: Auto-generated constructor stub
 	}
 
 	@Override
@@ -97,14 +97,12 @@ public class MothurChopSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		// TODO Use a dictionary to reflect type to pattern
 		if (type.equals("accnos")) return "[filename],chop.accnos";
 		if (type.equals("count")) return "[filename],chop.count_table";
 		if (type.equals("qfile")) return "[filename],chop.qual";
 		if (type.equals("fasta")) return "[filename],chop.fasta";
 		if (type.equals("group")) return "[filename],chop.groups";
 		if (type.equals("name")) return "[filename],chop.names";
-		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
 }
