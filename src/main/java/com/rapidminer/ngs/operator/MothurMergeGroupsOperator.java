@@ -14,9 +14,9 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort designInPort = getInputPorts().createPort("design");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private static final String[] METHOD_CHOICES = { "sum", "average", "median" };
 	private static final int METHOD_DEFAULT_CHOICE = 0;
@@ -61,9 +61,9 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 	}
 

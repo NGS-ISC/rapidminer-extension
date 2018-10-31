@@ -12,9 +12,9 @@ public class MothurShhhSeqsOperator extends MothurGeneratedOperator {
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort mapOutPort = getOutputPorts().createPort("map");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort mapOutPort = getOutputPorts().createPort("map");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -48,9 +48,9 @@ public class MothurShhhSeqsOperator extends MothurGeneratedOperator {
 		addArgument("sigma",String.valueOf(sigmaValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
 	@Override

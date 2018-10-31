@@ -17,11 +17,11 @@ public class MothurPcrSeqsOperator extends MothurGeneratedOperator {
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort ecoliInPort = getInputPorts().createPort("ecoli");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String START_LABEL = "start:";
 	private static final String END_LABEL = "end:";
 	private static final String[] NOMATCH_CHOICES = { "reject", "keep" };
@@ -85,11 +85,11 @@ public class MothurPcrSeqsOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override

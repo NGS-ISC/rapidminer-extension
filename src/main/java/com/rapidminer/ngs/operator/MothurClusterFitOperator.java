@@ -18,9 +18,9 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 	private InputPort refnameInPort = getInputPorts().createPort("refname");
 	private InputPort refcountInPort = getInputPorts().createPort("refcount");
 	private InputPort refcolumnInPort = getInputPorts().createPort("refcolumn");
-	private OutputPort stepsOutPort = getOutputPorts().createPort("steps");
-	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
+	private OutputPort stepsOutPort = getOutputPorts().createPort("steps");
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String PRECISION_LABEL = "precision:";
 	private static final String[] METHOD_CHOICES = { "opti",  };
@@ -90,9 +90,9 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		stepsOutPort.deliver(new FileNameObject(fileName+".steps","steps"));
-		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
+		stepsOutPort.deliver(new FileNameObject(fileName+".steps","steps"));
 	}
 
 	@Override

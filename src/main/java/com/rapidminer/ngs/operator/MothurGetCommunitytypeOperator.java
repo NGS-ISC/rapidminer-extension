@@ -10,12 +10,12 @@ import com.rapidminer.parameter.*;
 public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
+	private OutputPort designOutPort = getOutputPorts().createPort("design");
+	private OutputPort fitOutPort = getOutputPorts().createPort("fit");
+	private OutputPort matrixOutPort = getOutputPorts().createPort("matrix");
 	private OutputPort parametersOutPort = getOutputPorts().createPort("parameters");
 	private OutputPort relabundOutPort = getOutputPorts().createPort("relabund");
-	private OutputPort designOutPort = getOutputPorts().createPort("design");
-	private OutputPort matrixOutPort = getOutputPorts().createPort("matrix");
 	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
-	private OutputPort fitOutPort = getOutputPorts().createPort("fit");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String[] CALC_CHOICES = { "sharedsobs", "sharedchao", "sharedace", "jabund", "sorabund", "jclass", "sorclass", "jest", "sorest", "thetayc", "thetan", "kstest", "sharednseqs", "ochiai", "anderberg", "kulczynski", "kulczynskicody", "lennon", "morisitahorn", "braycurtis", "whittaker", "odum", "canberra", "structeuclidean", "structchord", "hellinger", "manhattan", "structpearson", "soergel", "spearman", "structkulczynski", "speciesprofile", "hamming", "structchi2", "gower", "memchi2", "memchord", "memeuclidean", "mempearson", "jsd", "rjsd" };
@@ -72,12 +72,12 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 		addArgument("method",String.valueOf(methodValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		designOutPort.deliver(new FileNameObject(fileName+".design","design"));
+		fitOutPort.deliver(new FileNameObject(fileName+".fit","fit"));
+		matrixOutPort.deliver(new FileNameObject(fileName+".matrix","matrix"));
 		parametersOutPort.deliver(new FileNameObject(fileName+".parameters","parameters"));
 		relabundOutPort.deliver(new FileNameObject(fileName+".relabund","relabund"));
-		designOutPort.deliver(new FileNameObject(fileName+".design","design"));
-		matrixOutPort.deliver(new FileNameObject(fileName+".matrix","matrix"));
 		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
-		fitOutPort.deliver(new FileNameObject(fileName+".fit","fit"));
 	}
 
 	@Override

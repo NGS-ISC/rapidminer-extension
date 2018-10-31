@@ -11,8 +11,8 @@ public class MothurChimeraCcodeOperator extends MothurGeneratedOperator {
 
 	private InputPort referenceInPort = getInputPorts().createPort("reference");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
+	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort mapinfoOutPort = getOutputPorts().createPort("mapinfo");
 	private static final String FILTER_LABEL = "filter:";
 	private static final String WINDOW_LABEL = "window:";
@@ -51,8 +51,8 @@ public class MothurChimeraCcodeOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
+		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 		mapinfoOutPort.deliver(new FileNameObject(fileName+".mapinfo","mapinfo"));
 	}
 

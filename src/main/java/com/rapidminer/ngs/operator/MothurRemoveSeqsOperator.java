@@ -19,15 +19,15 @@ public class MothurRemoveSeqsOperator extends MothurGeneratedOperator {
 	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort fastqOutPort = getOutputPorts().createPort("fastq");
 	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort fastqOutPort = getOutputPorts().createPort("fastq");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String DUPS_LABEL = "dups:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String[] FORMAT_CHOICES = { "sanger", "illumina", "solexa", "illumina1.8+" };
@@ -78,15 +78,15 @@ public class MothurRemoveSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		fastqOutPort.deliver(new FileNameObject(fileName+".fastq","fastq"));
 		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		fastqOutPort.deliver(new FileNameObject(fileName+".fastq","fastq"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override

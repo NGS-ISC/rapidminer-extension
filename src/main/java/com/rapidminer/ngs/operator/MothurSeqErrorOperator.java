@@ -15,17 +15,17 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 	private InputPort reportInPort = getInputPorts().createPort("report");
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
-	private OutputPort errorforwardOutPort = getOutputPorts().createPort("errorforward");
-	private OutputPort errorseqOutPort = getOutputPorts().createPort("errorseq");
-	private OutputPort errormatrixOutPort = getOutputPorts().createPort("errormatrix");
-	private OutputPort errorqualityOutPort = getOutputPorts().createPort("errorquality");
-	private OutputPort errorref_queryOutPort = getOutputPorts().createPort("errorref-query");
 	private OutputPort errorchimeraOutPort = getOutputPorts().createPort("errorchimera");
-	private OutputPort errorsummaryOutPort = getOutputPorts().createPort("errorsummary");
-	private OutputPort errorreverseOutPort = getOutputPorts().createPort("errorreverse");
-	private OutputPort errorqualforwardOutPort = getOutputPorts().createPort("errorqualforward");
 	private OutputPort errorcountOutPort = getOutputPorts().createPort("errorcount");
+	private OutputPort errorforwardOutPort = getOutputPorts().createPort("errorforward");
+	private OutputPort errormatrixOutPort = getOutputPorts().createPort("errormatrix");
+	private OutputPort errorqualforwardOutPort = getOutputPorts().createPort("errorqualforward");
+	private OutputPort errorqualityOutPort = getOutputPorts().createPort("errorquality");
 	private OutputPort errorqualreverseOutPort = getOutputPorts().createPort("errorqualreverse");
+	private OutputPort errorref_queryOutPort = getOutputPorts().createPort("errorref-query");
+	private OutputPort errorreverseOutPort = getOutputPorts().createPort("errorreverse");
+	private OutputPort errorseqOutPort = getOutputPorts().createPort("errorseq");
+	private OutputPort errorsummaryOutPort = getOutputPorts().createPort("errorsummary");
 	private static final String IGNORECHIMERAS_LABEL = "ignorechimeras:";
 	private static final String THRESHOLD_LABEL = "threshold:";
 	private static final String ALIGNED_LABEL = "aligned:";
@@ -68,17 +68,17 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		errorforwardOutPort.deliver(new FileNameObject(fileName+".errorforward","errorforward"));
-		errorseqOutPort.deliver(new FileNameObject(fileName+".errorseq","errorseq"));
-		errormatrixOutPort.deliver(new FileNameObject(fileName+".errormatrix","errormatrix"));
-		errorqualityOutPort.deliver(new FileNameObject(fileName+".errorquality","errorquality"));
-		errorref_queryOutPort.deliver(new FileNameObject(fileName+".errorref-query","errorref-query"));
 		errorchimeraOutPort.deliver(new FileNameObject(fileName+".errorchimera","errorchimera"));
-		errorsummaryOutPort.deliver(new FileNameObject(fileName+".errorsummary","errorsummary"));
-		errorreverseOutPort.deliver(new FileNameObject(fileName+".errorreverse","errorreverse"));
-		errorqualforwardOutPort.deliver(new FileNameObject(fileName+".errorqualforward","errorqualforward"));
 		errorcountOutPort.deliver(new FileNameObject(fileName+".errorcount","errorcount"));
+		errorforwardOutPort.deliver(new FileNameObject(fileName+".errorforward","errorforward"));
+		errormatrixOutPort.deliver(new FileNameObject(fileName+".errormatrix","errormatrix"));
+		errorqualforwardOutPort.deliver(new FileNameObject(fileName+".errorqualforward","errorqualforward"));
+		errorqualityOutPort.deliver(new FileNameObject(fileName+".errorquality","errorquality"));
 		errorqualreverseOutPort.deliver(new FileNameObject(fileName+".errorqualreverse","errorqualreverse"));
+		errorref_queryOutPort.deliver(new FileNameObject(fileName+".errorref-query","errorref-query"));
+		errorreverseOutPort.deliver(new FileNameObject(fileName+".errorreverse","errorreverse"));
+		errorseqOutPort.deliver(new FileNameObject(fileName+".errorseq","errorseq"));
+		errorsummaryOutPort.deliver(new FileNameObject(fileName+".errorsummary","errorsummary"));
 	}
 
 	@Override

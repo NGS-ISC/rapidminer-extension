@@ -11,9 +11,9 @@ public class MothurSffMultipleOperator extends MothurGeneratedOperator {
 
 	private InputPort fileInPort = getInputPorts().createPort("file");
 	private InputPort lookupInPort = getInputPorts().createPort("lookup");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private static final String TRIM_LABEL = "trim:";
 	private static final String MAXHOMOP_LABEL = "maxhomop:";
 	private static final String MAXFLOWS_LABEL = "maxflows:";
@@ -120,9 +120,9 @@ public class MothurSffMultipleOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 	}
 
 	@Override

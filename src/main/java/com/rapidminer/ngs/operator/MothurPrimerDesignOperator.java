@@ -13,9 +13,9 @@ public class MothurPrimerDesignOperator extends MothurGeneratedOperator {
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
-	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String LABEL_LABEL = "label:";
 	private static final String LENGTH_LABEL = "length:";
 	private static final String MINTM_LABEL = "mintm:";
@@ -69,9 +69,9 @@ public class MothurPrimerDesignOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 	}
 
 	@Override

@@ -10,8 +10,8 @@ import com.rapidminer.parameter.*;
 public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
+	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
 	private static final String[] ALIGN_CHOICES = { "needleman", "gotoh", "blast", "noalign" };
 	private static final int ALIGN_DEFAULT_CHOICE = 0;
 	private static final String ALIGN_LABEL = "align:";
@@ -77,8 +77,8 @@ public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
 		columnOutPort.deliver(new FileNameObject(fileName+".column","column"));
+		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
 	}
 
 	@Override

@@ -14,10 +14,10 @@ public class MothurChimeraSlayerOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
+	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private static final String WINDOW_LABEL = "window:";
 	private static final String KSIZE_LABEL = "ksize:";
 	private static final String MATCH_LABEL = "match:";
@@ -109,10 +109,10 @@ public class MothurChimeraSlayerOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
+		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 	}
 
 	@Override

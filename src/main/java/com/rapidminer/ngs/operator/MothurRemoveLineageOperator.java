@@ -18,15 +18,15 @@ public class MothurRemoveLineageOperator extends MothurGeneratedOperator {
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
 	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
+	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
 	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String LABEL_LABEL = "label:";
 	private static final String TAXON_LABEL = "taxon:";
 	private static final String DUPS_LABEL = "dups:";
@@ -75,15 +75,15 @@ public class MothurRemoveLineageOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
 		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override

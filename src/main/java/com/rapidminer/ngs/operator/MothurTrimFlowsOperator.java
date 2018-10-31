@@ -12,9 +12,9 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 	private InputPort flowInPort = getInputPorts().createPort("flow");
 	private InputPort oligosInPort = getInputPorts().createPort("oligos");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort fileOutPort = getOutputPorts().createPort("file");
 	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private static final String CHECKORIENT_LABEL = "checkorient:";
 	private static final String MAXHOMOP_LABEL = "maxhomop:";
 	private static final String MAXFLOWS_LABEL = "maxflows:";
@@ -89,9 +89,9 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		fileOutPort.deliver(new FileNameObject(fileName+".file","file"));
 		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 	}
 
 	@Override

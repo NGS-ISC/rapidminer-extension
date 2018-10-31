@@ -14,12 +14,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private InputPort listInPort = getInputPorts().createPort("list");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String LABEL_LABEL = "label:";
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String GROUPS_LABEL = "groups:";
@@ -63,12 +63,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
 	@Override

@@ -14,10 +14,10 @@ public class MothurSffinfoOperator extends MothurGeneratedOperator {
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
-	private OutputPort sfftxtOutPort = getOutputPorts().createPort("sfftxt");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort sffOutPort = getOutputPorts().createPort("sff");
+	private OutputPort sfftxtOutPort = getOutputPorts().createPort("sfftxt");
 	private static final String CHECKORIENT_LABEL = "checkorient:";
 	private static final String SFFTXT_LABEL = "sfftxt:";
 	private static final String FLOW_LABEL = "flow:";
@@ -81,10 +81,10 @@ public class MothurSffinfoOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
-		sfftxtOutPort.deliver(new FileNameObject(fileName+".sfftxt","sfftxt"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		sffOutPort.deliver(new FileNameObject(fileName+".sff","sff"));
+		sfftxtOutPort.deliver(new FileNameObject(fileName+".sfftxt","sfftxt"));
 	}
 
 	@Override

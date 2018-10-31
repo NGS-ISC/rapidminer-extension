@@ -15,11 +15,11 @@ public class MothurGetOtusOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort otucorrInPort = getInputPorts().createPort("otucorr");
 	private InputPort corraxesInPort = getInputPorts().createPort("corraxes");
+	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
+	private OutputPort corraxesOutPort = getOutputPorts().createPort("corraxes");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
 	private OutputPort otucorrOutPort = getOutputPorts().createPort("otucorr");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort corraxesOutPort = getOutputPorts().createPort("corraxes");
-	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -56,11 +56,11 @@ public class MothurGetOtusOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
+		corraxesOutPort.deliver(new FileNameObject(fileName+".corraxes","corraxes"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
 		otucorrOutPort.deliver(new FileNameObject(fileName+".otucorr","otucorr"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		corraxesOutPort.deliver(new FileNameObject(fileName+".corraxes","corraxes"));
-		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
 	}
 
 	@Override

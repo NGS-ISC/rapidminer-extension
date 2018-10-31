@@ -14,10 +14,10 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
+	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private OutputPort alnsOutPort = getOutputPorts().createPort("alns");
 	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String STRAND_LABEL = "strand:";
 	private static final String SEED_LABEL = "seed:";
@@ -109,10 +109,10 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 		addArgument("queryfract",String.valueOf(queryfractValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
 		alnsOutPort.deliver(new FileNameObject(fileName+".alns","alns"));
 		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
 	}
 
 	@Override

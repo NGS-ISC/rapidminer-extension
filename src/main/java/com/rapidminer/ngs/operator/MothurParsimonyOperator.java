@@ -13,8 +13,8 @@ public class MothurParsimonyOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort psummaryOutPort = getOutputPorts().createPort("psummary");
 	private OutputPort parsimonyOutPort = getOutputPorts().createPort("parsimony");
+	private OutputPort psummaryOutPort = getOutputPorts().createPort("psummary");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String RANDOM_LABEL = "random:";
 	private static final String ITERS_LABEL = "iters:";
@@ -56,8 +56,8 @@ public class MothurParsimonyOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		psummaryOutPort.deliver(new FileNameObject(fileName+".psummary","psummary"));
 		parsimonyOutPort.deliver(new FileNameObject(fileName+".parsimony","parsimony"));
+		psummaryOutPort.deliver(new FileNameObject(fileName+".psummary","psummary"));
 	}
 
 	@Override

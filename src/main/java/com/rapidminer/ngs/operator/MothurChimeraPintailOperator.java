@@ -13,8 +13,8 @@ public class MothurChimeraPintailOperator extends MothurGeneratedOperator {
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort conservationInPort = getInputPorts().createPort("conservation");
 	private InputPort quantileInPort = getInputPorts().createPort("quantile");
-	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
+	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private static final String FILTER_LABEL = "filter:";
 	private static final String WINDOW_LABEL = "window:";
 	private static final String INCREMENT_LABEL = "increment:";
@@ -56,8 +56,8 @@ public class MothurChimeraPintailOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
+		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
 	}
 
 	@Override

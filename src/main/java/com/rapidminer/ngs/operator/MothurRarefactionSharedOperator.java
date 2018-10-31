@@ -11,8 +11,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort designInPort = getInputPorts().createPort("design");
-	private OutputPort sharedrarefactionOutPort = getOutputPorts().createPort("sharedrarefaction");
 	private OutputPort sharedr_nseqsOutPort = getOutputPorts().createPort("sharedr_nseqs");
+	private OutputPort sharedrarefactionOutPort = getOutputPorts().createPort("sharedrarefaction");
 	private static final String LABEL_LABEL = "label:";
 	private static final String FREQ_LABEL = "freq:";
 	private static final String ITERS_LABEL = "iters:";
@@ -71,8 +71,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		sharedrarefactionOutPort.deliver(new FileNameObject(fileName+".sharedrarefaction","sharedrarefaction"));
 		sharedr_nseqsOutPort.deliver(new FileNameObject(fileName+".sharedr_nseqs","sharedr_nseqs"));
+		sharedrarefactionOutPort.deliver(new FileNameObject(fileName+".sharedrarefaction","sharedrarefaction"));
 	}
 
 	@Override

@@ -19,10 +19,10 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 	private InputPort oligosInPort = getInputPorts().createPort("oligos");
 	private InputPort findexInPort = getInputPorts().createPort("findex");
 	private InputPort rindexInPort = getInputPorts().createPort("rindex");
-	private OutputPort reportOutPort = getOutputPorts().createPort("report");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
+	private OutputPort reportOutPort = getOutputPorts().createPort("report");
 	private static final String PDIFFS_LABEL = "pdiffs:";
 	private static final String BDIFFS_LABEL = "bdiffs:";
 	private static final String TDIFFS_LABEL = "tdiffs:";
@@ -118,10 +118,10 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		reportOutPort.deliver(new FileNameObject(fileName+".report","report"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
+		reportOutPort.deliver(new FileNameObject(fileName+".report","report"));
 	}
 
 	@Override

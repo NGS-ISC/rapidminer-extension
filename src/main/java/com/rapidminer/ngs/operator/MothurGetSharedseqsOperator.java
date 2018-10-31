@@ -15,8 +15,8 @@ public class MothurGetSharedseqsOperator extends MothurGeneratedOperator {
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
-	private OutputPort sharedseqsOutPort = getOutputPorts().createPort("sharedseqs");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort sharedseqsOutPort = getOutputPorts().createPort("sharedseqs");
 	private static final String[] OUTPUT_CHOICES = { "accnos", "default" };
 	private static final int OUTPUT_DEFAULT_CHOICE = 1;
 	private static final String OUTPUT_LABEL = "output:";
@@ -64,8 +64,8 @@ public class MothurGetSharedseqsOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
-		sharedseqsOutPort.deliver(new FileNameObject(fileName+".sharedseqs","sharedseqs"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		sharedseqsOutPort.deliver(new FileNameObject(fileName+".sharedseqs","sharedseqs"));
 	}
 
 	@Override

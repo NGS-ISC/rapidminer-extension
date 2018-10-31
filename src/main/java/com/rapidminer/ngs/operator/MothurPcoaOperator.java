@@ -10,8 +10,8 @@ import com.rapidminer.parameter.*;
 public class MothurPcoaOperator extends MothurGeneratedOperator {
 
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
-	private OutputPort pcoaOutPort = getOutputPorts().createPort("pcoa");
 	private OutputPort loadingsOutPort = getOutputPorts().createPort("loadings");
+	private OutputPort pcoaOutPort = getOutputPorts().createPort("pcoa");
 	private static final String METRIC_LABEL = "metric:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -38,8 +38,8 @@ public class MothurPcoaOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		pcoaOutPort.deliver(new FileNameObject(fileName+".pcoa","pcoa"));
 		loadingsOutPort.deliver(new FileNameObject(fileName+".loadings","loadings"));
+		pcoaOutPort.deliver(new FileNameObject(fileName+".pcoa","pcoa"));
 	}
 
 	@Override

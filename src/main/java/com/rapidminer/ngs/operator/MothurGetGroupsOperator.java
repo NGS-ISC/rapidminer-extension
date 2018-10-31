@@ -20,16 +20,16 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
 	private InputPort columnInPort = getInputPorts().createPort("column");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
-	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort designOutPort = getOutputPorts().createPort("design");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -76,16 +76,16 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		columnOutPort.deliver(new FileNameObject(fileName+".column","column"));
-		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		designOutPort.deliver(new FileNameObject(fileName+".design","design"));
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override

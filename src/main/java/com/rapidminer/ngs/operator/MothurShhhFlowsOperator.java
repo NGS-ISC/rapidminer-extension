@@ -12,11 +12,11 @@ public class MothurShhhFlowsOperator extends MothurGeneratedOperator {
 	private InputPort flowInPort = getInputPorts().createPort("flow");
 	private InputPort fileInPort = getInputPorts().createPort("file");
 	private InputPort lookupInPort = getInputPorts().createPort("lookup");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort countsOutPort = getOutputPorts().createPort("counts");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
-	private OutputPort countsOutPort = getOutputPorts().createPort("counts");
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String MAXITER_LABEL = "maxiter:";
 	private static final String LARGE_LABEL = "large:";
@@ -65,11 +65,11 @@ public class MothurShhhFlowsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		countsOutPort.deliver(new FileNameObject(fileName+".counts","counts"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
-		countsOutPort.deliver(new FileNameObject(fileName+".counts","counts"));
 	}
 
 	@Override

@@ -11,8 +11,8 @@ public class MothurClearcutOperator extends MothurGeneratedOperator {
 
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private OutputPort matrixoutOutPort = getOutputPorts().createPort("matrixout");
+	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private static final String VERBOSE_LABEL = "verbose:";
 	private static final String QUIET_LABEL = "quiet:";
 	private static final String VERSION_LABEL = "version:";
@@ -86,8 +86,8 @@ public class MothurClearcutOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 		matrixoutOutPort.deliver(new FileNameObject(fileName+".matrixout","matrixout"));
+		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 	}
 
 	@Override

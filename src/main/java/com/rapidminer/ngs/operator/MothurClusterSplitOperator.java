@@ -17,11 +17,11 @@ public class MothurClusterSplitOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort columnInPort = getInputPorts().createPort("column");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
+	private OutputPort fileOutPort = getOutputPorts().createPort("file");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
 	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
-	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
-	private OutputPort fileOutPort = getOutputPorts().createPort("file");
 	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
+	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
 	private static final String TAXLEVEL_LABEL = "taxlevel:";
 	private static final String[] SPLITMETHOD_CHOICES = { "classify", "fasta", "distance" };
 	private static final int SPLITMETHOD_DEFAULT_CHOICE = 2;
@@ -124,11 +124,11 @@ public class MothurClusterSplitOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		columnOutPort.deliver(new FileNameObject(fileName+".column","column"));
+		fileOutPort.deliver(new FileNameObject(fileName+".file","file"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
 		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
-		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
-		fileOutPort.deliver(new FileNameObject(fileName+".file","file"));
 		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
+		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
 	}
 
 	@Override

@@ -17,12 +17,12 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort mapOutPort = getOutputPorts().createPort("map");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort contigsreportOutPort = getOutputPorts().createPort("contigsreport");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort mapOutPort = getOutputPorts().createPort("map");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private static final String DELIM_LABEL = "delim:";
 	private static final String[] PLACEMENT_CHOICES = { "front", "back" };
@@ -70,12 +70,12 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		contigsreportOutPort.deliver(new FileNameObject(fileName+".contigsreport","contigsreport"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 	}
 

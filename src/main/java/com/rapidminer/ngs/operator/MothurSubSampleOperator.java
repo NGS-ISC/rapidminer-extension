@@ -18,15 +18,15 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort rabundInPort = getInputPorts().createPort("rabund");
 	private InputPort sabundInPort = getInputPorts().createPort("sabund");
-	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
+	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SIZE_LABEL = "size:";
@@ -78,15 +78,15 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
+		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 	}
 
 	@Override

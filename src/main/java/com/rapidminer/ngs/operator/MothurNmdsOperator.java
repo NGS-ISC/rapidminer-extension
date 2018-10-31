@@ -11,9 +11,9 @@ public class MothurNmdsOperator extends MothurGeneratedOperator {
 
 	private InputPort axesInPort = getInputPorts().createPort("axes");
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
-	private OutputPort stressOutPort = getOutputPorts().createPort("stress");
 	private OutputPort itersOutPort = getOutputPorts().createPort("iters");
 	private OutputPort nmdsOutPort = getOutputPorts().createPort("nmds");
+	private OutputPort stressOutPort = getOutputPorts().createPort("stress");
 	private static final String MAXDIM_LABEL = "maxdim:";
 	private static final String MINDIM_LABEL = "mindim:";
 	private static final String ITERS_LABEL = "iters:";
@@ -54,9 +54,9 @@ public class MothurNmdsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		stressOutPort.deliver(new FileNameObject(fileName+".stress","stress"));
 		itersOutPort.deliver(new FileNameObject(fileName+".iters","iters"));
 		nmdsOutPort.deliver(new FileNameObject(fileName+".nmds","nmds"));
+		stressOutPort.deliver(new FileNameObject(fileName+".stress","stress"));
 	}
 
 	@Override

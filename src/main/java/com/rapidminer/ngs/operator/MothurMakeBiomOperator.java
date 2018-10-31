@@ -15,9 +15,9 @@ public class MothurMakeBiomOperator extends MothurGeneratedOperator {
 	private InputPort reftaxonomyInPort = getInputPorts().createPort("reftaxonomy");
 	private InputPort metadataInPort = getInputPorts().createPort("metadata");
 	private InputPort picrustInPort = getInputPorts().createPort("picrust");
+	private OutputPort biomOutPort = getOutputPorts().createPort("biom");
 	private OutputPort relabundOutPort = getOutputPorts().createPort("relabund");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort biomOutPort = getOutputPorts().createPort("biom");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
@@ -63,9 +63,9 @@ public class MothurMakeBiomOperator extends MothurGeneratedOperator {
 		addArgument("matrixtype",String.valueOf(matrixtypeValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		biomOutPort.deliver(new FileNameObject(fileName+".biom","biom"));
 		relabundOutPort.deliver(new FileNameObject(fileName+".relabund","relabund"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		biomOutPort.deliver(new FileNameObject(fileName+".biom","biom"));
 	}
 
 	@Override

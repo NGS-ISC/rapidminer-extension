@@ -10,9 +10,9 @@ import com.rapidminer.parameter.*;
 public class MothurSparccOperator extends MothurGeneratedOperator {
 
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
+	private OutputPort corrOutPort = getOutputPorts().createPort("corr");
 	private OutputPort pvalueOutPort = getOutputPorts().createPort("pvalue");
 	private OutputPort sparccrelabundOutPort = getOutputPorts().createPort("sparccrelabund");
-	private OutputPort corrOutPort = getOutputPorts().createPort("corr");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String SAMPLINGS_LABEL = "samplings:";
@@ -60,9 +60,9 @@ public class MothurSparccOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		corrOutPort.deliver(new FileNameObject(fileName+".corr","corr"));
 		pvalueOutPort.deliver(new FileNameObject(fileName+".pvalue","pvalue"));
 		sparccrelabundOutPort.deliver(new FileNameObject(fileName+".sparccrelabund","sparccrelabund"));
-		corrOutPort.deliver(new FileNameObject(fileName+".corr","corr"));
 	}
 
 	@Override

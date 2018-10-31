@@ -16,10 +16,10 @@ public class MothurChopSeqsOperator extends MothurGeneratedOperator {
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String NUMBASES_LABEL = "numbases:";
 	private static final String COUNTGAPS_LABEL = "countgaps:";
@@ -74,10 +74,10 @@ public class MothurChopSeqsOperator extends MothurGeneratedOperator {
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 	}
 
 	@Override

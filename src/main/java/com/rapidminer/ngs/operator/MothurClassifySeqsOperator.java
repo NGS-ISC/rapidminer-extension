@@ -15,10 +15,10 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort taxsummaryOutPort = getOutputPorts().createPort("taxsummary");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private OutputPort matchdistOutPort = getOutputPorts().createPort("matchdist");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
+	private OutputPort taxsummaryOutPort = getOutputPorts().createPort("taxsummary");
 	private static final String[] OUTPUT_CHOICES = { "simple", "detail" };
 	private static final int OUTPUT_DEFAULT_CHOICE = 1;
 	private static final String OUTPUT_LABEL = "output:";
@@ -109,10 +109,10 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		taxsummaryOutPort.deliver(new FileNameObject(fileName+".taxsummary","taxsummary"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
 		matchdistOutPort.deliver(new FileNameObject(fileName+".matchdist","matchdist"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
+		taxsummaryOutPort.deliver(new FileNameObject(fileName+".taxsummary","taxsummary"));
 	}
 
 	@Override

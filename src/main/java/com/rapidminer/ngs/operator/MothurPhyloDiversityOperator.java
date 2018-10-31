@@ -14,8 +14,8 @@ public class MothurPhyloDiversityOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private OutputPort phylodivOutPort = getOutputPorts().createPort("phylodiv");
-	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private OutputPort rarefyOutPort = getOutputPorts().createPort("rarefy");
+	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String ITERS_LABEL = "iters:";
 	private static final String FREQ_LABEL = "freq:";
@@ -73,8 +73,8 @@ public class MothurPhyloDiversityOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		phylodivOutPort.deliver(new FileNameObject(fileName+".phylodiv","phylodiv"));
-		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 		rarefyOutPort.deliver(new FileNameObject(fileName+".rarefy","rarefy"));
+		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 	}
 
 	@Override

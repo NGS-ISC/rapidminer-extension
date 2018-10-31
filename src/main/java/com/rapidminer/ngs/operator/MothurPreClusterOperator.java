@@ -14,8 +14,8 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort mapOutPort = getOutputPorts().createPort("map");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort mapOutPort = getOutputPorts().createPort("map");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String DIFFS_LABEL = "diffs:";
 	private static final String PROCESSORS_LABEL = "processors:";
@@ -74,8 +74,8 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 

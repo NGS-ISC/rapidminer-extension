@@ -14,10 +14,10 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -52,10 +52,10 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
 	@Override

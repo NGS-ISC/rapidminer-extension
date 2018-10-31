@@ -15,12 +15,12 @@ public class MothurRemoveRareOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
-	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
+	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String NSEQS_LABEL = "nseqs:";
@@ -66,12 +66,12 @@ public class MothurRemoveRareOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
-		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
+		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 	}
 
 	@Override

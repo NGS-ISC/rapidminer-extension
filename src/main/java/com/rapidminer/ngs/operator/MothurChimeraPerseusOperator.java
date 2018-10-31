@@ -14,8 +14,8 @@ public class MothurChimeraPerseusOperator extends MothurGeneratedOperator {
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String DEREPLICATE_LABEL = "dereplicate:";
 	private static final String SEED_LABEL = "seed:";
@@ -61,8 +61,8 @@ public class MothurChimeraPerseusOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		chimeraOutPort.deliver(new FileNameObject(fileName+".chimera","chimera"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 	}
 
 	@Override

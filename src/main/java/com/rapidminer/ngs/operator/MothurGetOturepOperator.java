@@ -17,8 +17,8 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private InputPort columnInPort = getInputPorts().createPort("column");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String CUTOFF_LABEL = "cutoff:";
@@ -79,8 +79,8 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
 	@Override

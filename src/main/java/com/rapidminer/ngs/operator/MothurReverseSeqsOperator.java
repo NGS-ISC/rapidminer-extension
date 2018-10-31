@@ -11,8 +11,8 @@ public class MothurReverseSeqsOperator extends MothurGeneratedOperator {
 
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -38,8 +38,8 @@ public class MothurReverseSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 	}
 
 	@Override

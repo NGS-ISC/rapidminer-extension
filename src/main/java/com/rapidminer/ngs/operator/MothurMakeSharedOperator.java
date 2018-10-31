@@ -13,9 +13,9 @@ public class MothurMakeSharedOperator extends MothurGeneratedOperator {
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort mapOutPort = getOutputPorts().createPort("map");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SEED_LABEL = "seed:";
@@ -51,9 +51,9 @@ public class MothurMakeSharedOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 	}
 
 	@Override

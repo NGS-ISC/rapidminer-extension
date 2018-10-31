@@ -14,11 +14,11 @@ public class MothurTrimSeqsOperator extends MothurGeneratedOperator {
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private static final String FLIP_LABEL = "flip:";
 	private static final String CHECKORIENT_LABEL = "checkorient:";
 	private static final String MAXAMBIG_LABEL = "maxambig:";
@@ -122,11 +122,11 @@ public class MothurTrimSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 	}
 
 	@Override

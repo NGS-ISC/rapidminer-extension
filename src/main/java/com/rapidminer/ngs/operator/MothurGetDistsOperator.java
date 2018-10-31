@@ -12,8 +12,8 @@ public class MothurGetDistsOperator extends MothurGeneratedOperator {
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
 	private InputPort columnInPort = getInputPorts().createPort("column");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
-	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
+	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -41,8 +41,8 @@ public class MothurGetDistsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
 		columnOutPort.deliver(new FileNameObject(fileName+".column","column"));
+		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
 	}
 
 	@Override

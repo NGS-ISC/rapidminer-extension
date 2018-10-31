@@ -12,11 +12,11 @@ public class MothurCatchallOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort sabundInPort = getInputPorts().createPort("sabund");
 	private OutputPort analysisOutPort = getOutputPorts().createPort("analysis");
-	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
+	private OutputPort bestanalysisOutPort = getOutputPorts().createPort("bestanalysis");
+	private OutputPort bubbleOutPort = getOutputPorts().createPort("bubble");
 	private OutputPort modelsOutPort = getOutputPorts().createPort("models");
 	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
-	private OutputPort bubbleOutPort = getOutputPorts().createPort("bubble");
-	private OutputPort bestanalysisOutPort = getOutputPorts().createPort("bestanalysis");
+	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SEED_LABEL = "seed:";
@@ -49,11 +49,11 @@ public class MothurCatchallOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		analysisOutPort.deliver(new FileNameObject(fileName+".analysis","analysis"));
-		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
+		bestanalysisOutPort.deliver(new FileNameObject(fileName+".bestanalysis","bestanalysis"));
+		bubbleOutPort.deliver(new FileNameObject(fileName+".bubble","bubble"));
 		modelsOutPort.deliver(new FileNameObject(fileName+".models","models"));
 		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
-		bubbleOutPort.deliver(new FileNameObject(fileName+".bubble","bubble"));
-		bestanalysisOutPort.deliver(new FileNameObject(fileName+".bestanalysis","bestanalysis"));
+		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 	}
 
 	@Override

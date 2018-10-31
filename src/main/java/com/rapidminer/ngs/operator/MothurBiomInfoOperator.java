@@ -10,10 +10,10 @@ import com.rapidminer.parameter.*;
 public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 
 	private InputPort biomInPort = getInputPorts().createPort("biom");
+	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private OutputPort taxsummaryOutPort = getOutputPorts().createPort("taxsummary");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
 	private static final String LABEL_LABEL = "label:";
 	private static final String RELABUND_LABEL = "relabund:";
 	private static final String[] BASIS_CHOICES = { "otu", "sequence" };
@@ -58,10 +58,10 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 		taxsummaryOutPort.deliver(new FileNameObject(fileName+".taxsummary","taxsummary"));
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
 	}
 
 	@Override

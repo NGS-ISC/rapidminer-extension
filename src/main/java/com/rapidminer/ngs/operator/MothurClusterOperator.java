@@ -14,10 +14,10 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort columnInPort = getInputPorts().createPort("column");
-	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
-	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
-	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort rabundOutPort = getOutputPorts().createPort("rabund");
+	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
+	private OutputPort sensspecOutPort = getOutputPorts().createPort("sensspec");
 	private OutputPort stepsOutPort = getOutputPorts().createPort("steps");
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String PRECISION_LABEL = "precision:";
@@ -92,10 +92,10 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
-		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
-		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		rabundOutPort.deliver(new FileNameObject(fileName+".rabund","rabund"));
+		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
+		sensspecOutPort.deliver(new FileNameObject(fileName+".sensspec","sensspec"));
 		stepsOutPort.deliver(new FileNameObject(fileName+".steps","steps"));
 	}
 

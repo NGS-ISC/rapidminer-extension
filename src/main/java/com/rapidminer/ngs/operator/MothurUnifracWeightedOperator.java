@@ -13,11 +13,11 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort wsummaryOutPort = getOutputPorts().createPort("wsummary");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
-	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
+	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private OutputPort weightedOutPort = getOutputPorts().createPort("weighted");
+	private OutputPort wsummaryOutPort = getOutputPorts().createPort("wsummary");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String ITERS_LABEL = "iters:";
 	private static final String PROCESSORS_LABEL = "processors:";
@@ -74,11 +74,11 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		wsummaryOutPort.deliver(new FileNameObject(fileName+".wsummary","wsummary"));
 		columnOutPort.deliver(new FileNameObject(fileName+".column","column"));
-		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 		phylipOutPort.deliver(new FileNameObject(fileName+".phylip","phylip"));
+		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 		weightedOutPort.deliver(new FileNameObject(fileName+".weighted","weighted"));
+		wsummaryOutPort.deliver(new FileNameObject(fileName+".wsummary","wsummary"));
 	}
 
 	@Override

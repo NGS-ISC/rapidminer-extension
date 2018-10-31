@@ -17,13 +17,13 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
-	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
-	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String LARGE_LABEL = "large:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -64,13 +64,13 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
-		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override

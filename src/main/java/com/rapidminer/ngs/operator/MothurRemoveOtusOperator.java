@@ -16,10 +16,10 @@ public class MothurRemoveOtusOperator extends MothurGeneratedOperator {
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
-	private OutputPort otucorrOutPort = getOutputPorts().createPort("otucorr");
-	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort corraxesOutPort = getOutputPorts().createPort("corraxes");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort otucorrOutPort = getOutputPorts().createPort("otucorr");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -57,10 +57,10 @@ public class MothurRemoveOtusOperator extends MothurGeneratedOperator {
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
-		otucorrOutPort.deliver(new FileNameObject(fileName+".otucorr","otucorr"));
-		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		corraxesOutPort.deliver(new FileNameObject(fileName+".corraxes","corraxes"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		otucorrOutPort.deliver(new FileNameObject(fileName+".otucorr","otucorr"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 	}
 
 	@Override

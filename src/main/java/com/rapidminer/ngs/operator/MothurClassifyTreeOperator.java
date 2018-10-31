@@ -14,8 +14,8 @@ public class MothurClassifyTreeOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
-	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
+	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private static final String[] OUTPUT_CHOICES = { "node", "taxon" };
 	private static final int OUTPUT_DEFAULT_CHOICE = 0;
 	private static final String OUTPUT_LABEL = "output:";
@@ -56,8 +56,8 @@ public class MothurClassifyTreeOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
+		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 	}
 
 	@Override

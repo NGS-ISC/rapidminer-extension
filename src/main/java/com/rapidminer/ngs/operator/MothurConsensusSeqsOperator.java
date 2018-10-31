@@ -13,10 +13,10 @@ public class MothurConsensusSeqsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort listInPort = getInputPorts().createPort("list");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String LABEL_LABEL = "label:";
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String SEED_LABEL = "seed:";
@@ -52,10 +52,10 @@ public class MothurConsensusSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
-		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
 	}
 
 	@Override
