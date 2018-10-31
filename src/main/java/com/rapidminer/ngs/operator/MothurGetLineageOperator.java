@@ -9,30 +9,30 @@ import com.rapidminer.parameter.*;
 
 public class MothurGetLineageOperator extends MothurGeneratedOperator {
 
-	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
-	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
-	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
+	private InputPort nameInPort = getInputPorts().createPort("name");
+	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private InputPort listInPort = getInputPorts().createPort("list");
-	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
+	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
+	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort listOutPort = getOutputPorts().createPort("list");
-	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
-	private static final String DUPS_LABEL = "dups:";
-	private static final String INPUTDIR_LABEL = "inputdir:";
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
+	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
+	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
+	private OutputPort nameOutPort = getOutputPorts().createPort("name");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private static final String LABEL_LABEL = "label:";
-	private static final String OUTPUTDIR_LABEL = "outputdir:";
-	private static final String SEED_LABEL = "seed:";
 	private static final String TAXON_LABEL = "taxon:";
+	private static final String DUPS_LABEL = "dups:";
+	private static final String SEED_LABEL = "seed:";
+	private static final String INPUTDIR_LABEL = "inputdir:";
+	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
 	public MothurGetLineageOperator (OperatorDescription description) {
 		super(description);
@@ -43,73 +43,73 @@ public class MothurGetLineageOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
-		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
-		addArgument("alignreport",alignreportFile.getName());
-		FileNameObject constaxonomyFile = constaxonomyInPort.getData(FileNameObject.class);
-		addArgument("constaxonomy",constaxonomyFile.getName());
-		FileNameObject countFile = countInPort.getData(FileNameObject.class);
-		addArgument("count",countFile.getName());
 		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
 		addArgument("fasta",fastaFile.getName());
+		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
+		addArgument("name",nameFile.getName());
+		FileNameObject countFile = countInPort.getData(FileNameObject.class);
+		addArgument("count",countFile.getName());
 		FileNameObject groupFile = groupInPort.getData(FileNameObject.class);
 		addArgument("group",groupFile.getName());
 		FileNameObject listFile = listInPort.getData(FileNameObject.class);
 		addArgument("list",listFile.getName());
-		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
-		addArgument("name",nameFile.getName());
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
 		FileNameObject taxonomyFile = taxonomyInPort.getData(FileNameObject.class);
 		addArgument("taxonomy",taxonomyFile.getName());
-		boolean dupsValue = getParameterAsBoolean(DUPS_LABEL);
-		addArgument("dups",String.valueOf(dupsValue));
-		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
-		addArgument("inputdir",String.valueOf(inputdirValue));
+		FileNameObject constaxonomyFile = constaxonomyInPort.getData(FileNameObject.class);
+		addArgument("constaxonomy",constaxonomyFile.getName());
+		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
+		addArgument("alignreport",alignreportFile.getName());
 		String labelValue = getParameterAsString(LABEL_LABEL);
 		addArgument("label",String.valueOf(labelValue));
-		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
-		addArgument("outputdir",String.valueOf(outputdirValue));
-		int seedValue = getParameterAsInt(SEED_LABEL);
-		addArgument("seed",String.valueOf(seedValue));
 		String taxonValue = getParameterAsString(TAXON_LABEL);
 		addArgument("taxon",String.valueOf(taxonValue));
+		boolean dupsValue = getParameterAsBoolean(DUPS_LABEL);
+		addArgument("dups",String.valueOf(dupsValue));
+		int seedValue = getParameterAsInt(SEED_LABEL);
+		addArgument("seed",String.valueOf(seedValue));
+		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
+		addArgument("inputdir",String.valueOf(inputdirValue));
+		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
+		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
-		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
-		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
+		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
+		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
+		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 	}
 
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
-		parameterTypes.add(new ParameterTypeBoolean(DUPS_LABEL, "TODO: Add description", true, true));
-		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(TAXON_LABEL, "TODO: Add description", "", false));
+		parameterTypes.add(new ParameterTypeBoolean(DUPS_LABEL, "TODO: Add description", true, true));
+		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
 	}
 
 	@Override
 	public String getOutputPattern(String type) {
 		// TODO Use a dictionary to reflect type to pattern
-		if (type=="count") return "[filename],pick,[extension]";
-		if (type=="fasta") return "[filename],pick,[extension]";
-		if (type=="shared") return "[filename],[distance],pick,[extension]";
-		if (type=="taxonomy") return "[filename],pick,[extension]";
-		if (type=="name") return "[filename],pick,[extension]";
-		if (type=="list") return "[filename],[distance],pick,[extension]";
-		if (type=="alignreport") return "[filename],pick.align.report";
-		if (type=="group") return "[filename],pick,[extension]";
-		if (type=="constaxonomy") return "[filename],pick,[extension]";
+		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("count")) return "[filename],pick,[extension]";
+		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("alignreport")) return "[filename],pick.align.report";
+		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("name")) return "[filename],pick,[extension]";
+		if (type.equals("group")) return "[filename],pick,[extension]";
 		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}

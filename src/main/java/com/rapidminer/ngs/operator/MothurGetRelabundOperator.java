@@ -12,13 +12,13 @@ public class MothurGetRelabundOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private OutputPort relabundOutPort = getOutputPorts().createPort("relabund");
 	private static final String GROUPS_LABEL = "groups:";
-	private static final String INPUTDIR_LABEL = "inputdir:";
-	private static final String LABEL_LABEL = "label:";
-	private static final String OUTPUTDIR_LABEL = "outputdir:";
-	public static final String[] SCALE_CHOICES = { "averagegroup", "averageotu", "totalgroup", "totalotu" };
-	public static final int SCALE_DEFAULT_CHOICE = 2;
+	private static final String[] SCALE_CHOICES = { "totalgroup", "totalotu", "averagegroup", "averageotu" };
+	private static final int SCALE_DEFAULT_CHOICE = 0;
 	private static final String SCALE_LABEL = "scale:";
+	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String INPUTDIR_LABEL = "inputdir:";
+	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
 	public MothurGetRelabundOperator (OperatorDescription description) {
 		super(description);
@@ -33,17 +33,17 @@ public class MothurGetRelabundOperator extends MothurGeneratedOperator {
 		addArgument("shared",sharedFile.getName());
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
 		addArgument("groups",String.valueOf(groupsValue));
-		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
-		addArgument("inputdir",String.valueOf(inputdirValue));
-		String labelValue = getParameterAsString(LABEL_LABEL);
-		addArgument("label",String.valueOf(labelValue));
-		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
-		addArgument("outputdir",String.valueOf(outputdirValue));
 		int scaleIndex = getParameterAsInt(SCALE_LABEL);
 		String scaleValue = SCALE_CHOICES[scaleIndex];
 		addArgument("scale",String.valueOf(scaleValue));
+		String labelValue = getParameterAsString(LABEL_LABEL);
+		addArgument("label",String.valueOf(labelValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
+		addArgument("inputdir",String.valueOf(inputdirValue));
+		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
+		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		relabundOutPort.deliver(new FileNameObject(fileName+".relabund","relabund"));
@@ -53,18 +53,18 @@ public class MothurGetRelabundOperator extends MothurGeneratedOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeCategory(SCALE_LABEL, "TODO: Add description", SCALE_CHOICES, SCALE_DEFAULT_CHOICE));
+		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
 	}
 
 	@Override
 	public String getOutputPattern(String type) {
 		// TODO Use a dictionary to reflect type to pattern
-		if (type=="relabund") return "[filename],relabund";
+		if (type.equals("relabund")) return "[filename],relabund";
 		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}

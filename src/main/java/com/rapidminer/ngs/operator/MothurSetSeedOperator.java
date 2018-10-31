@@ -9,9 +9,9 @@ import com.rapidminer.parameter.*;
 
 public class MothurSetSeedOperator extends MothurGeneratedOperator {
 
+	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
-	private static final String SEED_LABEL = "seed:";
 
 	public MothurSetSeedOperator (OperatorDescription description) {
 		super(description);
@@ -22,12 +22,12 @@ public class MothurSetSeedOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		int seedValue = getParameterAsInt(SEED_LABEL);
+		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
 		addArgument("inputdir",String.valueOf(inputdirValue));
 		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
 		addArgument("outputdir",String.valueOf(outputdirValue));
-		int seedValue = getParameterAsInt(SEED_LABEL);
-		addArgument("seed",String.valueOf(seedValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 	}
@@ -35,9 +35,9 @@ public class MothurSetSeedOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
+		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		return parameterTypes;
 	}
 

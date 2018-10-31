@@ -10,10 +10,10 @@ import com.rapidminer.parameter.*;
 public class MothurSetLogfileOperator extends MothurGeneratedOperator {
 
 	private static final String APPEND_LABEL = "append:";
-	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String NAME_LABEL = "name:";
-	private static final String OUTPUTDIR_LABEL = "outputdir:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String INPUTDIR_LABEL = "inputdir:";
+	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
 	public MothurSetLogfileOperator (OperatorDescription description) {
 		super(description);
@@ -26,14 +26,14 @@ public class MothurSetLogfileOperator extends MothurGeneratedOperator {
 		clearArguments();
 		boolean appendValue = getParameterAsBoolean(APPEND_LABEL);
 		addArgument("append",String.valueOf(appendValue));
-		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
-		addArgument("inputdir",String.valueOf(inputdirValue));
 		String nameValue = getParameterAsString(NAME_LABEL);
 		addArgument("name",String.valueOf(nameValue));
-		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
-		addArgument("outputdir",String.valueOf(outputdirValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
+		addArgument("inputdir",String.valueOf(inputdirValue));
+		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
+		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 	}
@@ -42,10 +42,10 @@ public class MothurSetLogfileOperator extends MothurGeneratedOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeBoolean(APPEND_LABEL, "TODO: Add description", false, true));
-		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(NAME_LABEL, "TODO: Add description", "", false));
-		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
 	}
 

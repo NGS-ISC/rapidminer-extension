@@ -9,17 +9,17 @@ import com.rapidminer.parameter.*;
 
 public class MothurSummarySeqsOperator extends MothurGeneratedOperator {
 
-	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
-	private InputPort contigsreportInPort = getInputPorts().createPort("contigsreport");
-	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort summaryInPort = getInputPorts().createPort("summary");
+	private InputPort contigsreportInPort = getInputPorts().createPort("contigsreport");
+	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
+	private InputPort nameInPort = getInputPorts().createPort("name");
+	private InputPort countInPort = getInputPorts().createPort("count");
 	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
-	private static final String INPUTDIR_LABEL = "inputdir:";
-	private static final String OUTPUTDIR_LABEL = "outputdir:";
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String INPUTDIR_LABEL = "inputdir:";
+	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
 	public MothurSummarySeqsOperator (OperatorDescription description) {
 		super(description);
@@ -30,26 +30,26 @@ public class MothurSummarySeqsOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
-		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
-		addArgument("alignreport",alignreportFile.getName());
-		FileNameObject contigsreportFile = contigsreportInPort.getData(FileNameObject.class);
-		addArgument("contigsreport",contigsreportFile.getName());
-		FileNameObject countFile = countInPort.getData(FileNameObject.class);
-		addArgument("count",countFile.getName());
 		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
 		addArgument("fasta",fastaFile.getName());
-		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
-		addArgument("name",nameFile.getName());
 		FileNameObject summaryFile = summaryInPort.getData(FileNameObject.class);
 		addArgument("summary",summaryFile.getName());
-		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
-		addArgument("inputdir",String.valueOf(inputdirValue));
-		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
-		addArgument("outputdir",String.valueOf(outputdirValue));
+		FileNameObject contigsreportFile = contigsreportInPort.getData(FileNameObject.class);
+		addArgument("contigsreport",contigsreportFile.getName());
+		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
+		addArgument("alignreport",alignreportFile.getName());
+		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
+		addArgument("name",nameFile.getName());
+		FileNameObject countFile = countInPort.getData(FileNameObject.class);
+		addArgument("count",countFile.getName());
 		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
 		addArgument("processors",String.valueOf(processorsValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
+		addArgument("inputdir",String.valueOf(inputdirValue));
+		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
+		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		summaryOutPort.deliver(new FileNameObject(fileName+".summary","summary"));
@@ -58,17 +58,17 @@ public class MothurSummarySeqsOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
-		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
 	}
 
 	@Override
 	public String getOutputPattern(String type) {
 		// TODO Use a dictionary to reflect type to pattern
-		if (type=="summary") return "[filename],summary";
+		if (type.equals("summary")) return "[filename],summary";
 		// TODO if nil then 
 		return super.getOutputPattern(type);
 	}
