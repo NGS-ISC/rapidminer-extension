@@ -4,6 +4,10 @@
   <group key="" name=""/>
   <group key="NGS_group" name="NGS"/>
   <group key="mothur_group" name="Mothur"/>
+      <operator>
+	<key>mothur_operator_fileset</key>
+        <name>Source Files</name>
+      </operator>
   <operator>
     <key>mothur_mothurnocommandoperator_operator</key>
     <name>NoCommand</name>
