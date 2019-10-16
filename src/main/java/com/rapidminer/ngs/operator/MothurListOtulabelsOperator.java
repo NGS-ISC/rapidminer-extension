@@ -12,6 +12,7 @@ public class MothurListOtulabelsOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort relabundInPort = getInputPorts().createPort("relabund");
 	private InputPort listInPort = getInputPorts().createPort("list");
+	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
 	private OutputPort otulabelsOutPort = getOutputPorts().createPort("otulabels");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String LABEL_LABEL = "label:";
@@ -34,6 +35,8 @@ public class MothurListOtulabelsOperator extends MothurGeneratedOperator {
 		addArgument("relabund",relabundFile.getName());
 		FileNameObject listFile = listInPort.getData(FileNameObject.class);
 		addArgument("list",listFile.getName());
+		FileNameObject constaxonomyFile = constaxonomyInPort.getData(FileNameObject.class);
+		addArgument("constaxonomy",constaxonomyFile.getName());
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
 		addArgument("groups",String.valueOf(groupsValue));
 		String labelValue = getParameterAsString(LABEL_LABEL);
@@ -62,7 +65,7 @@ public class MothurListOtulabelsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("otulabels")) return "[filename],[distance],otulabels";
+		if (type.equals("otulabels")) return "[filename],[distance],otulabels-[filename],otulabels";
 		return super.getOutputPattern(type);
 	}
 }

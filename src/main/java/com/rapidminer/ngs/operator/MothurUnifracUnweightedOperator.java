@@ -26,6 +26,7 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 	private static final int DISTANCE_DEFAULT_CHOICE = 0;
 	private static final String DISTANCE_LABEL = "distance:";
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String CONSENSUS_LABEL = "consensus:";
 	private static final String ROOT_LABEL = "root:";
 	private static final String SEED_LABEL = "seed:";
@@ -62,6 +63,8 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 		addArgument("distance",String.valueOf(distanceValue));
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		boolean consensusValue = getParameterAsBoolean(CONSENSUS_LABEL);
 		addArgument("consensus",String.valueOf(consensusValue));
 		boolean rootValue = getParameterAsBoolean(ROOT_LABEL);
@@ -90,6 +93,7 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeBoolean(RANDOM_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(DISTANCE_LABEL, "TODO: Add description", DISTANCE_CHOICES, DISTANCE_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(CONSENSUS_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(ROOT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
@@ -100,10 +104,10 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("unweighted")) return "[filename],unweighted-[filename],[tag],unweighted";
-		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
-		if (type.equals("uwsummary")) return "[filename],uwsummary";
 		if (type.equals("phylip")) return "[filename],[tag],[tag2],dist";
+		if (type.equals("unweighted")) return "[filename],unweighted-[filename],[tag],unweighted";
+		if (type.equals("uwsummary")) return "[filename],uwsummary";
+		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("tree")) return "[filename],[tag],[tag2],tre";
 		return super.getOutputPattern(type);
 	}

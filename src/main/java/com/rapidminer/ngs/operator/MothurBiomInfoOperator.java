@@ -19,6 +19,9 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 	private static final String[] BASIS_CHOICES = { "otu", "sequence" };
 	private static final int BASIS_DEFAULT_CHOICE = 0;
 	private static final String BASIS_LABEL = "basis:";
+	private static final String[] FORMAT_CHOICES = { "hdf5", "simple" };
+	private static final int FORMAT_DEFAULT_CHOICE = 0;
+	private static final String FORMAT_LABEL = "format:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String[] OUTPUT_CHOICES = { "simple", "detail" };
 	private static final int OUTPUT_DEFAULT_CHOICE = 1;
@@ -45,6 +48,9 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 		int basisIndex = getParameterAsInt(BASIS_LABEL);
 		String basisValue = BASIS_CHOICES[basisIndex];
 		addArgument("basis",String.valueOf(basisValue));
+		int formatIndex = getParameterAsInt(FORMAT_LABEL);
+		String formatValue = FORMAT_CHOICES[formatIndex];
+		addArgument("format",String.valueOf(formatValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		int outputIndex = getParameterAsInt(OUTPUT_LABEL);
@@ -70,6 +76,7 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeBoolean(RELABUND_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(BASIS_LABEL, "TODO: Add description", BASIS_CHOICES, BASIS_DEFAULT_CHOICE));
+		parameterTypes.add(new ParameterTypeCategory(FORMAT_LABEL, "TODO: Add description", FORMAT_CHOICES, FORMAT_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeCategory(OUTPUT_LABEL, "TODO: Add description", OUTPUT_CHOICES, OUTPUT_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeInt(PRINTLEVEL_LABEL, "TODO: Add description", -100000000, 100000000, -1, true));
@@ -80,9 +87,9 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("shared")) return "[filename],[tag],shared";
 		if (type.equals("taxonomy")) return "[filename],[tag],taxonomy";
 		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
-		if (type.equals("shared")) return "[filename],[tag],shared";
 		if (type.equals("constaxonomy")) return "[filename],[tag],cons.taxonomy";
 		return super.getOutputPattern(type);
 	}

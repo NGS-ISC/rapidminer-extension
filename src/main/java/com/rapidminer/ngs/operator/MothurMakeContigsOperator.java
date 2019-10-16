@@ -151,10 +151,10 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("report")) return "[filename],[tag],contigs.report";
-		if (type.equals("qfile")) return "[filename],[tag],contigs.qual";
 		if (type.equals("group")) return "[filename],[tag],contigs.groups";
 		if (type.equals("fasta")) return "[filename],[tag],contigs.fasta";
+		if (type.equals("qfile")) return "[filename],[tag],contigs.qual";
+		if (type.equals("report")) return "[filename],[tag],contigs.report";
 		return super.getOutputPattern(type);
 	}
 }

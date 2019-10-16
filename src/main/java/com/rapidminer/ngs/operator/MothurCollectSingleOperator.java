@@ -137,31 +137,31 @@ public class MothurCollectSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("simpson")) return "[filename],simpson";
-		if (type.equals("shannonrange")) return "[filename],shannonrange";
-		if (type.equals("shannoneven")) return "[filename],shannoneven";
-		if (type.equals("nseqs")) return "[filename],nseqs";
-		if (type.equals("jack")) return "[filename],jack";
-		if (type.equals("bergerparker")) return "[filename],bergerparker";
-		if (type.equals("heip")) return "[filename],heip";
 		if (type.equals("shen")) return "[filename],shen";
 		if (type.equals("smithwilson")) return "[filename],smithwilson";
-		if (type.equals("bootstrap")) return "[filename],bootstrap";
-		if (type.equals("efron")) return "[filename],efron";
-		if (type.equals("boneh")) return "[filename],boneh";
-		if (type.equals("coverage")) return "[filename],coverage";
-		if (type.equals("solow")) return "[filename],solow";
-		if (type.equals("geometric")) return "[filename],geometric";
-		if (type.equals("ace")) return "[filename],ace";
-		if (type.equals("goodscoverage")) return "[filename],goodscoverage";
-		if (type.equals("simpsoneven")) return "[filename],simpsoneven";
-		if (type.equals("npshannon")) return "[filename],npshannon";
+		if (type.equals("simpson")) return "[filename],simpson";
 		if (type.equals("sobs")) return "[filename],sobs";
-		if (type.equals("invsimpson")) return "[filename],invsimpson";
-		if (type.equals("shannon")) return "[filename],shannon";
-		if (type.equals("logseries")) return "[filename],logseries";
-		if (type.equals("qstat")) return "[filename],qstat";
+		if (type.equals("shannoneven")) return "[filename],shannoneven";
+		if (type.equals("nseqs")) return "[filename],nseqs";
+		if (type.equals("ace")) return "[filename],ace";
+		if (type.equals("bootstrap")) return "[filename],bootstrap";
+		if (type.equals("coverage")) return "[filename],coverage";
+		if (type.equals("bergerparker")) return "[filename],bergerparker";
 		if (type.equals("bstick")) return "[filename],bstick";
+		if (type.equals("boneh")) return "[filename],boneh";
+		if (type.equals("simpsoneven")) return "[filename],simpsoneven";
+		if (type.equals("geometric")) return "[filename],geometric";
+		if (type.equals("logseries")) return "[filename],logseries";
+		if (type.equals("efron")) return "[filename],efron";
+		if (type.equals("goodscoverage")) return "[filename],goodscoverage";
+		if (type.equals("heip")) return "[filename],heip";
+		if (type.equals("shannon")) return "[filename],shannon";
+		if (type.equals("npshannon")) return "[filename],npshannon";
+		if (type.equals("qstat")) return "[filename],qstat";
+		if (type.equals("shannonrange")) return "[filename],shannonrange";
+		if (type.equals("invsimpson")) return "[filename],invsimpson";
+		if (type.equals("jack")) return "[filename],jack";
+		if (type.equals("solow")) return "[filename],solow";
 		if (type.equals("chao")) return "[filename],chao";
 		return super.getOutputPattern(type);
 	}

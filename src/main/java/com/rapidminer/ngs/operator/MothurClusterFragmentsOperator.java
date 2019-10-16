@@ -66,9 +66,9 @@ public class MothurClusterFragmentsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("count")) return "[filename],fragclust.count_table";
-		if (type.equals("fasta")) return "[filename],fragclust.fasta";
 		if (type.equals("name")) return "[filename],fragclust.names";
+		if (type.equals("fasta")) return "[filename],fragclust.fasta";
+		if (type.equals("count")) return "[filename],fragclust.count_table";
 		return super.getOutputPattern(type);
 	}
 }

@@ -71,10 +71,10 @@ public class MothurConsensusSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("name")) return "[filename],cons.names-[filename],[tag],cons.names";
-		if (type.equals("summary")) return "[filename],cons.summary-[filename],[tag],cons.summary";
 		if (type.equals("count")) return "[filename],cons.count_table-[filename],[tag],cons.count_table";
 		if (type.equals("fasta")) return "[filename],cons.fasta-[filename],[tag],cons.fasta";
+		if (type.equals("summary")) return "[filename],cons.summary-[filename],[tag],cons.summary";
+		if (type.equals("name")) return "[filename],cons.names-[filename],[tag],cons.names";
 		return super.getOutputPattern(type);
 	}
 }

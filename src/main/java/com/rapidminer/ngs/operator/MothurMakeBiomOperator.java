@@ -82,8 +82,8 @@ public class MothurMakeBiomOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("relabund")) return "[filename],[distance],biom_relabund";
 		if (type.equals("shared")) return "[filename],[distance],biom_shared";
+		if (type.equals("relabund")) return "[filename],[distance],biom_relabund";
 		if (type.equals("biom")) return "[filename],[distance],biom";
 		return super.getOutputPattern(type);
 	}

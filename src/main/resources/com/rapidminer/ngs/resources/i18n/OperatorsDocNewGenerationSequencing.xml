@@ -4,10 +4,6 @@
   <group key="" name=""/>
   <group key="NGS_group" name="NGS"/>
   <group key="mothur_group" name="Mothur"/>
-      <operator>
-	<key>mothur_operator_fileset</key>
-        <name>Source Files</name>
-      </operator>
   <operator>
     <key>mothur_mothurnocommandoperator_operator</key>
     <name>NoCommand</name>
@@ -35,10 +31,6 @@
   <operator>
     <key>mothur_mothurbiominfooperator_operator</key>
     <name>BiomInfo</name>
-  </operator>
-  <operator>
-    <key>mothur_mothurcatchalloperator_operator</key>
-    <name>Catchall</name>
   </operator>
   <operator>
     <key>mothur_mothurchimerabellerophonoperator_operator</key>
@@ -171,6 +163,10 @@
   <operator>
     <key>mothur_mothurdistsharedoperator_operator</key>
     <name>DistShared</name>
+  </operator>
+  <operator>
+    <key>mothur_mothurestimatorsingleoperator_operator</key>
+    <name>EstimatorSingle</name>
   </operator>
   <operator>
     <key>mothur_mothurfastqinfooperator_operator</key>
@@ -347,6 +343,10 @@
   <operator>
     <key>mothur_mothurmergegroupsoperator_operator</key>
     <name>MergeGroups</name>
+  </operator>
+  <operator>
+    <key>mothur_mothurmergeotusoperator_operator</key>
+    <name>MergeOtus</name>
   </operator>
   <operator>
     <key>mothur_mothurmergesfffilesoperator_operator</key>

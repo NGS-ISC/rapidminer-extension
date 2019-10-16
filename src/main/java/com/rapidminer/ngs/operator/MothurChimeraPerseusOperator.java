@@ -81,9 +81,9 @@ public class MothurChimeraPerseusOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("accnos")) return "[filename],perseus.accnos";
 		if (type.equals("count")) return "[filename],perseus.pick.count_table";
 		if (type.equals("chimera")) return "[filename],perseus.chimeras";
+		if (type.equals("accnos")) return "[filename],perseus.accnos";
 		return super.getOutputPattern(type);
 	}
 }

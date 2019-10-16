@@ -160,12 +160,12 @@ public class MothurClusterSplitOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("column")) return "[filename],dist";
-		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
+		if (type.equals("column")) return "[filename],dist";
+		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
+		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("sensspec")) return "[filename],[clustertag],sensspec";
 		if (type.equals("file")) return "[filename],file";
-		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
 		return super.getOutputPattern(type);
 	}
 }

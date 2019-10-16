@@ -18,6 +18,9 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort rabundInPort = getInputPorts().createPort("rabund");
 	private InputPort sabundInPort = getInputPorts().createPort("sabund");
+	private InputPort treeInPort = getInputPorts().createPort("tree");
+	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
+	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
@@ -27,10 +30,12 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 	private OutputPort sabundOutPort = getOutputPorts().createPort("sabund");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
+	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SIZE_LABEL = "size:";
 	private static final String PERSAMPLE_LABEL = "persample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -62,6 +67,10 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		addArgument("rabund",rabundFile.getName());
 		FileNameObject sabundFile = sabundInPort.getData(FileNameObject.class);
 		addArgument("sabund",sabundFile.getName());
+		FileNameObject treeFile = treeInPort.getData(FileNameObject.class);
+		addArgument("tree",treeFile.getName());
+		FileNameObject constaxonomyFile = constaxonomyInPort.getData(FileNameObject.class);
+		addArgument("constaxonomy",constaxonomyFile.getName());
 		String labelValue = getParameterAsString(LABEL_LABEL);
 		addArgument("label",String.valueOf(labelValue));
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
@@ -70,6 +79,8 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		addArgument("size",String.valueOf(sizeValue));
 		boolean persampleValue = getParameterAsBoolean(PERSAMPLE_LABEL);
 		addArgument("persample",String.valueOf(persampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -78,6 +89,7 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
@@ -87,6 +99,7 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		sabundOutPort.deliver(new FileNameObject(fileName+".sabund","sabund"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
+		treeOutPort.deliver(new FileNameObject(fileName+".tree","tree"));
 	}
 
 	@Override
@@ -96,6 +109,7 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SIZE_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeBoolean(PERSAMPLE_LABEL, "TODO: Add description", false, true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -105,14 +119,16 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("sabund")) return "[filename],subsample,[extension]";
-		if (type.equals("count")) return "[filename],subsample,[extension]";
-		if (type.equals("group")) return "[filename],subsample,[extension]";
-		if (type.equals("shared")) return "[filename],[distance],subsample,[extension]";
-		if (type.equals("taxonomy")) return "[filename],subsample,[extension]";
 		if (type.equals("rabund")) return "[filename],subsample,[extension]";
 		if (type.equals("name")) return "[filename],subsample,[extension]";
-		if (type.equals("list")) return "[filename],[distance],subsample,[extension]";
+		if (type.equals("shared")) return "[filename],[distance],subsample,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],subsample,[extension]";
+		if (type.equals("group")) return "[filename],subsample,[extension]";
+		if (type.equals("taxonomy")) return "[filename],subsample,[extension]";
 		if (type.equals("fasta")) return "[filename],subsample,[extension]";
+		if (type.equals("tree")) return "[filename],subsample,[extension]";
+		if (type.equals("list")) return "[filename],[distance],subsample,[extension]";
+		if (type.equals("count")) return "[filename],subsample,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

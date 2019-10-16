@@ -86,12 +86,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("name")) return "[filename],[tag],names-[filename],[group],[tag],names";
 		if (type.equals("accnos")) return "[filename],[tag],[tag2],accnos-[filename],[tag],[group],[tag2],accnos";
-		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta-[filename],[tag],[group],[tag2],fasta";
-		if (type.equals("list")) return "[filename],[tag],[tag2],list-[filename],[group],[tag],[tag2],list";
-		if (type.equals("group")) return "[filename],[tag],[tag2],groups-[filename],[tag],[group],[tag2],groups";
+		if (type.equals("name")) return "[filename],[tag],names-[filename],[group],[tag],names";
 		if (type.equals("count")) return "[filename],[tag],[tag2],count_table-[filename],[tag],count_table";
+		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta-[filename],[tag],[group],[tag2],fasta";
+		if (type.equals("group")) return "[filename],[tag],[tag2],groups-[filename],[tag],[group],[tag2],groups";
+		if (type.equals("list")) return "[filename],[tag],[tag2],list-[filename],[group],[tag],[tag2],list";
 		return super.getOutputPattern(type);
 	}
 }

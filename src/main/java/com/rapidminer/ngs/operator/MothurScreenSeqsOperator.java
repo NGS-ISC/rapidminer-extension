@@ -154,16 +154,16 @@ public class MothurScreenSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("taxonomy")) return "[filename],good,[extension]";
-		if (type.equals("contigsreport")) return "[filename],good.contigs.report";
-		if (type.equals("fasta")) return "[filename],good,[extension]";
-		if (type.equals("summary")) return "[filename],good.summary";
-		if (type.equals("name")) return "[filename],good,[extension]";
-		if (type.equals("count")) return "[filename],good,[extension]";
-		if (type.equals("accnos")) return "[filename],bad.accnos";
-		if (type.equals("alignreport")) return "[filename],good.align.report";
 		if (type.equals("group")) return "[filename],good,[extension]";
+		if (type.equals("alignreport")) return "[filename],good.align.report";
+		if (type.equals("summary")) return "[filename],good.summary";
+		if (type.equals("fasta")) return "[filename],good,[extension]";
+		if (type.equals("taxonomy")) return "[filename],good,[extension]";
+		if (type.equals("name")) return "[filename],good,[extension]";
 		if (type.equals("qfile")) return "[filename],good,[extension]";
+		if (type.equals("contigsreport")) return "[filename],good.contigs.report";
+		if (type.equals("accnos")) return "[filename],bad.accnos";
+		if (type.equals("count")) return "[filename],good,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

@@ -104,8 +104,8 @@ public class MothurClassifyOtuOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("constaxonomy")) return "[filename],[distance],cons.taxonomy";
 		if (type.equals("taxsummary")) return "[filename],[distance],cons.tax.summary";
+		if (type.equals("constaxonomy")) return "[filename],[distance],cons.taxonomy";
 		return super.getOutputPattern(type);
 	}
 }

@@ -9,6 +9,12 @@ import com.rapidminer.parameter.*;
 
 public class MothurMergeFilesOperator extends MothurGeneratedOperator {
 
+	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
+	private InputPort fastaInPort = getInputPorts().createPort("fasta");
+	private InputPort nameInPort = getInputPorts().createPort("name");
+	private InputPort countInPort = getInputPorts().createPort("count");
+	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
+	private OutputPort mergeOutPort = getOutputPorts().createPort("merge");
 	private static final String INPUT_LABEL = "input:";
 	private static final String OUTPUT_LABEL = "output:";
 	private static final String SEED_LABEL = "seed:";
@@ -24,6 +30,14 @@ public class MothurMergeFilesOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject taxonomyFile = taxonomyInPort.getData(FileNameObject.class);
+		addArgument("taxonomy",taxonomyFile.getName());
+		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
+		addArgument("fasta",fastaFile.getName());
+		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
+		addArgument("name",nameFile.getName());
+		FileNameObject countFile = countInPort.getData(FileNameObject.class);
+		addArgument("count",countFile.getName());
 		String inputValue = getParameterAsString(INPUT_LABEL);
 		addArgument("input",String.valueOf(inputValue));
 		String outputValue = getParameterAsString(OUTPUT_LABEL);
@@ -36,6 +50,8 @@ public class MothurMergeFilesOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
+		mergeOutPort.deliver(new FileNameObject(fileName+".merge","merge"));
 	}
 
 	@Override
@@ -51,6 +67,8 @@ public class MothurMergeFilesOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("merge")) return "";
+		if (type.equals("fasta")) return "[filename],merged,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

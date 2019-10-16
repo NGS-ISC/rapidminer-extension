@@ -7,27 +7,23 @@ import com.rapidminer.operator.ports.OutputPort;
 import com.rapidminer.operator.OperatorException;
 import com.rapidminer.parameter.*;
 
-public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
+public class MothurMergeOtusOperator extends MothurGeneratedOperator {
 
+	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
-	private InputPort groupInPort = getInputPorts().createPort("group");
-	private InputPort countInPort = getInputPorts().createPort("count");
-	private InputPort designInPort = getInputPorts().createPort("design");
-	private InputPort fastaInPort = getInputPorts().createPort("fasta");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
-	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private InputPort relabundInPort = getInputPorts().createPort("relabund");
+	private InputPort listInPort = getInputPorts().createPort("list");
+	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
+	private OutputPort relabundOutPort = getOutputPorts().createPort("relabund");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
-	private static final String[] METHOD_CHOICES = { "sum", "average", "median" };
-	private static final int METHOD_DEFAULT_CHOICE = 0;
-	private static final String METHOD_LABEL = "method:";
 	private static final String LABEL_LABEL = "label:";
-	private static final String GROUPS_LABEL = "groups:";
+	private static final String TAXLEVEL_LABEL = "taxlevel:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
-	public MothurMergeGroupsOperator (OperatorDescription description) {
+	public MothurMergeOtusOperator (OperatorDescription description) {
 		super(description);
 		// NOTE: Auto-generated constructor stub
 	}
@@ -36,23 +32,18 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject constaxonomyFile = constaxonomyInPort.getData(FileNameObject.class);
+		addArgument("constaxonomy",constaxonomyFile.getName());
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
-		FileNameObject groupFile = groupInPort.getData(FileNameObject.class);
-		addArgument("group",groupFile.getName());
-		FileNameObject countFile = countInPort.getData(FileNameObject.class);
-		addArgument("count",countFile.getName());
-		FileNameObject designFile = designInPort.getData(FileNameObject.class);
-		addArgument("design",designFile.getName());
-		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
-		addArgument("fasta",fastaFile.getName());
-		int methodIndex = getParameterAsInt(METHOD_LABEL);
-		String methodValue = METHOD_CHOICES[methodIndex];
-		addArgument("method",String.valueOf(methodValue));
+		FileNameObject relabundFile = relabundInPort.getData(FileNameObject.class);
+		addArgument("relabund",relabundFile.getName());
+		FileNameObject listFile = listInPort.getData(FileNameObject.class);
+		addArgument("list",listFile.getName());
 		String labelValue = getParameterAsString(LABEL_LABEL);
 		addArgument("label",String.valueOf(labelValue));
-		String groupsValue = getParameterAsString(GROUPS_LABEL);
-		addArgument("groups",String.valueOf(groupsValue));
+		int taxlevelValue = getParameterAsInt(TAXLEVEL_LABEL);
+		addArgument("taxlevel",String.valueOf(taxlevelValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -61,18 +52,17 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
-		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
+		relabundOutPort.deliver(new FileNameObject(fileName+".relabund","relabund"));
 		sharedOutPort.deliver(new FileNameObject(fileName+".shared","shared"));
 	}
 
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
-		parameterTypes.add(new ParameterTypeCategory(METHOD_LABEL, "TODO: Add description", METHOD_CHOICES, METHOD_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeInt(TAXLEVEL_LABEL, "TODO: Add description", -100000000, 100000000, -1, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -81,10 +71,10 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],merge,[extension]";
+		if (type.equals("relabund")) return "[filename],merge,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],[label],merge,cons.taxonomy";
 		if (type.equals("shared")) return "[filename],merge,[extension]";
-		if (type.equals("count")) return "[filename],merge,[extension]";
-		if (type.equals("fasta")) return "[filename],merge,[extension]";
+		if (type.equals("list")) return "[filename],merge,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

@@ -75,8 +75,8 @@ public class MothurChimeraPintailOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("chimera")) return "[filename],[tag],pintail.chimeras-[filename],pintail.chimeras";
 		if (type.equals("accnos")) return "[filename],[tag],pintail.accnos-[filename],pintail.accnos";
+		if (type.equals("chimera")) return "[filename],[tag],pintail.chimeras-[filename],pintail.chimeras";
 		return super.getOutputPattern(type);
 	}
 }

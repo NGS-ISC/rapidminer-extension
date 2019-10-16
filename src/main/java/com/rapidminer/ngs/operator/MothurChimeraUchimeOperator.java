@@ -146,10 +146,10 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("alns")) return "[filename],[tag],uchime.alns";
+		if (type.equals("count")) return "[filename],[tag],uchime.pick.count_table-[filename],count_table";
 		if (type.equals("chimera")) return "[filename],[tag],uchime.chimeras";
-		if (type.equals("count")) return "[filename],[tag],uchime.pick.count_table";
 		if (type.equals("accnos")) return "[filename],[tag],uchime.accnos";
+		if (type.equals("alns")) return "[filename],[tag],uchime.alns";
 		return super.getOutputPattern(type);
 	}
 }

@@ -14,6 +14,7 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort contigsreportInPort = getInputPorts().createPort("contigsreport");
+	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
@@ -24,6 +25,7 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 	private OutputPort mapOutPort = getOutputPorts().createPort("map");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
+	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String DELIM_LABEL = "delim:";
 	private static final String[] PLACEMENT_CHOICES = { "front", "back" };
 	private static final int PLACEMENT_DEFAULT_CHOICE = 1;
@@ -51,6 +53,8 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 		addArgument("qfile",qfileFile.getName());
 		FileNameObject contigsreportFile = contigsreportInPort.getData(FileNameObject.class);
 		addArgument("contigsreport",contigsreportFile.getName());
+		FileNameObject taxonomyFile = taxonomyInPort.getData(FileNameObject.class);
+		addArgument("taxonomy",taxonomyFile.getName());
 		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
 		addArgument("name",nameFile.getName());
 		FileNameObject countFile = countInPort.getData(FileNameObject.class);
@@ -77,6 +81,7 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
+		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
 	}
 
 	@Override
@@ -92,13 +97,14 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("map")) return "[filename],renamed_map";
-		if (type.equals("name")) return "[filename],renamed,[extension]";
-		if (type.equals("contigsreport")) return "[filename],renamed,[extension]";
-		if (type.equals("group")) return "[filename],renamed,[extension]";
+		if (type.equals("qfile")) return "[filename],renamed,[extension]";
 		if (type.equals("count")) return "[filename],renamed,[extension]";
 		if (type.equals("fasta")) return "[filename],renamed,[extension]";
-		if (type.equals("qfile")) return "[filename],renamed,[extension]";
+		if (type.equals("map")) return "[filename],renamed_map";
+		if (type.equals("taxonomy")) return "[filename],renamed,[extension]";
+		if (type.equals("contigsreport")) return "[filename],renamed,[extension]";
+		if (type.equals("group")) return "[filename],renamed,[extension]";
+		if (type.equals("name")) return "[filename],renamed,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

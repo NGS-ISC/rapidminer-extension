@@ -29,6 +29,7 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 	private static final String XN_LABEL = "xn:";
 	private static final String DN_LABEL = "dn:";
 	private static final String MINDIFFS_LABEL = "mindiffs:";
+	private static final String VSEARCH_LABEL = "vsearch:";
 	private static final String DEREPLICATE_LABEL = "dereplicate:";
 
 	public MothurChimeraVsearchOperator (OperatorDescription description) {
@@ -72,6 +73,8 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 		addArgument("dn",String.valueOf(dnValue));
 		int mindiffsValue = getParameterAsInt(MINDIFFS_LABEL);
 		addArgument("mindiffs",String.valueOf(mindiffsValue));
+		String vsearchValue = getParameterAsString(VSEARCH_LABEL);
+		addArgument("vsearch",String.valueOf(vsearchValue));
 		boolean dereplicateValue = getParameterAsBoolean(DEREPLICATE_LABEL);
 		addArgument("dereplicate",String.valueOf(dereplicateValue));
 		executeMothurCommand();
@@ -96,16 +99,17 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeDouble(XN_LABEL, "TODO: Add description", -100000000, 100000000, 8.0, true));
 		parameterTypes.add(new ParameterTypeDouble(DN_LABEL, "TODO: Add description", -100000000, 100000000, 1.4, true));
 		parameterTypes.add(new ParameterTypeInt(MINDIFFS_LABEL, "TODO: Add description", -100000000, 100000000, 3, true));
+		parameterTypes.add(new ParameterTypeString(VSEARCH_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeBoolean(DEREPLICATE_LABEL, "TODO: Add description", false, true));
 		return parameterTypes;
 	}
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("count")) return "[filename],[tag],vsearch.pick.count_table-[filename],count_table";
 		if (type.equals("accnos")) return "[filename],[tag],vsearch.accnos";
-		if (type.equals("alns")) return "[filename],[tag],vsearch.alns";
 		if (type.equals("chimera")) return "[filename],[tag],vsearch.chimeras";
-		if (type.equals("count")) return "[filename],[tag],vsearch.pick.count_table";
+		if (type.equals("alns")) return "[filename],[tag],vsearch.alns";
 		return super.getOutputPattern(type);
 	}
 }

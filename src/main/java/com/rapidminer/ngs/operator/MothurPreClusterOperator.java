@@ -16,7 +16,6 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort mapOutPort = getOutputPorts().createPort("map");
-	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String DIFFS_LABEL = "diffs:";
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String[] ALIGN_CHOICES = { "needleman", "gotoh", "blast", "noalign" };
@@ -26,7 +25,15 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 	private static final String MISMATCH_LABEL = "mismatch:";
 	private static final String GAPOPEN_LABEL = "gapopen:";
 	private static final String GAPEXTEND_LABEL = "gapextend:";
-	private static final String TOPDOWN_LABEL = "topdown:";
+	private static final String ALPHA_LABEL = "alpha:";
+	private static final String DELTA_LABEL = "delta:";
+	private static final String[] METHOD_CHOICES = { "simple", "unoise", "tree", "deblur" };
+	private static final int METHOD_DEFAULT_CHOICE = 0;
+	private static final String METHOD_LABEL = "method:";
+	private static final String ERROR_RATE_LABEL = "error_rate:";
+	private static final String INDEL_PROB_LABEL = "indel_prob:";
+	private static final String MAX_INDELS_LABEL = "max_indels:";
+	private static final String ERROR_DIST_LABEL = "error_dist:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -63,8 +70,21 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 		addArgument("gapopen",String.valueOf(gapopenValue));
 		int gapextendValue = getParameterAsInt(GAPEXTEND_LABEL);
 		addArgument("gapextend",String.valueOf(gapextendValue));
-		boolean topdownValue = getParameterAsBoolean(TOPDOWN_LABEL);
-		addArgument("topdown",String.valueOf(topdownValue));
+		int alphaValue = getParameterAsInt(ALPHA_LABEL);
+		addArgument("alpha",String.valueOf(alphaValue));
+		int deltaValue = getParameterAsInt(DELTA_LABEL);
+		addArgument("delta",String.valueOf(deltaValue));
+		int methodIndex = getParameterAsInt(METHOD_LABEL);
+		String methodValue = METHOD_CHOICES[methodIndex];
+		addArgument("method",String.valueOf(methodValue));
+		int error_rateValue = getParameterAsInt(ERROR_RATE_LABEL);
+		addArgument("error_rate",String.valueOf(error_rateValue));
+		int indel_probValue = getParameterAsInt(INDEL_PROB_LABEL);
+		addArgument("indel_prob",String.valueOf(indel_probValue));
+		int max_indelsValue = getParameterAsInt(MAX_INDELS_LABEL);
+		addArgument("max_indels",String.valueOf(max_indelsValue));
+		String error_distValue = getParameterAsString(ERROR_DIST_LABEL);
+		addArgument("error_dist",String.valueOf(error_distValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -76,7 +96,6 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		mapOutPort.deliver(new FileNameObject(fileName+".map","map"));
-		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
 	@Override
@@ -89,7 +108,13 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeDouble(MISMATCH_LABEL, "TODO: Add description", -100000000, 100000000, -1.0, true));
 		parameterTypes.add(new ParameterTypeDouble(GAPOPEN_LABEL, "TODO: Add description", -100000000, 100000000, -2.0, true));
 		parameterTypes.add(new ParameterTypeDouble(GAPEXTEND_LABEL, "TODO: Add description", -100000000, 100000000, -1.0, true));
-		parameterTypes.add(new ParameterTypeBoolean(TOPDOWN_LABEL, "TODO: Add description", true, true));
+		parameterTypes.add(new ParameterTypeDouble(ALPHA_LABEL, "TODO: Add description", -100000000, 100000000, 2.0, true));
+		parameterTypes.add(new ParameterTypeDouble(DELTA_LABEL, "TODO: Add description", -100000000, 100000000, 2.0, true));
+		parameterTypes.add(new ParameterTypeCategory(METHOD_LABEL, "TODO: Add description", METHOD_CHOICES, METHOD_DEFAULT_CHOICE));
+		parameterTypes.add(new ParameterTypeDouble(ERROR_RATE_LABEL, "TODO: Add description", -100000000, 100000000, 0.005, true));
+		parameterTypes.add(new ParameterTypeDouble(INDEL_PROB_LABEL, "TODO: Add description", -100000000, 100000000, 0.01, true));
+		parameterTypes.add(new ParameterTypeInt(MAX_INDELS_LABEL, "TODO: Add description", -100000000, 100000000, 3, true));
+		parameterTypes.add(new ParameterTypeString(ERROR_DIST_LABEL, "TODO: Add description", "1-0.06-0.02-0.02-0.01-0.005-0.005-0.005-0.001-0.001-0.001-0.0005", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -98,10 +123,9 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("count")) return "[filename],precluster.count_table";
-		if (type.equals("map")) return "[filename],precluster.map";
 		if (type.equals("fasta")) return "[filename],precluster,[extension]";
-		if (type.equals("name")) return "[filename],precluster.names";
+		if (type.equals("map")) return "[filename],precluster.map";
+		if (type.equals("count")) return "[filename],precluster.count_table";
 		return super.getOutputPattern(type);
 	}
 }

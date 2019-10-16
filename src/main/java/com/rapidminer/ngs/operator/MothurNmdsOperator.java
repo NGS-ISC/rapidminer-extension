@@ -75,9 +75,9 @@ public class MothurNmdsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("stress")) return "[filename],nmds.stress";
 		if (type.equals("iters")) return "[filename],nmds.iters";
 		if (type.equals("nmds")) return "[filename],nmds.axes";
+		if (type.equals("stress")) return "[filename],nmds.stress";
 		return super.getOutputPattern(type);
 	}
 }

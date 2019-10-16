@@ -21,11 +21,13 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 	private static final String CALC_LABEL = "calc:";
 	private static final String SUBSAMPLEITERS_LABEL = "subsampleiters:";
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String JUMBLE_LABEL = "jumble:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String SETS_LABEL = "sets:";
 	private static final String GROUPMODE_LABEL = "groupmode:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
@@ -55,6 +57,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 		addArgument("subsampleiters",String.valueOf(subsampleitersValue));
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		boolean jumbleValue = getParameterAsBoolean(JUMBLE_LABEL);
 		addArgument("jumble",String.valueOf(jumbleValue));
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
@@ -65,6 +69,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 		addArgument("groupmode",String.valueOf(groupmodeValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
+		addArgument("processors",String.valueOf(processorsValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
 		addArgument("inputdir",String.valueOf(inputdirValue));
 		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
@@ -84,11 +90,13 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeCategory(CALC_LABEL, "TODO: Add description", CALC_CHOICES, CALC_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeInt(SUBSAMPLEITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(JUMBLE_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(SETS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeBoolean(GROUPMODE_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
@@ -96,8 +104,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("sharedrarefaction")) return "[filename],shared.rarefaction";
 		if (type.equals("sharedr_nseqs")) return "[filename],shared.r_nseqs";
+		if (type.equals("sharedrarefaction")) return "[filename],shared.rarefaction";
 		return super.getOutputPattern(type);
 	}
 }

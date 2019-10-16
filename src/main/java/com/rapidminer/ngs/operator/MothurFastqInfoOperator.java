@@ -15,6 +15,7 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 	private InputPort groupInPort = getInputPorts().createPort("group");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort fastqOutPort = getOutputPorts().createPort("fastq");
+	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private static final String CHECKORIENT_LABEL = "checkorient:";
 	private static final String PDIFFS_LABEL = "pdiffs:";
@@ -26,7 +27,7 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 	private static final String QFILE_LABEL = "qfile:";
 	private static final String PACBIO_LABEL = "pacbio:";
 	private static final String[] FORMAT_CHOICES = { "sanger", "illumina", "solexa", "illumina1.8+" };
-	private static final int FORMAT_DEFAULT_CHOICE = 0;
+	private static final int FORMAT_DEFAULT_CHOICE = 3;
 	private static final String FORMAT_LABEL = "format:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -80,6 +81,7 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		fastqOutPort.deliver(new FileNameObject(fileName+".fastq","fastq"));
+		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 	}
 
@@ -105,6 +107,7 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("fasta")) return "[filename],fasta-[filename],[group],[tag],fasta-[filename],[group],fasta";
+		if (type.equals("group")) return "[filename],group";
 		if (type.equals("fastq")) return "[filename],[group],fastq-[filename],[group],[tag],fastq";
 		if (type.equals("qfile")) return "[filename],qual-[filename],[group],[tag],qual-[filename],[group],qual";
 		return super.getOutputPattern(type);

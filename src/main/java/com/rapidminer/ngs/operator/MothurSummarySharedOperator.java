@@ -14,6 +14,7 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String LABEL_LABEL = "label:";
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String DISTANCE_LABEL = "distance:";
 	private static final String[] CALC_CHOICES = { "sharedchao", "sharedsobs", "sharedace", "jabund", "sorabund", "jclass", "sorclass", "jest", "sorest", "thetayc", "thetan", "kstest", "whittaker", "sharednseqs", "ochiai", "anderberg", "kulczynski", "kulczynskicody", "lennon", "morisitahorn", "braycurtis", "odum", "canberra", "structeuclidean", "structchord", "hellinger", "manhattan", "structpearson", "soergel", "spearman", "structkulczynski", "speciesprofile", "structchi2", "hamming", "gower", "memchi2", "memchord", "memeuclidean", "mempearson", "jsd", "rjsd" };
 	private static final int CALC_DEFAULT_CHOICE = 0;
@@ -44,6 +45,8 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 		addArgument("label",String.valueOf(labelValue));
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		boolean distanceValue = getParameterAsBoolean(DISTANCE_LABEL);
 		addArgument("distance",String.valueOf(distanceValue));
 		int calcIndex = getParameterAsInt(CALC_LABEL);
@@ -77,6 +80,7 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(DISTANCE_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(CALC_LABEL, "TODO: Add description", CALC_CHOICES, CALC_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeCategory(OUTPUT_LABEL, "TODO: Add description", OUTPUT_CHOICES, OUTPUT_DEFAULT_CHOICE));

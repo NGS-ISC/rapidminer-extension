@@ -42,6 +42,7 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 	private static final String ALPHA_LABEL = "alpha:";
 	private static final String GROUPMODE_LABEL = "groupmode:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
@@ -82,6 +83,8 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 		addArgument("groupmode",String.valueOf(groupmodeValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
+		addArgument("processors",String.valueOf(processorsValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
 		addArgument("inputdir",String.valueOf(inputdirValue));
 		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
@@ -118,6 +121,7 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeCategory(ALPHA_LABEL, "TODO: Add description", ALPHA_CHOICES, ALPHA_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeBoolean(GROUPMODE_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;
@@ -125,22 +129,22 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("r_ace")) return "[filename],r_ace";
 		if (type.equals("rarefaction")) return "[filename],rarefaction";
+		if (type.equals("r_shannon")) return "[filename],r_shannon";
+		if (type.equals("r_smithwilson")) return "[filename],r_smithwilson";
+		if (type.equals("r_heip")) return "[filename],r_heip";
+		if (type.equals("r_simpsoneven")) return "[filename],r_simpsoneven";
+		if (type.equals("r_invsimpson")) return "[filename],r_invsimpson";
+		if (type.equals("r_shannonrange")) return "[filename],r_shannonrange";
+		if (type.equals("r_coverage")) return "[filename],r_coverage";
+		if (type.equals("r_simpson")) return "[filename],r_simpson";
+		if (type.equals("r_nseqs")) return "[filename],r_nseqs";
+		if (type.equals("r_shannoneven")) return "[filename],r_shannoneven";
+		if (type.equals("r_npshannon")) return "[filename],r_npshannon";
 		if (type.equals("r_chao")) return "[filename],r_chao";
 		if (type.equals("r_bootstrap")) return "[filename],r_bootstrap";
-		if (type.equals("r_heip")) return "[filename],r_heip";
-		if (type.equals("r_npshannon")) return "[filename],r_npshannon";
-		if (type.equals("r_smithwilson")) return "[filename],r_smithwilson";
 		if (type.equals("r_jack")) return "[filename],r_jack";
-		if (type.equals("r_coverage")) return "[filename],r_coverage";
-		if (type.equals("r_shannoneven")) return "[filename],r_shannoneven";
-		if (type.equals("r_nseqs")) return "[filename],r_nseqs";
-		if (type.equals("r_simpson")) return "[filename],r_simpson";
-		if (type.equals("r_ace")) return "[filename],r_ace";
-		if (type.equals("r_shannonrange")) return "[filename],r_shannonrange";
-		if (type.equals("r_invsimpson")) return "[filename],r_invsimpson";
-		if (type.equals("r_shannon")) return "[filename],r_shannon";
-		if (type.equals("r_simpsoneven")) return "[filename],r_simpsoneven";
 		return super.getOutputPattern(type);
 	}
 }

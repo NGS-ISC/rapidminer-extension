@@ -162,9 +162,9 @@ public class MothurSffMultipleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],groups";
 		if (type.equals("name")) return "[filename],names";
 		if (type.equals("fasta")) return "[filename],fasta";
+		if (type.equals("group")) return "[filename],groups";
 		return super.getOutputPattern(type);
 	}
 }

@@ -22,6 +22,7 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 	private static final String ITERS_LABEL = "iters:";
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String CONSENSUS_LABEL = "consensus:";
 	private static final String RANDOM_LABEL = "random:";
 	private static final String[] DISTANCE_CHOICES = { "column", "lt", "square", "phylip" };
@@ -57,6 +58,8 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 		addArgument("processors",String.valueOf(processorsValue));
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		boolean consensusValue = getParameterAsBoolean(CONSENSUS_LABEL);
 		addArgument("consensus",String.valueOf(consensusValue));
 		boolean randomValue = getParameterAsBoolean(RANDOM_LABEL);
@@ -88,6 +91,7 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(CONSENSUS_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(RANDOM_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(DISTANCE_LABEL, "TODO: Add description", DISTANCE_CHOICES, DISTANCE_DEFAULT_CHOICE));
@@ -100,11 +104,11 @@ public class MothurUnifracWeightedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("wsummary")) return "[filename],[tag],wsummary";
-		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
-		if (type.equals("tree")) return "[filename],[tag],[tag2],tre";
 		if (type.equals("phylip")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("weighted")) return "[filename],weighted-[filename],[tag],weighted";
+		if (type.equals("tree")) return "[filename],[tag],[tag2],tre";
+		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
+		if (type.equals("wsummary")) return "[filename],[tag],wsummary";
 		return super.getOutputPattern(type);
 	}
 }

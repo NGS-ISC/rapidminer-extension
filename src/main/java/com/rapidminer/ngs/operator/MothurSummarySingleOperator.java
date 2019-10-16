@@ -15,6 +15,7 @@ public class MothurSummarySingleOperator extends MothurGeneratedOperator {
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private OutputPort summaryOutPort = getOutputPorts().createPort("summary");
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String ITERS_LABEL = "iters:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String[] CALC_CHOICES = { "sobs", "chao", "nseqs", "coverage", "ace", "jack", "shannon", "shannoneven", "npshannon", "heip", "smithwilson", "simpson", "simpsoneven", "invsimpson", "bootstrap", "geometric", "qstat", "logseries", "bergerparker", "bstick", "goodscoverage", "efron", "boneh", "solow", "shen" };
@@ -49,6 +50,8 @@ public class MothurSummarySingleOperator extends MothurGeneratedOperator {
 		addArgument("shared",sharedFile.getName());
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		int itersValue = getParameterAsInt(ITERS_LABEL);
 		addArgument("iters",String.valueOf(itersValue));
 		String labelValue = getParameterAsString(LABEL_LABEL);
@@ -80,6 +83,7 @@ public class MothurSummarySingleOperator extends MothurGeneratedOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeCategory(CALC_LABEL, "TODO: Add description", CALC_CHOICES, CALC_DEFAULT_CHOICE));

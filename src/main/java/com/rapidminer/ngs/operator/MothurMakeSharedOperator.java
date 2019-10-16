@@ -69,9 +69,9 @@ public class MothurMakeSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("group")) return "[filename],[group],groups";
 		if (type.equals("map")) return "[filename],map";
 		if (type.equals("shared")) return "[filename],shared-[filename],[distance],shared";
-		if (type.equals("group")) return "[filename],[group],groups";
 		return super.getOutputPattern(type);
 	}
 }

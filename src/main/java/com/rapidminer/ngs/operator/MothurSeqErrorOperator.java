@@ -95,16 +95,16 @@ public class MothurSeqErrorOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("errorforward")) return "[filename],error.seq.forward";
-		if (type.equals("errorseq")) return "[filename],error.seq";
-		if (type.equals("errormatrix")) return "[filename],error.matrix";
-		if (type.equals("errorquality")) return "[filename],error.quality";
-		if (type.equals("errorref-query")) return "[filename],error.ref-query";
-		if (type.equals("errorchimera")) return "[filename],error.chimera";
-		if (type.equals("errorsummary")) return "[filename],error.summary";
 		if (type.equals("errorreverse")) return "[filename],error.seq.reverse";
+		if (type.equals("errorquality")) return "[filename],error.quality";
+		if (type.equals("errormatrix")) return "[filename],error.matrix";
 		if (type.equals("errorqualforward")) return "[filename],error.qual.forward";
+		if (type.equals("errorref-query")) return "[filename],error.ref-query";
+		if (type.equals("errorsummary")) return "[filename],error.summary";
+		if (type.equals("errorforward")) return "[filename],error.seq.forward";
 		if (type.equals("errorcount")) return "[filename],error.count";
+		if (type.equals("errorchimera")) return "[filename],error.chimera";
+		if (type.equals("errorseq")) return "[filename],error.seq";
 		if (type.equals("errorqualreverse")) return "[filename],error.qual.reverse";
 		return super.getOutputPattern(type);
 	}

@@ -9,9 +9,12 @@ import com.rapidminer.parameter.*;
 
 public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 
+	private InputPort columnInPort = getInputPorts().createPort("column");
+	private InputPort oldfastaInPort = getInputPorts().createPort("oldfasta");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private OutputPort columnOutPort = getOutputPorts().createPort("column");
 	private OutputPort phylipOutPort = getOutputPorts().createPort("phylip");
+	private static final String FITCALC_LABEL = "fitcalc:";
 	private static final String[] ALIGN_CHOICES = { "needleman", "gotoh", "blast", "noalign" };
 	private static final int ALIGN_DEFAULT_CHOICE = 0;
 	private static final String ALIGN_LABEL = "align:";
@@ -42,8 +45,14 @@ public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject columnFile = columnInPort.getData(FileNameObject.class);
+		addArgument("column",columnFile.getName());
+		FileNameObject oldfastaFile = oldfastaInPort.getData(FileNameObject.class);
+		addArgument("oldfasta",oldfastaFile.getName());
 		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
 		addArgument("fasta",fastaFile.getName());
+		boolean fitcalcValue = getParameterAsBoolean(FITCALC_LABEL);
+		addArgument("fitcalc",String.valueOf(fitcalcValue));
 		int alignIndex = getParameterAsInt(ALIGN_LABEL);
 		String alignValue = ALIGN_CHOICES[alignIndex];
 		addArgument("align",String.valueOf(alignValue));
@@ -84,6 +93,7 @@ public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
+		parameterTypes.add(new ParameterTypeBoolean(FITCALC_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(ALIGN_LABEL, "TODO: Add description", ALIGN_CHOICES, ALIGN_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeDouble(MATCH_LABEL, "TODO: Add description", -100000000, 100000000, 1.0, true));
 		parameterTypes.add(new ParameterTypeDouble(MISMATCH_LABEL, "TODO: Add description", -100000000, 100000000, -1.0, true));

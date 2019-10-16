@@ -25,6 +25,7 @@ public class MothurDistSharedOperator extends MothurGeneratedOperator {
 	private static final String MODE_LABEL = "mode:";
 	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String ITERS_LABEL = "iters:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -59,6 +60,8 @@ public class MothurDistSharedOperator extends MothurGeneratedOperator {
 		addArgument("processors",String.valueOf(processorsValue));
 		int itersValue = getParameterAsInt(ITERS_LABEL);
 		addArgument("iters",String.valueOf(itersValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -81,6 +84,7 @@ public class MothurDistSharedOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeCategory(MODE_LABEL, "TODO: Add description", MODE_CHOICES, MODE_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));

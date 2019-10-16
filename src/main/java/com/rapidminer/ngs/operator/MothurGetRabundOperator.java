@@ -9,6 +9,7 @@ import com.rapidminer.parameter.*;
 
 public class MothurGetRabundOperator extends MothurGeneratedOperator {
 
+	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort sabundInPort = getInputPorts().createPort("sabund");
@@ -16,6 +17,7 @@ public class MothurGetRabundOperator extends MothurGeneratedOperator {
 	private static final String SORTED_LABEL = "sorted:";
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
+	private static final String GROUPS_LABEL = "groups:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
 
@@ -28,6 +30,8 @@ public class MothurGetRabundOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
+		addArgument("shared",sharedFile.getName());
 		FileNameObject listFile = listInPort.getData(FileNameObject.class);
 		addArgument("list",listFile.getName());
 		FileNameObject countFile = countInPort.getData(FileNameObject.class);
@@ -40,6 +44,8 @@ public class MothurGetRabundOperator extends MothurGeneratedOperator {
 		addArgument("label",String.valueOf(labelValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
+		String groupsValue = getParameterAsString(GROUPS_LABEL);
+		addArgument("groups",String.valueOf(groupsValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
 		addArgument("inputdir",String.valueOf(inputdirValue));
 		String outputdirValue = getParameterAsString(OUTPUTDIR_LABEL);
@@ -55,6 +61,7 @@ public class MothurGetRabundOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeBoolean(SORTED_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
 		return parameterTypes;

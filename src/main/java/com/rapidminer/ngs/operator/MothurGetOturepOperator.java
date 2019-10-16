@@ -27,7 +27,7 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 	private static final String[] METHOD_CHOICES = { "distance", "abundance" };
 	private static final int METHOD_DEFAULT_CHOICE = 0;
 	private static final String METHOD_LABEL = "method:";
-	private static final String LARGE_LABEL = "large:";
+	private static final String RENAME_LABEL = "rename:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -68,8 +68,8 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 		int methodIndex = getParameterAsInt(METHOD_LABEL);
 		String methodValue = METHOD_CHOICES[methodIndex];
 		addArgument("method",String.valueOf(methodValue));
-		boolean largeValue = getParameterAsBoolean(LARGE_LABEL);
-		addArgument("large",String.valueOf(largeValue));
+		boolean renameValue = getParameterAsBoolean(RENAME_LABEL);
+		addArgument("rename",String.valueOf(renameValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -92,7 +92,7 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeInt(PRECISION_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeBoolean(WEIGHTED_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeCategory(METHOD_LABEL, "TODO: Add description", METHOD_CHOICES, METHOD_DEFAULT_CHOICE));
-		parameterTypes.add(new ParameterTypeBoolean(LARGE_LABEL, "TODO: Add description", false, true));
+		parameterTypes.add(new ParameterTypeBoolean(RENAME_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -101,8 +101,8 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("count")) return "[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		if (type.equals("name")) return "[filename],[tag],rep.names-[filename],[tag],[group],rep.names";
+		if (type.equals("count")) return "[filename],count_table-[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		if (type.equals("fasta")) return "[filename],[tag],rep.fasta-[filename],[tag],[group],rep.fasta";
 		return super.getOutputPattern(type);
 	}

@@ -12,15 +12,11 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort flowInPort = getInputPorts().createPort("flow");
 	private InputPort nameInPort = getInputPorts().createPort("name");
-	private InputPort countInPort = getInputPorts().createPort("count");
-	private InputPort groupInPort = getInputPorts().createPort("group");
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
-	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
-	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
@@ -44,10 +40,6 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 		addArgument("flow",flowFile.getName());
 		FileNameObject nameFile = nameInPort.getData(FileNameObject.class);
 		addArgument("name",nameFile.getName());
-		FileNameObject countFile = countInPort.getData(FileNameObject.class);
-		addArgument("count",countFile.getName());
-		FileNameObject groupFile = groupInPort.getData(FileNameObject.class);
-		addArgument("group",groupFile.getName());
 		FileNameObject taxonomyFile = taxonomyInPort.getData(FileNameObject.class);
 		addArgument("taxonomy",taxonomyFile.getName());
 		FileNameObject qfileFile = qfileInPort.getData(FileNameObject.class);
@@ -64,10 +56,8 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
-		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 		qfileOutPort.deliver(new FileNameObject(fileName+".qfile","qfile"));
 		taxonomyOutPort.deliver(new FileNameObject(fileName+".taxonomy","taxonomy"));
@@ -85,13 +75,11 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("taxonomy")) return "[filename],sorted,[extension]";
+		if (type.equals("name")) return "[filename],sorted,[extension]";
+		if (type.equals("fasta")) return "[filename],sorted,[extension]";
 		if (type.equals("flow")) return "[filename],sorted,[extension]";
 		if (type.equals("qfile")) return "[filename],sorted,[extension]";
-		if (type.equals("group")) return "[filename],sorted,[extension]";
-		if (type.equals("taxonomy")) return "[filename],sorted,[extension]";
-		if (type.equals("fasta")) return "[filename],sorted,[extension]";
-		if (type.equals("name")) return "[filename],sorted,[extension]";
-		if (type.equals("count")) return "[filename],sorted,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

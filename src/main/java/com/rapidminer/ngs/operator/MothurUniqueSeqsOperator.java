@@ -65,9 +65,9 @@ public class MothurUniqueSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("count")) return "[filename],count_table-[filename],[tag],count_table";
-		if (type.equals("fasta")) return "[filename],unique,[extension]";
 		if (type.equals("name")) return "[filename],names-[filename],[tag],names";
+		if (type.equals("fasta")) return "[filename],unique,[extension]";
+		if (type.equals("count")) return "[filename],count_table-[filename],[tag],count_table";
 		return super.getOutputPattern(type);
 	}
 }

@@ -7,11 +7,6 @@
   <group key="">
     <group key="NGS_group">
       <group key="mothur_group">
-      <operator>
-        <key>mothur_operator_fileset</key>
-        <class>com.rapidminer.ngs.operator.MoturFileSetOperator</class>
-        <icon>icon-operator-fileset.png</icon>
-      </operator>
 	<operator>
 	  <key>mothur_mothurnocommandoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurNoCommandOperator</class>
@@ -46,11 +41,6 @@
 	  <key>mothur_mothurbiominfooperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurBiomInfoOperator</class>
 	  <icon>icon-operator-mothurbiominfooperator.png</icon>
-	</operator>
-	<operator>
-	  <key>mothur_mothurcatchalloperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurCatchallOperator</class>
-	  <icon>icon-operator-mothurcatchalloperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurchimerabellerophonoperator_operator</key>
@@ -216,6 +206,11 @@
 	  <key>mothur_mothurdistsharedoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurDistSharedOperator</class>
 	  <icon>icon-operator-mothurdistsharedoperator.png</icon>
+	</operator>
+	<operator>
+	  <key>mothur_mothurestimatorsingleoperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurEstimatorSingleOperator</class>
+	  <icon>icon-operator-mothurestimatorsingleoperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurfastqinfooperator_operator</key>
@@ -436,6 +431,11 @@
 	  <key>mothur_mothurmergegroupsoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurMergeGroupsOperator</class>
 	  <icon>icon-operator-mothurmergegroupsoperator.png</icon>
+	</operator>
+	<operator>
+	  <key>mothur_mothurmergeotusoperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurMergeOtusOperator</class>
+	  <icon>icon-operator-mothurmergeotusoperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurmergesfffilesoperator_operator</key>

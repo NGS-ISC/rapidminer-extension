@@ -9,6 +9,7 @@ import com.rapidminer.parameter.*;
 
 public class MothurFilterSharedOperator extends MothurGeneratedOperator {
 
+	private InputPort accnosInPort = getInputPorts().createPort("accnos");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private static final String LABEL_LABEL = "label:";
@@ -34,6 +35,8 @@ public class MothurFilterSharedOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject accnosFile = accnosInPort.getData(FileNameObject.class);
+		addArgument("accnos",accnosFile.getName());
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
 		String labelValue = getParameterAsString(LABEL_LABEL);

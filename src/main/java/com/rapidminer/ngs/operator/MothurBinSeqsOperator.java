@@ -14,6 +14,7 @@ public class MothurBinSeqsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
+	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
@@ -49,6 +50,7 @@ public class MothurBinSeqsOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 	}
 
@@ -65,6 +67,7 @@ public class MothurBinSeqsOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("fasta")) return "[filename],[distance],fasta";
+		if (type.equals("count")) return "[filename],count_table";
 		return super.getOutputPattern(type);
 	}
 }

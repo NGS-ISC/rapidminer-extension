@@ -18,6 +18,7 @@ public class MothurRemoveLineageOperator extends MothurGeneratedOperator {
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
 	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
+	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
 	private OutputPort constaxonomyOutPort = getOutputPorts().createPort("constaxonomy");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
@@ -75,6 +76,7 @@ public class MothurRemoveLineageOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
+		accnosOutPort.deliver(new FileNameObject(fileName+".accnos","accnos"));
 		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
 		constaxonomyOutPort.deliver(new FileNameObject(fileName+".constaxonomy","constaxonomy"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
@@ -100,14 +102,15 @@ public class MothurRemoveLineageOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("count")) return "[filename],pick,[extension]";
+		if (type.equals("accnos")) return "[filename],accnos";
+		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
+		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],pick.cons.taxonomy";
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("fasta")) return "[filename],pick,[extension]";
-		if (type.equals("count")) return "[filename],pick,[extension]";
-		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
-		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("alignreport")) return "[filename],pick.align.report";
 		return super.getOutputPattern(type);
 	}

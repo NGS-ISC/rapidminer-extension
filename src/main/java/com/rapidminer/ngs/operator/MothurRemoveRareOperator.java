@@ -90,11 +90,11 @@ public class MothurRemoveRareOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
-		if (type.equals("sabund")) return "[filename],pick,[extension]";
-		if (type.equals("rabund")) return "[filename],pick,[extension]";
-		if (type.equals("group")) return "[filename],pick,[extension]";
 		if (type.equals("list")) return "[filename],[tag],pick,[extension]";
 		if (type.equals("count")) return "[filename],pick,[extension]";
+		if (type.equals("rabund")) return "[filename],pick,[extension]";
+		if (type.equals("sabund")) return "[filename],pick,[extension]";
+		if (type.equals("group")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

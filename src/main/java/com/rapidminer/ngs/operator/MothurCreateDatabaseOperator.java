@@ -16,6 +16,7 @@ public class MothurCreateDatabaseOperator extends MothurGeneratedOperator {
 	private InputPort constaxonomyInPort = getInputPorts().createPort("constaxonomy");
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
+	private InputPort relabundInPort = getInputPorts().createPort("relabund");
 	private OutputPort databaseOutPort = getOutputPorts().createPort("database");
 	private static final String LABEL_LABEL = "label:";
 	private static final String SEED_LABEL = "seed:";
@@ -45,6 +46,8 @@ public class MothurCreateDatabaseOperator extends MothurGeneratedOperator {
 		addArgument("list",listFile.getName());
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
+		FileNameObject relabundFile = relabundInPort.getData(FileNameObject.class);
+		addArgument("relabund",relabundFile.getName());
 		String labelValue = getParameterAsString(LABEL_LABEL);
 		addArgument("label",String.valueOf(labelValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);

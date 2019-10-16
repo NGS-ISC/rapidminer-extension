@@ -17,6 +17,7 @@ public class MothurTreeSharedOperator extends MothurGeneratedOperator {
 	private OutputPort treeOutPort = getOutputPorts().createPort("tree");
 	private static final String ITERS_LABEL = "iters:";
 	private static final String SUBSAMPLE_LABEL = "subsample:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String PRECISION_LABEL = "precision:";
 	private static final String LABEL_LABEL = "label:";
@@ -52,6 +53,8 @@ public class MothurTreeSharedOperator extends MothurGeneratedOperator {
 		addArgument("iters",String.valueOf(itersValue));
 		String subsampleValue = getParameterAsString(SUBSAMPLE_LABEL);
 		addArgument("subsample",String.valueOf(subsampleValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		int cutoffValue = getParameterAsInt(CUTOFF_LABEL);
 		addArgument("cutoff",String.valueOf(cutoffValue));
 		int precisionValue = getParameterAsInt(PRECISION_LABEL);
@@ -81,6 +84,7 @@ public class MothurTreeSharedOperator extends MothurGeneratedOperator {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeString(SUBSAMPLE_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(CUTOFF_LABEL, "TODO: Add description", -100000000, 100000000, 10, true));
 		parameterTypes.add(new ParameterTypeInt(PRECISION_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));

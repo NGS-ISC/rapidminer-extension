@@ -93,9 +93,9 @@ public class MothurPrimerDesignOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("list")) return "[filename],pick,[extension]";
 		if (type.equals("summary")) return "[filename],[distance],primer.summary";
 		if (type.equals("fasta")) return "[filename],[distance],otu.cons.fasta";
-		if (type.equals("list")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

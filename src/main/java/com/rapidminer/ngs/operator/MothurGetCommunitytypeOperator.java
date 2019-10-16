@@ -26,6 +26,7 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 	private static final String MINPARTITIONS_LABEL = "minpartitions:";
 	private static final String MAXPARTITIONS_LABEL = "maxpartitions:";
 	private static final String OPTIMIZEGAP_LABEL = "optimizegap:";
+	private static final String WITHREPLACEMENT_LABEL = "withreplacement:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -61,6 +62,8 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 		addArgument("maxpartitions",String.valueOf(maxpartitionsValue));
 		int optimizegapValue = getParameterAsInt(OPTIMIZEGAP_LABEL);
 		addArgument("optimizegap",String.valueOf(optimizegapValue));
+		boolean withreplacementValue = getParameterAsBoolean(WITHREPLACEMENT_LABEL);
+		addArgument("withreplacement",String.valueOf(withreplacementValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -91,6 +94,7 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeInt(MINPARTITIONS_LABEL, "TODO: Add description", -100000000, 100000000, 5, true));
 		parameterTypes.add(new ParameterTypeInt(MAXPARTITIONS_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeInt(OPTIMIZEGAP_LABEL, "TODO: Add description", -100000000, 100000000, 3, true));
+		parameterTypes.add(new ParameterTypeBoolean(WITHREPLACEMENT_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -102,10 +106,10 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 	public String getOutputPattern(String type) {
 		if (type.equals("parameters")) return "[filename],[distance],[method],mix.parameters";
 		if (type.equals("relabund")) return "[filename],[distance],[method],[tag],mix.relabund";
-		if (type.equals("design")) return "[filename],[distance],[method],mix.design";
 		if (type.equals("matrix")) return "[filename],[distance],[method],[tag],mix.posterior";
-		if (type.equals("summary")) return "[filename],[distance],[method],mix.summary";
+		if (type.equals("design")) return "[filename],[distance],[method],mix.design";
 		if (type.equals("fit")) return "[filename],[distance],[method],mix.fit";
+		if (type.equals("summary")) return "[filename],[distance],[method],mix.summary";
 		return super.getOutputPattern(type);
 	}
 }
