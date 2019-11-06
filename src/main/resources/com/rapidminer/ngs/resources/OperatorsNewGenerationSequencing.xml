@@ -7,6 +7,11 @@
   <group key="">
     <group key="NGS_group">
       <group key="mothur_group">
+      <operator>
+        <key>mothur_operator_fileset</key>
+        <class>com.rapidminer.ngs.operator.MothurFileSetOperator</class>
+        <icon>icon-operator-fileset.png</icon>
+      </operator>
 	<operator>
 	  <key>mothur_mothurnocommandoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurNoCommandOperator</class>

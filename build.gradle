@@ -13,6 +13,12 @@ repositories {
 	maven { url 'https://maven.rapidminer.com/content/groups/public/' }
 }
 
+compileJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+
 extensionConfig {
 
     // The extension name
@@ -44,7 +50,7 @@ extensionConfig {
 
     // define RapidMiner version and extension dependencies
     dependencies {
-        rapidminer '8.2.1'
+        rapidminer '7.6.1'
         //extension namespace: 'text', version: '8.1.0'
     }
 }

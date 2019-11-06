@@ -18,7 +18,7 @@ import com.rapidminer.parameter.ParameterTypeFile;
 import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.parameter.UndefinedParameterError;
 
-public class MoturFileSetOperator extends Operator {
+public class MothurFileSetOperator extends Operator {
 
 	// private InputPort inputPort;
 	// private OutputPort outputPort;
@@ -36,7 +36,7 @@ public class MoturFileSetOperator extends Operator {
 	private OutputPort namesOutPort = getOutputPorts().createPort("names");
 	private OutputPort bacteriaFastaOutPort = getOutputPorts().createPort("bacteria.names");
 
-	public MoturFileSetOperator(OperatorDescription description) {
+	public MothurFileSetOperator(OperatorDescription description) {
 		super(description);
 
 		// create input and output ports
