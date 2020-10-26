@@ -145,8 +145,8 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("accnos")) return "[filename],[tag],[tag2],flip.accnos";
 		if (type.equals("taxonomy")) return "[filename],[tag],[tag2],taxonomy";
+		if (type.equals("accnos")) return "[filename],[tag],[tag2],flip.accnos";
 		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
 		if (type.equals("matchdist")) return "[filename],[tag],[tag2],match.dist";
 		return super.getOutputPattern(type);

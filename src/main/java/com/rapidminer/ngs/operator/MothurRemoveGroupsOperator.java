@@ -104,16 +104,16 @@ public class MothurRemoveGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("name")) return "[filename],pick,[extension]";
-		if (type.equals("group")) return "[filename],pick,[extension]";
-		if (type.equals("phylip")) return "[filename],pick,[extension]";
-		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
-		if (type.equals("fasta")) return "[filename],pick,[extension]";
-		if (type.equals("count")) return "[filename],pick,[extension]";
-		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("design")) return "[filename],[tag],pick,[extension]-[filename],pick,[extension]";
-		if (type.equals("list")) return "[filename],[tag],pick,[extension]";
 		if (type.equals("column")) return "[filename],pick,[extension]";
+		if (type.equals("list")) return "[filename],[tag],pick,[extension]";
+		if (type.equals("name")) return "[filename],pick,[extension]";
+		if (type.equals("design")) return "[filename],[tag],pick,[extension]-[filename],pick,[extension]";
+		if (type.equals("count")) return "[filename],pick,[extension]";
+		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
+		if (type.equals("group")) return "[filename],pick,[extension]";
+		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("phylip")) return "[filename],pick,[extension]";
+		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

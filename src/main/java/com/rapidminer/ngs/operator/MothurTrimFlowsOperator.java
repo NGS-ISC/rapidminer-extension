@@ -120,10 +120,10 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("file")) return "[filename],flow.files";
-		if (type.equals("fasta")) return "[filename],flow.fasta";
 		if (type.equals("flow")) return "[filename],[tag],flow";
+		if (type.equals("fasta")) return "[filename],flow.fasta";
 		if (type.equals("group")) return "[filename],flow.groups";
+		if (type.equals("file")) return "[filename],flow.files";
 		return super.getOutputPattern(type);
 	}
 }

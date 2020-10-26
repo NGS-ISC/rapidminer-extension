@@ -97,8 +97,8 @@ public class MothurPhyloDiversityOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("summary")) return "[filename],[tag],phylodiv.summary";
 		if (type.equals("phylodiv")) return "[filename],[tag],phylodiv";
+		if (type.equals("summary")) return "[filename],[tag],phylodiv.summary";
 		if (type.equals("rarefy")) return "[filename],[tag],phylodiv.rarefaction";
 		return super.getOutputPattern(type);
 	}

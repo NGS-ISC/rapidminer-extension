@@ -129,21 +129,21 @@ public class MothurRarefactionSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("r_jack")) return "[filename],r_jack";
-		if (type.equals("r_npshannon")) return "[filename],r_npshannon";
-		if (type.equals("rarefaction")) return "[filename],rarefaction";
-		if (type.equals("r_chao")) return "[filename],r_chao";
 		if (type.equals("r_shannon")) return "[filename],r_shannon";
-		if (type.equals("r_shannoneven")) return "[filename],r_shannoneven";
+		if (type.equals("r_bootstrap")) return "[filename],r_bootstrap";
+		if (type.equals("rarefaction")) return "[filename],rarefaction";
 		if (type.equals("r_ace")) return "[filename],r_ace";
-		if (type.equals("r_invsimpson")) return "[filename],r_invsimpson";
-		if (type.equals("r_simpsoneven")) return "[filename],r_simpsoneven";
+		if (type.equals("r_npshannon")) return "[filename],r_npshannon";
+		if (type.equals("r_shannoneven")) return "[filename],r_shannoneven";
+		if (type.equals("r_jack")) return "[filename],r_jack";
 		if (type.equals("r_shannonrange")) return "[filename],r_shannonrange";
-		if (type.equals("r_simpson")) return "[filename],r_simpson";
+		if (type.equals("r_chao")) return "[filename],r_chao";
+		if (type.equals("r_invsimpson")) return "[filename],r_invsimpson";
+		if (type.equals("r_smithwilson")) return "[filename],r_smithwilson";
 		if (type.equals("r_nseqs")) return "[filename],r_nseqs";
 		if (type.equals("r_coverage")) return "[filename],r_coverage";
-		if (type.equals("r_smithwilson")) return "[filename],r_smithwilson";
-		if (type.equals("r_bootstrap")) return "[filename],r_bootstrap";
+		if (type.equals("r_simpson")) return "[filename],r_simpson";
+		if (type.equals("r_simpsoneven")) return "[filename],r_simpsoneven";
 		if (type.equals("r_heip")) return "[filename],r_heip";
 		return super.getOutputPattern(type);
 	}

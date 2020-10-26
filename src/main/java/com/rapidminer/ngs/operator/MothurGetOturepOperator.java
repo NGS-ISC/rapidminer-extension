@@ -98,8 +98,8 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("fasta")) return "[filename],[tag],rep.fasta-[filename],[tag],[group],rep.fasta";
-		if (type.equals("count")) return "[filename],count_table-[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		if (type.equals("name")) return "[filename],[tag],rep.names-[filename],[tag],[group],rep.names";
+		if (type.equals("count")) return "[filename],count_table-[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		return super.getOutputPattern(type);
 	}
 }

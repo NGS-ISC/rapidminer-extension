@@ -93,13 +93,13 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],[group],groups";
-		if (type.equals("name")) return "[filename],[group],names";
 		if (type.equals("fasta")) return "[filename],[group],fasta";
+		if (type.equals("name")) return "[filename],[group],names";
 		if (type.equals("fastq")) return "[filename],[group],fastq";
-		if (type.equals("flow")) return "[filename],[group],flow";
-		if (type.equals("list")) return "[filename],[group],list";
 		if (type.equals("count")) return "[filename],[group],count_table";
+		if (type.equals("list")) return "[filename],[group],list";
+		if (type.equals("group")) return "[filename],[group],groups";
+		if (type.equals("flow")) return "[filename],[group],flow";
 		return super.getOutputPattern(type);
 	}
 }

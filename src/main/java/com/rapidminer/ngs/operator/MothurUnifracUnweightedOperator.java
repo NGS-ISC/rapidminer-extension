@@ -104,11 +104,11 @@ public class MothurUnifracUnweightedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("unweighted")) return "[filename],unweighted-[filename],[tag],unweighted";
-		if (type.equals("phylip")) return "[filename],[tag],[tag2],dist";
+		if (type.equals("column")) return "[filename],[tag],[tag2],dist";
 		if (type.equals("uwsummary")) return "[filename],uwsummary";
 		if (type.equals("tree")) return "[filename],[tag],[tag2],tre";
+		if (type.equals("phylip")) return "[filename],[tag],[tag2],dist";
 		return super.getOutputPattern(type);
 	}
 }

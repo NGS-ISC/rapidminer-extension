@@ -72,8 +72,8 @@ public class MothurSraInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("file")) return "[filename],[tag],files";
 		if (type.equals("sra")) return "[filename],sra";
+		if (type.equals("file")) return "[filename],[tag],files";
 		if (type.equals("fastq")) return "[filename],fastq";
 		return super.getOutputPattern(type);
 	}

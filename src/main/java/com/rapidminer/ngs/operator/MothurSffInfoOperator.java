@@ -109,11 +109,11 @@ public class MothurSffInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("flow")) return "[filename],flow";
-		if (type.equals("qfile")) return "[filename],qual-[filename],[tag],qual";
-		if (type.equals("sfftxt")) return "[filename],sff.txt";
-		if (type.equals("sff")) return "[filename],[group],sff";
 		if (type.equals("fasta")) return "[filename],fasta-[filename],[tag],fasta";
+		if (type.equals("qfile")) return "[filename],qual-[filename],[tag],qual";
+		if (type.equals("sff")) return "[filename],[group],sff";
+		if (type.equals("sfftxt")) return "[filename],sff.txt";
+		if (type.equals("flow")) return "[filename],flow";
 		return super.getOutputPattern(type);
 	}
 }

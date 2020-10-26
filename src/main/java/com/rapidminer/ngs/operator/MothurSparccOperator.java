@@ -84,8 +84,8 @@ public class MothurSparccOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("pvalue")) return "[filename],[distance],sparcc_pvalue";
-		if (type.equals("corr")) return "[filename],[distance],sparcc_correlation";
 		if (type.equals("sparccrelabund")) return "[filename],[distance],sparcc_relabund";
+		if (type.equals("corr")) return "[filename],[distance],sparcc_correlation";
 		return super.getOutputPattern(type);
 	}
 }

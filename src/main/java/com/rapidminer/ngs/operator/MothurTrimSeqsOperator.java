@@ -167,8 +167,8 @@ public class MothurTrimSeqsOperator extends MothurGeneratedOperator {
 		if (type.equals("group")) return "[filename],groups";
 		if (type.equals("qfile")) return "[filename],[tag],qual";
 		if (type.equals("name")) return "[filename],[tag],names";
-		if (type.equals("fasta")) return "[filename],[tag],fasta";
 		if (type.equals("count")) return "[filename],[tag],count_table-[filename],count_table";
+		if (type.equals("fasta")) return "[filename],[tag],fasta";
 		return super.getOutputPattern(type);
 	}
 }

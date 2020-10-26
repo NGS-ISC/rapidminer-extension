@@ -67,8 +67,8 @@ public class MothurPhylotypeOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
-		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
+		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		return super.getOutputPattern(type);
 	}
 }

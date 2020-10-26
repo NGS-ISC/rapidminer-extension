@@ -56,8 +56,8 @@ public class MothurGetDistsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("column")) return "[filename],pick,[extension]";
 		if (type.equals("phylip")) return "[filename],pick,[extension]";
+		if (type.equals("column")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

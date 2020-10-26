@@ -82,12 +82,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],[tag],[tag2],groups";
 		if (type.equals("accnos")) return "[filename],[tag],[tag2],accnos";
 		if (type.equals("count")) return "[filename],[tag],[tag2],count_table-[filename],[tag],count_table";
-		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta";
 		if (type.equals("list")) return "[filename],[tag],[tag2],list";
+		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta";
 		if (type.equals("name")) return "[filename],[tag],names-[filename],[tag],[tag2],names";
+		if (type.equals("group")) return "[filename],[tag],[tag2],groups";
 		return super.getOutputPattern(type);
 	}
 }

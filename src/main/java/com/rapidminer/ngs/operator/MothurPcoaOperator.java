@@ -54,8 +54,8 @@ public class MothurPcoaOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("pcoa")) return "[filename],pcoa.axes";
 		if (type.equals("loadings")) return "[filename],pcoa.loadings";
+		if (type.equals("pcoa")) return "[filename],pcoa.axes";
 		return super.getOutputPattern(type);
 	}
 }

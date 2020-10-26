@@ -94,9 +94,9 @@ public class MothurNewCommandNameToBeSeenByUserOperator extends MothurGeneratedO
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("fileType2")) return "[filename],tag2";
 		if (type.equals("fileType3")) return "[filename],tag3";
 		if (type.equals("fileType1")) return "[filename],tag1";
-		if (type.equals("fileType2")) return "[filename],tag2";
 		return super.getOutputPattern(type);
 	}
 }

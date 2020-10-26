@@ -100,15 +100,15 @@ public class MothurGetLineageOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("fasta")) return "[filename],pick,[extension]";
-		if (type.equals("count")) return "[filename],pick,[extension]";
-		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("group")) return "[filename],pick,[extension]";
 		if (type.equals("alignreport")) return "[filename],pick.align.report";
 		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("name")) return "[filename],pick,[extension]";
+		if (type.equals("group")) return "[filename],pick,[extension]";
+		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
 		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("count")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

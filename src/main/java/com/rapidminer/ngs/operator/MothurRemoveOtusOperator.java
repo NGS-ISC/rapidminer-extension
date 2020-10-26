@@ -75,11 +75,11 @@ public class MothurRemoveOtusOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
-		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("constaxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("corraxes")) return "[filename],pick,[extension]";
 		if (type.equals("otucorr")) return "[filename],pick,[extension]";
+		if (type.equals("shared")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("corraxes")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

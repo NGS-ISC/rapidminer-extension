@@ -56,8 +56,8 @@ public class MothurDeuniqueSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],redundant.groups";
 		if (type.equals("fasta")) return "[filename],redundant.fasta";
+		if (type.equals("group")) return "[filename],redundant.groups";
 		return super.getOutputPattern(type);
 	}
 }

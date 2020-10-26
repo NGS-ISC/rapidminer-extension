@@ -113,8 +113,8 @@ public class MothurPairwiseSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("phylip")) return "[filename],[outputtag],dist";
 		if (type.equals("column")) return "[filename],dist";
+		if (type.equals("phylip")) return "[filename],[outputtag],dist";
 		return super.getOutputPattern(type);
 	}
 }

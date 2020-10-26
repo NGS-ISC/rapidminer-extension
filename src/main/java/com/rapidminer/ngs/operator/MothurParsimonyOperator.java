@@ -75,8 +75,8 @@ public class MothurParsimonyOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("psummary")) return "[filename],psummary";
 		if (type.equals("parsimony")) return "[filename],parsimony";
+		if (type.equals("psummary")) return "[filename],psummary";
 		return super.getOutputPattern(type);
 	}
 }

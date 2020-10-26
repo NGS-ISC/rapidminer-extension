@@ -97,14 +97,14 @@ public class MothurRenameSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("taxonomy")) return "[filename],renamed,[extension]";
 		if (type.equals("group")) return "[filename],renamed,[extension]";
-		if (type.equals("map")) return "[filename],renamed_map";
-		if (type.equals("count")) return "[filename],renamed,[extension]";
 		if (type.equals("qfile")) return "[filename],renamed,[extension]";
 		if (type.equals("contigsreport")) return "[filename],renamed,[extension]";
 		if (type.equals("name")) return "[filename],renamed,[extension]";
+		if (type.equals("count")) return "[filename],renamed,[extension]";
 		if (type.equals("fasta")) return "[filename],renamed,[extension]";
+		if (type.equals("taxonomy")) return "[filename],renamed,[extension]";
+		if (type.equals("map")) return "[filename],renamed_map";
 		return super.getOutputPattern(type);
 	}
 }

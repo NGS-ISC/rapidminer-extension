@@ -106,10 +106,10 @@ public class MothurFastqInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],group";
 		if (type.equals("qfile")) return "[filename],qual-[filename],[group],[tag],qual-[filename],[group],qual";
-		if (type.equals("fastq")) return "[filename],[group],fastq-[filename],[group],[tag],fastq";
 		if (type.equals("fasta")) return "[filename],fasta-[filename],[group],[tag],fasta-[filename],[group],fasta";
+		if (type.equals("group")) return "[filename],group";
+		if (type.equals("fastq")) return "[filename],[group],fastq-[filename],[group],[tag],fastq";
 		return super.getOutputPattern(type);
 	}
 }

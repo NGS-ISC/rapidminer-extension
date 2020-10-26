@@ -111,12 +111,12 @@ public class MothurPcrSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],pcr,[extension]";
-		if (type.equals("name")) return "[filename],pcr,[extension]";
 		if (type.equals("fasta")) return "[filename],pcr,[extension]-[filename],[tag],pcr,[extension]";
+		if (type.equals("group")) return "[filename],pcr,[extension]";
 		if (type.equals("count")) return "[filename],pcr,[extension]";
 		if (type.equals("taxonomy")) return "[filename],pcr,[extension]";
 		if (type.equals("accnos")) return "[filename],bad.accnos";
+		if (type.equals("name")) return "[filename],pcr,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

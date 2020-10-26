@@ -73,8 +73,8 @@ public class MothurClassifyTreeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("summary")) return "[filename],taxonomy.summary";
 		if (type.equals("tree")) return "[filename],taxonomy.tre";
+		if (type.equals("summary")) return "[filename],taxonomy.summary";
 		return super.getOutputPattern(type);
 	}
 }

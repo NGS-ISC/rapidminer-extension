@@ -66,8 +66,8 @@ public class MothurBinSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("fasta")) return "[filename],[distance],fasta";
 		if (type.equals("count")) return "[filename],count_table";
+		if (type.equals("fasta")) return "[filename],[distance],fasta";
 		return super.getOutputPattern(type);
 	}
 }

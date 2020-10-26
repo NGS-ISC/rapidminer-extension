@@ -102,8 +102,8 @@ public class MothurAlignSeqsOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("accnos")) return "[filename],flip.accnos";
-		if (type.equals("fasta")) return "[filename],align";
 		if (type.equals("alignreport")) return "[filename],align.report";
+		if (type.equals("fasta")) return "[filename],align";
 		return super.getOutputPattern(type);
 	}
 }

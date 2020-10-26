@@ -87,10 +87,10 @@ public class MothurBiomInfoOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
+		if (type.equals("shared")) return "[filename],[tag],shared";
 		if (type.equals("constaxonomy")) return "[filename],[tag],cons.taxonomy";
 		if (type.equals("taxonomy")) return "[filename],[tag],taxonomy";
-		if (type.equals("shared")) return "[filename],[tag],shared";
+		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
 		return super.getOutputPattern(type);
 	}
 }

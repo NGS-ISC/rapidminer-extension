@@ -89,10 +89,10 @@ public class MothurShhhFlowsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("fasta")) return "[filename],shhh.fasta";
 		if (type.equals("group")) return "[filename],shhh.groups";
 		if (type.equals("name")) return "[filename],shhh.names";
 		if (type.equals("counts")) return "[filename],shhh.counts";
+		if (type.equals("fasta")) return "[filename],shhh.fasta";
 		if (type.equals("qfile")) return "[filename],shhh.qual";
 		return super.getOutputPattern(type);
 	}
