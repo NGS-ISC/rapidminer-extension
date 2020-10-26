@@ -19,6 +19,7 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 	private OutputPort chimeraOutPort = getOutputPorts().createPort("chimera");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private static final String PROCESSORS_LABEL = "processors:";
+	private static final String UCHIME_LABEL = "uchime:";
 	private static final String STRAND_LABEL = "strand:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -63,6 +64,8 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 		addArgument("group",groupFile.getName());
 		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
 		addArgument("processors",String.valueOf(processorsValue));
+		String uchimeValue = getParameterAsString(UCHIME_LABEL);
+		addArgument("uchime",String.valueOf(uchimeValue));
 		String strandValue = getParameterAsString(STRAND_LABEL);
 		addArgument("strand",String.valueOf(strandValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
@@ -119,6 +122,7 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
+		parameterTypes.add(new ParameterTypeString(UCHIME_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(STRAND_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -146,10 +150,10 @@ public class MothurChimeraUchimeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("count")) return "[filename],[tag],uchime.pick.count_table-[filename],count_table";
 		if (type.equals("chimera")) return "[filename],[tag],uchime.chimeras";
 		if (type.equals("accnos")) return "[filename],[tag],uchime.accnos";
 		if (type.equals("alns")) return "[filename],[tag],uchime.alns";
+		if (type.equals("count")) return "[filename],[tag],uchime.pick.count_table-[filename],count_table";
 		return super.getOutputPattern(type);
 	}
 }

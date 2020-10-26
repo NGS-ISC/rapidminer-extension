@@ -17,10 +17,8 @@ public class MothurListSeqsOperator extends MothurGeneratedOperator {
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
+	private InputPort contigsreportInPort = getInputPorts().createPort("contigsreport");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
-	private static final String[] FORMAT_CHOICES = { "sanger", "illumina", "solexa", "illumina1.8+" };
-	private static final int FORMAT_DEFAULT_CHOICE = 3;
-	private static final String FORMAT_LABEL = "format:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -50,9 +48,8 @@ public class MothurListSeqsOperator extends MothurGeneratedOperator {
 		addArgument("taxonomy",taxonomyFile.getName());
 		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
 		addArgument("alignreport",alignreportFile.getName());
-		int formatIndex = getParameterAsInt(FORMAT_LABEL);
-		String formatValue = FORMAT_CHOICES[formatIndex];
-		addArgument("format",String.valueOf(formatValue));
+		FileNameObject contigsreportFile = contigsreportInPort.getData(FileNameObject.class);
+		addArgument("contigsreport",contigsreportFile.getName());
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -67,7 +64,6 @@ public class MothurListSeqsOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
-		parameterTypes.add(new ParameterTypeCategory(FORMAT_LABEL, "TODO: Add description", FORMAT_CHOICES, FORMAT_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));

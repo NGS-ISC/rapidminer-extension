@@ -104,8 +104,8 @@ public class MothurRarefactionSharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("sharedr_nseqs")) return "[filename],shared.r_nseqs";
 		if (type.equals("sharedrarefaction")) return "[filename],shared.rarefaction";
+		if (type.equals("sharedr_nseqs")) return "[filename],shared.r_nseqs";
 		return super.getOutputPattern(type);
 	}
 }

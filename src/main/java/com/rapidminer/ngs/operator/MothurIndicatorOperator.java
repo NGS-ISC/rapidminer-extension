@@ -75,8 +75,8 @@ public class MothurIndicatorOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("summary")) return "[filename],indicator.summary";
 		if (type.equals("tree")) return "[filename],indicator.tre";
+		if (type.equals("summary")) return "[filename],indicator.summary";
 		return super.getOutputPattern(type);
 	}
 }

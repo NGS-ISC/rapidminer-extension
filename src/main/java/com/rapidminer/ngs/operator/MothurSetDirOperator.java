@@ -11,6 +11,7 @@ public class MothurSetDirOperator extends MothurGeneratedOperator {
 
 	private static final String TEMPDEFAULT_LABEL = "tempdefault:";
 	private static final String BLASTDIR_LABEL = "blastdir:";
+	private static final String TOOLS_LABEL = "tools:";
 	private static final String DEBUG_LABEL = "debug:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String MODIFYNAMES_LABEL = "modifynames:";
@@ -32,6 +33,8 @@ public class MothurSetDirOperator extends MothurGeneratedOperator {
 		addArgument("tempdefault",String.valueOf(tempdefaultValue));
 		String blastdirValue = getParameterAsString(BLASTDIR_LABEL);
 		addArgument("blastdir",String.valueOf(blastdirValue));
+		String toolsValue = getParameterAsString(TOOLS_LABEL);
+		addArgument("tools",String.valueOf(toolsValue));
 		boolean debugValue = getParameterAsBoolean(DEBUG_LABEL);
 		addArgument("debug",String.valueOf(debugValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
@@ -55,6 +58,7 @@ public class MothurSetDirOperator extends MothurGeneratedOperator {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(TEMPDEFAULT_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(BLASTDIR_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(TOOLS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeBoolean(DEBUG_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeBoolean(MODIFYNAMES_LABEL, "TODO: Add description", true, true));

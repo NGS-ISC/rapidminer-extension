@@ -14,22 +14,18 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 	private InputPort sabundInPort = getInputPorts().createPort("sabund");
 	private InputPort sampleInPort = getInputPorts().createPort("sample");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
-	private OutputPort erarefactionOutPort = getOutputPorts().createPort("erarefaction");
-	private OutputPort igabundOutPort = getOutputPorts().createPort("igabund");
-	private OutputPort igrarefactionOutPort = getOutputPorts().createPort("igrarefaction");
-	private OutputPort lnabundOutPort = getOutputPorts().createPort("lnabund");
 	private static final String LABEL_LABEL = "label:";
 	private static final String FREQ_LABEL = "freq:";
-	private static final String[] CALC_CHOICES = { "erarefaction", "metroig", "metroln", "metrols", "metrosichel", "igabund", "igrarefaction" };
-	private static final int CALC_DEFAULT_CHOICE = 0;
+	private static final String[] CALC_CHOICES = { "erarefact", "ig", "ln", "ls", "si", "igabund", "igrarefact", "lnrarefact", "lnabund", "lnshift", "lsabund", "lsrarefact", "siabund", "sirarefact", "sishift" };
+	private static final int CALC_DEFAULT_CHOICE = 1;
 	private static final String CALC_LABEL = "calc:";
-	private static final String ABUND_LABEL = "abund:";
 	private static final String SIGMAA_LABEL = "sigmaa:";
 	private static final String SIGMAB_LABEL = "sigmab:";
 	private static final String SIGMAN_LABEL = "sigman:";
 	private static final String SIGMAS_LABEL = "sigmas:";
 	private static final String BURN_LABEL = "burn:";
 	private static final String COVERAGE_LABEL = "coverage:";
+	private static final String FIT_LABEL = "fit:";
 	private static final String BURNSAMPLE_LABEL = "burnsample:";
 	private static final String ITERS_LABEL = "iters:";
 	private static final String SEED_LABEL = "seed:";
@@ -62,8 +58,6 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 		int calcIndex = getParameterAsInt(CALC_LABEL);
 		String calcValue = CALC_CHOICES[calcIndex];
 		addArgument("calc",String.valueOf(calcValue));
-		int abundValue = getParameterAsInt(ABUND_LABEL);
-		addArgument("abund",String.valueOf(abundValue));
 		int sigmaaValue = getParameterAsInt(SIGMAA_LABEL);
 		addArgument("sigmaa",String.valueOf(sigmaaValue));
 		int sigmabValue = getParameterAsInt(SIGMAB_LABEL);
@@ -76,6 +70,8 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 		addArgument("burn",String.valueOf(burnValue));
 		int coverageValue = getParameterAsInt(COVERAGE_LABEL);
 		addArgument("coverage",String.valueOf(coverageValue));
+		int fitValue = getParameterAsInt(FIT_LABEL);
+		addArgument("fit",String.valueOf(fitValue));
 		int burnsampleValue = getParameterAsInt(BURNSAMPLE_LABEL);
 		addArgument("burnsample",String.valueOf(burnsampleValue));
 		int itersValue = getParameterAsInt(ITERS_LABEL);
@@ -88,10 +84,6 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 		addArgument("outputdir",String.valueOf(outputdirValue));
 		executeMothurCommand();
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
-		erarefactionOutPort.deliver(new FileNameObject(fileName+".erarefaction","erarefaction"));
-		igabundOutPort.deliver(new FileNameObject(fileName+".igabund","igabund"));
-		igrarefactionOutPort.deliver(new FileNameObject(fileName+".igrarefaction","igrarefaction"));
-		lnabundOutPort.deliver(new FileNameObject(fileName+".lnabund","lnabund"));
 	}
 
 	@Override
@@ -100,13 +92,13 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(FREQ_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeCategory(CALC_LABEL, "TODO: Add description", CALC_CHOICES, CALC_DEFAULT_CHOICE));
-		parameterTypes.add(new ParameterTypeInt(ABUND_LABEL, "TODO: Add description", -100000000, 100000000, 10, true));
 		parameterTypes.add(new ParameterTypeDouble(SIGMAA_LABEL, "TODO: Add description", -100000000, 100000000, 0.1, true));
 		parameterTypes.add(new ParameterTypeDouble(SIGMAB_LABEL, "TODO: Add description", -100000000, 100000000, 0.1, true));
 		parameterTypes.add(new ParameterTypeDouble(SIGMAN_LABEL, "TODO: Add description", -100000000, 100000000, 0.1, true));
 		parameterTypes.add(new ParameterTypeInt(SIGMAS_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeInt(BURN_LABEL, "TODO: Add description", -100000000, 100000000, 2000000, true));
-		parameterTypes.add(new ParameterTypeInt(COVERAGE_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
+		parameterTypes.add(new ParameterTypeDouble(COVERAGE_LABEL, "TODO: Add description", -100000000, 100000000, 0.8, true));
+		parameterTypes.add(new ParameterTypeInt(FIT_LABEL, "TODO: Add description", -100000000, 100000000, 20, true));
 		parameterTypes.add(new ParameterTypeInt(BURNSAMPLE_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 1000, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
@@ -117,10 +109,6 @@ public class MothurEstimatorSingleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("lnabund")) return "[filename],[distance],lnabund";
-		if (type.equals("igrarefaction")) return "[filename],[distance],igrarefaction";
-		if (type.equals("igabund")) return "[filename],[distance],igabund";
-		if (type.equals("erarefaction")) return "[filename],[distance],erarefaction";
 		return super.getOutputPattern(type);
 	}
 }

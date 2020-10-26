@@ -66,9 +66,9 @@ public class MothurShhhSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("name")) return "[filename],shhh_seqs.names";
 		if (type.equals("fasta")) return "[filename],shhh_seqs.fasta";
 		if (type.equals("map")) return "[filename],shhh_seqs.map";
+		if (type.equals("name")) return "[filename],shhh_seqs.names";
 		return super.getOutputPattern(type);
 	}
 }

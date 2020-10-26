@@ -118,17 +118,17 @@ public class MothurSubSampleOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("sabund")) return "[filename],subsample,[extension]";
+		if (type.equals("fasta")) return "[filename],subsample,[extension]";
+		if (type.equals("count")) return "[filename],subsample,[extension]";
+		if (type.equals("list")) return "[filename],[distance],subsample,[extension]";
 		if (type.equals("rabund")) return "[filename],subsample,[extension]";
+		if (type.equals("taxonomy")) return "[filename],subsample,[extension]";
 		if (type.equals("name")) return "[filename],subsample,[extension]";
 		if (type.equals("shared")) return "[filename],[distance],subsample,[extension]";
-		if (type.equals("constaxonomy")) return "[filename],subsample,[extension]";
+		if (type.equals("sabund")) return "[filename],subsample,[extension]";
 		if (type.equals("group")) return "[filename],subsample,[extension]";
-		if (type.equals("taxonomy")) return "[filename],subsample,[extension]";
-		if (type.equals("fasta")) return "[filename],subsample,[extension]";
+		if (type.equals("constaxonomy")) return "[filename],subsample,[extension]";
 		if (type.equals("tree")) return "[filename],subsample,[extension]";
-		if (type.equals("list")) return "[filename],[distance],subsample,[extension]";
-		if (type.equals("count")) return "[filename],subsample,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

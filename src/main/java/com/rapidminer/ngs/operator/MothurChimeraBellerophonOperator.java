@@ -66,8 +66,8 @@ public class MothurChimeraBellerophonOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("chimera")) return "[filename],bellerophon.chimeras";
 		if (type.equals("accnos")) return "[filename],bellerophon.accnos";
+		if (type.equals("chimera")) return "[filename],bellerophon.chimeras";
 		return super.getOutputPattern(type);
 	}
 }

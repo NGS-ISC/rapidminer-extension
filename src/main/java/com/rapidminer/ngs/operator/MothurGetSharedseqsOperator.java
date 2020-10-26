@@ -83,9 +83,9 @@ public class MothurGetSharedseqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("sharedseqs")) return "[filename],[distance],[group],shared.seqs";
 		if (type.equals("fasta")) return "[filename],[distance],[group],shared.fasta";
 		if (type.equals("accnos")) return "[filename],[distance],[group],accnos";
-		if (type.equals("sharedseqs")) return "[filename],[distance],[group],shared.seqs";
 		return super.getOutputPattern(type);
 	}
 }

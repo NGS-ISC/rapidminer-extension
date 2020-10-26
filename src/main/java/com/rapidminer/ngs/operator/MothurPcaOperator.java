@@ -65,8 +65,8 @@ public class MothurPcaOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("pca")) return "[filename],[distance],pca.axes";
 		if (type.equals("loadings")) return "[filename],[distance],pca.loadings";
+		if (type.equals("pca")) return "[filename],[distance],pca.axes";
 		return super.getOutputPattern(type);
 	}
 }

@@ -10,6 +10,7 @@ import com.rapidminer.parameter.*;
 public class MothurMetastatsOperator extends MothurGeneratedOperator {
 
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
+	private InputPort clrInPort = getInputPorts().createPort("clr");
 	private InputPort designInPort = getInputPorts().createPort("design");
 	private OutputPort metastatsOutPort = getOutputPorts().createPort("metastats");
 	private static final String PROCESSORS_LABEL = "processors:";
@@ -33,6 +34,8 @@ public class MothurMetastatsOperator extends MothurGeneratedOperator {
 		clearArguments();
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
+		FileNameObject clrFile = clrInPort.getData(FileNameObject.class);
+		addArgument("clr",clrFile.getName());
 		FileNameObject designFile = designInPort.getData(FileNameObject.class);
 		addArgument("design",designFile.getName());
 		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);

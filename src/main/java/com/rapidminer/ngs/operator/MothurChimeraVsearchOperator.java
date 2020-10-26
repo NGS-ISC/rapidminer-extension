@@ -106,10 +106,10 @@ public class MothurChimeraVsearchOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("alns")) return "[filename],[tag],vsearch.alns";
+		if (type.equals("chimera")) return "[filename],[tag],vsearch.chimeras";
 		if (type.equals("count")) return "[filename],[tag],vsearch.pick.count_table-[filename],count_table";
 		if (type.equals("accnos")) return "[filename],[tag],vsearch.accnos";
-		if (type.equals("chimera")) return "[filename],[tag],vsearch.chimeras";
-		if (type.equals("alns")) return "[filename],[tag],vsearch.alns";
 		return super.getOutputPattern(type);
 	}
 }

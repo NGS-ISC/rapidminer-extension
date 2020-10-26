@@ -97,12 +97,12 @@ public class MothurChopSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],chop.groups";
 		if (type.equals("fasta")) return "[filename],chop.fasta";
 		if (type.equals("qfile")) return "[filename],chop.qual";
-		if (type.equals("name")) return "[filename],chop.names";
-		if (type.equals("accnos")) return "[filename],chop.accnos";
+		if (type.equals("group")) return "[filename],chop.groups";
 		if (type.equals("count")) return "[filename],chop.count_table";
+		if (type.equals("accnos")) return "[filename],chop.accnos";
+		if (type.equals("name")) return "[filename],chop.names";
 		return super.getOutputPattern(type);
 	}
 }

@@ -37,6 +37,7 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 	private static final String ITERS_LABEL = "iters:";
 	private static final String DENOVOITERS_LABEL = "denovoiters:";
 	private static final String FITPERCENT_LABEL = "fitpercent:";
+	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String PRINTREF_LABEL = "printref:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -92,6 +93,8 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 		addArgument("denovoiters",String.valueOf(denovoitersValue));
 		int fitpercentValue = getParameterAsInt(FITPERCENT_LABEL);
 		addArgument("fitpercent",String.valueOf(fitpercentValue));
+		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
+		addArgument("processors",String.valueOf(processorsValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		boolean printrefValue = getParameterAsBoolean(PRINTREF_LABEL);
@@ -119,6 +122,7 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeInt(ITERS_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeInt(DENOVOITERS_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
 		parameterTypes.add(new ParameterTypeInt(FITPERCENT_LABEL, "TODO: Add description", -100000000, 100000000, 10, true));
+		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeBoolean(PRINTREF_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -129,8 +133,8 @@ public class MothurClusterFitOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("sensspec")) return "[filename],sensspec";
-		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		if (type.equals("steps")) return "[filename],[clustertag],steps";
+		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		return super.getOutputPattern(type);
 	}
 }

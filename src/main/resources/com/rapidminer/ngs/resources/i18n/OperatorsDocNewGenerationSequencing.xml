@@ -5,10 +5,6 @@
   <group key="NGS_group" name="NGS"/>
   <group key="mothur_group" name="Mothur"/>
   <operator>
-    <key>mothur_operator_fileset</key>
-    <name>Source Files</name>
-  </operator>
-  <operator>
     <key>mothur_mothurnocommandoperator_operator</key>
     <name>NoCommand</name>
   </operator>
@@ -75,10 +71,6 @@
   <operator>
     <key>mothur_mothurclassifyotuoperator_operator</key>
     <name>ClassifyOtu</name>
-  </operator>
-  <operator>
-    <key>mothur_mothurclassifyrfoperator_operator</key>
-    <name>ClassifyRf</name>
   </operator>
   <operator>
     <key>mothur_mothurclassifyseqsoperator_operator</key>
@@ -185,10 +177,6 @@
     <name>FilterShared</name>
   </operator>
   <operator>
-    <key>mothur_mothurgetcommandinfooperator_operator</key>
-    <name>GetCommandinfo</name>
-  </operator>
-  <operator>
     <key>mothur_mothurgetcommunitytypeoperator_operator</key>
     <name>GetCommunitytype</name>
   </operator>
@@ -289,8 +277,8 @@
     <name>Libshuff</name>
   </operator>
   <operator>
-    <key>mothur_mothurlistotulabelsoperator_operator</key>
-    <name>ListOtulabels</name>
+    <key>mothur_mothurlistotusoperator_operator</key>
+    <name>ListOtus</name>
   </operator>
   <operator>
     <key>mothur_mothurlistseqsoperator_operator</key>
@@ -299,6 +287,10 @@
   <operator>
     <key>mothur_mothurmakebiomoperator_operator</key>
     <name>MakeBiom</name>
+  </operator>
+  <operator>
+    <key>mothur_mothurmakeclroperator_operator</key>
+    <name>MakeClr</name>
   </operator>
   <operator>
     <key>mothur_mothurmakecontigsoperator_operator</key>
@@ -395,10 +387,6 @@
   <operator>
     <key>mothur_mothurpairwiseseqsoperator_operator</key>
     <name>PairwiseSeqs</name>
-  </operator>
-  <operator>
-    <key>mothur_mothurparselistoperator_operator</key>
-    <name>ParseList</name>
   </operator>
   <operator>
     <key>mothur_mothurparsimonyoperator_operator</key>
@@ -509,12 +497,12 @@
     <name>SetSeed</name>
   </operator>
   <operator>
-    <key>mothur_mothursffmultipleoperator_operator</key>
-    <name>SffMultiple</name>
+    <key>mothur_mothursffinfooperator_operator</key>
+    <name>SffInfo</name>
   </operator>
   <operator>
-    <key>mothur_mothursffinfooperator_operator</key>
-    <name>Sffinfo</name>
+    <key>mothur_mothursffmultipleoperator_operator</key>
+    <name>SffMultiple</name>
   </operator>
   <operator>
     <key>mothur_mothurshhhflowsoperator_operator</key>
@@ -539,6 +527,10 @@
   <operator>
     <key>mothur_mothursplitgroupsoperator_operator</key>
     <name>SplitGroups</name>
+  </operator>
+  <operator>
+    <key>mothur_mothursrainfooperator_operator</key>
+    <name>SraInfo</name>
   </operator>
   <operator>
     <key>mothur_mothursubsampleoperator_operator</key>

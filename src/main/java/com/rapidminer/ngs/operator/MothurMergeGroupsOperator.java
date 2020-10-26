@@ -81,9 +81,9 @@ public class MothurMergeGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("group")) return "[filename],merge,[extension]";
-		if (type.equals("shared")) return "[filename],merge,[extension]";
 		if (type.equals("count")) return "[filename],merge,[extension]";
+		if (type.equals("shared")) return "[filename],merge,[extension]";
+		if (type.equals("group")) return "[filename],merge,[extension]";
 		if (type.equals("fasta")) return "[filename],merge,[extension]";
 		return super.getOutputPattern(type);
 	}

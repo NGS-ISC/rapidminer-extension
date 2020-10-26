@@ -145,9 +145,9 @@ public class MothurChimeraSlayerOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
+		if (type.equals("accnos")) return "[filename],slayer.accnos";
 		if (type.equals("fasta")) return "[filename],slayer.fasta";
 		if (type.equals("count")) return "[filename],slayer.pick.count_table";
-		if (type.equals("accnos")) return "[filename],slayer.accnos";
 		if (type.equals("chimera")) return "[filename],slayer.chimeras";
 		return super.getOutputPattern(type);
 	}

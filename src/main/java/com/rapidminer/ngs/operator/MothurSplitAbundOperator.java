@@ -23,7 +23,6 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 	private static final String LABEL_LABEL = "label:";
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String GROUPS_LABEL = "groups:";
-	private static final String ACCNOS_LABEL = "accnos:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -53,8 +52,6 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 		addArgument("cutoff",String.valueOf(cutoffValue));
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
 		addArgument("groups",String.valueOf(groupsValue));
-		boolean accnosValue = getParameterAsBoolean(ACCNOS_LABEL);
-		addArgument("accnos",String.valueOf(accnosValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -77,7 +74,6 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(CUTOFF_LABEL, "TODO: Add description", -100000000, 100000000, 0, false));
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
-		parameterTypes.add(new ParameterTypeBoolean(ACCNOS_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -86,12 +82,12 @@ public class MothurSplitAbundOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("accnos")) return "[filename],[tag],[tag2],accnos-[filename],[tag],[group],[tag2],accnos";
-		if (type.equals("name")) return "[filename],[tag],names-[filename],[group],[tag],names";
+		if (type.equals("group")) return "[filename],[tag],[tag2],groups";
+		if (type.equals("accnos")) return "[filename],[tag],[tag2],accnos";
 		if (type.equals("count")) return "[filename],[tag],[tag2],count_table-[filename],[tag],count_table";
-		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta-[filename],[tag],[group],[tag2],fasta";
-		if (type.equals("group")) return "[filename],[tag],[tag2],groups-[filename],[tag],[group],[tag2],groups";
-		if (type.equals("list")) return "[filename],[tag],[tag2],list-[filename],[group],[tag],[tag2],list";
+		if (type.equals("fasta")) return "[filename],[tag],[tag2],fasta";
+		if (type.equals("list")) return "[filename],[tag],[tag2],list";
+		if (type.equals("name")) return "[filename],[tag],names-[filename],[tag],[tag2],names";
 		return super.getOutputPattern(type);
 	}
 }

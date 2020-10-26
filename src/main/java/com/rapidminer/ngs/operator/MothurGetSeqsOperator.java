@@ -17,11 +17,13 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort taxonomyInPort = getInputPorts().createPort("taxonomy");
 	private InputPort alignreportInPort = getInputPorts().createPort("alignreport");
+	private InputPort contigsreportInPort = getInputPorts().createPort("contigsreport");
 	private InputPort qfileInPort = getInputPorts().createPort("qfile");
 	private InputPort accnosInPort = getInputPorts().createPort("accnos");
 	private InputPort accnos2InPort = getInputPorts().createPort("accnos2");
 	private OutputPort accnosreportOutPort = getOutputPorts().createPort("accnosreport");
 	private OutputPort alignreportOutPort = getOutputPorts().createPort("alignreport");
+	private OutputPort contigsreportOutPort = getOutputPorts().createPort("contigsreport");
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort fastqOutPort = getOutputPorts().createPort("fastq");
@@ -63,6 +65,8 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 		addArgument("taxonomy",taxonomyFile.getName());
 		FileNameObject alignreportFile = alignreportInPort.getData(FileNameObject.class);
 		addArgument("alignreport",alignreportFile.getName());
+		FileNameObject contigsreportFile = contigsreportInPort.getData(FileNameObject.class);
+		addArgument("contigsreport",contigsreportFile.getName());
 		FileNameObject qfileFile = qfileInPort.getData(FileNameObject.class);
 		addArgument("qfile",qfileFile.getName());
 		FileNameObject accnosFile = accnosInPort.getData(FileNameObject.class);
@@ -84,6 +88,7 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 		String fileName="<fileName>"; // TODO: Somehow figure out the fileName
 		accnosreportOutPort.deliver(new FileNameObject(fileName+".accnosreport","accnosreport"));
 		alignreportOutPort.deliver(new FileNameObject(fileName+".alignreport","alignreport"));
+		contigsreportOutPort.deliver(new FileNameObject(fileName+".contigsreport","contigsreport"));
 		countOutPort.deliver(new FileNameObject(fileName+".count","count"));
 		fastaOutPort.deliver(new FileNameObject(fileName+".fasta","fasta"));
 		fastqOutPort.deliver(new FileNameObject(fileName+".fastq","fastq"));
@@ -107,16 +112,17 @@ public class MothurGetSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("accnosreport")) return "[filename],pick.accnos.report";
-		if (type.equals("alignreport")) return "[filename],pick.align.report";
-		if (type.equals("name")) return "[filename],pick,[extension]";
-		if (type.equals("fastq")) return "[filename],pick,[extension]";
-		if (type.equals("count")) return "[filename],pick,[extension]";
-		if (type.equals("qfile")) return "[filename],pick,[extension]";
-		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
+		if (type.equals("qfile")) return "[filename],pick,[extension]";
+		if (type.equals("accnosreport")) return "[filename],pick.accnos.report";
 		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("contigsreport")) return "[filename],pick.contigs.report";
+		if (type.equals("count")) return "[filename],pick,[extension]";
 		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("alignreport")) return "[filename],pick.align.report";
+		if (type.equals("fastq")) return "[filename],pick,[extension]";
+		if (type.equals("list")) return "[filename],[distance],pick,[extension]";
+		if (type.equals("name")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

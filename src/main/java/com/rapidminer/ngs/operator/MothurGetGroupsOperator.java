@@ -31,6 +31,7 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 	private OutputPort sharedOutPort = getOutputPorts().createPort("shared");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
 	private static final String GROUPS_LABEL = "groups:";
+	private static final String SETS_LABEL = "sets:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -68,6 +69,8 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 		addArgument("accnos",accnosFile.getName());
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
 		addArgument("groups",String.valueOf(groupsValue));
+		String setsValue = getParameterAsString(SETS_LABEL);
+		addArgument("sets",String.valueOf(setsValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -92,6 +95,7 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
+		parameterTypes.add(new ParameterTypeString(SETS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -100,16 +104,16 @@ public class MothurGetGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
 		if (type.equals("design")) return "[filename],pick,[extension]";
-		if (type.equals("fasta")) return "[filename],pick,[extension]";
+		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
+		if (type.equals("shared")) return "[filename],[tag],pick,[extension]";
+		if (type.equals("list")) return "[filename],[tag],pick,[extension]";
+		if (type.equals("column")) return "[filename],pick,[extension]";
+		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("group")) return "[filename],pick,[extension]";
 		if (type.equals("count")) return "[filename],pick,[extension]";
-		if (type.equals("list")) return "[filename],[tag],pick,[extension]";
-		if (type.equals("name")) return "[filename],pick,[extension]";
 		if (type.equals("phylip")) return "[filename],pick,[extension]";
-		if (type.equals("taxonomy")) return "[filename],pick,[extension]";
-		if (type.equals("column")) return "[filename],pick,[extension]";
+		if (type.equals("fasta")) return "[filename],pick,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

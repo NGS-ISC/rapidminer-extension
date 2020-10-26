@@ -123,8 +123,8 @@ public class MothurPreClusterOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("fasta")) return "[filename],precluster,[extension]";
 		if (type.equals("map")) return "[filename],precluster.map";
+		if (type.equals("fasta")) return "[filename],precluster,[extension]";
 		if (type.equals("count")) return "[filename],precluster.count_table";
 		return super.getOutputPattern(type);
 	}

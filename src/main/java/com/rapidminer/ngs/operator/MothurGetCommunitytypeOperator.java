@@ -104,12 +104,12 @@ public class MothurGetCommunitytypeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("parameters")) return "[filename],[distance],[method],mix.parameters";
 		if (type.equals("relabund")) return "[filename],[distance],[method],[tag],mix.relabund";
+		if (type.equals("parameters")) return "[filename],[distance],[method],mix.parameters";
 		if (type.equals("matrix")) return "[filename],[distance],[method],[tag],mix.posterior";
+		if (type.equals("summary")) return "[filename],[distance],[method],mix.summary";
 		if (type.equals("design")) return "[filename],[distance],[method],mix.design";
 		if (type.equals("fit")) return "[filename],[distance],[method],mix.fit";
-		if (type.equals("summary")) return "[filename],[distance],[method],mix.summary";
 		return super.getOutputPattern(type);
 	}
 }

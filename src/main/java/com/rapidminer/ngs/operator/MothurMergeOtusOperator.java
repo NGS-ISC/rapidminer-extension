@@ -71,10 +71,10 @@ public class MothurMergeOtusOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("relabund")) return "[filename],merge,[extension]";
 		if (type.equals("constaxonomy")) return "[filename],[label],merge,cons.taxonomy";
-		if (type.equals("shared")) return "[filename],merge,[extension]";
 		if (type.equals("list")) return "[filename],merge,[extension]";
+		if (type.equals("relabund")) return "[filename],merge,[extension]";
+		if (type.equals("shared")) return "[filename],merge,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

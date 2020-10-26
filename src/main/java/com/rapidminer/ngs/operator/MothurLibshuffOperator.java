@@ -80,8 +80,8 @@ public class MothurLibshuffOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("libshuffsummary")) return "[filename],libshuff.summary";
 		if (type.equals("coverage")) return "[filename],libshuff.coverage";
+		if (type.equals("libshuffsummary")) return "[filename],libshuff.summary";
 		return super.getOutputPattern(type);
 	}
 }

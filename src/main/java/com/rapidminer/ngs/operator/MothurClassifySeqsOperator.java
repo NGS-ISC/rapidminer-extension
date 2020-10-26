@@ -15,6 +15,7 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 	private InputPort nameInPort = getInputPorts().createPort("name");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort groupInPort = getInputPorts().createPort("group");
+	private InputPort filterInPort = getInputPorts().createPort("filter");
 	private OutputPort accnosOutPort = getOutputPorts().createPort("accnos");
 	private OutputPort matchdistOutPort = getOutputPorts().createPort("matchdist");
 	private OutputPort taxonomyOutPort = getOutputPorts().createPort("taxonomy");
@@ -26,7 +27,7 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 	private static final int SEARCH_DEFAULT_CHOICE = 0;
 	private static final String SEARCH_LABEL = "search:";
 	private static final String KSIZE_LABEL = "ksize:";
-	private static final String[] METHOD_CHOICES = { "wang", "knn", "zap" };
+	private static final String[] METHOD_CHOICES = { "wang", "knn", "zap", "opti" };
 	private static final int METHOD_DEFAULT_CHOICE = 0;
 	private static final String METHOD_LABEL = "method:";
 	private static final String PROCESSORS_LABEL = "processors:";
@@ -66,6 +67,8 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 		addArgument("count",countFile.getName());
 		FileNameObject groupFile = groupInPort.getData(FileNameObject.class);
 		addArgument("group",groupFile.getName());
+		FileNameObject filterFile = filterInPort.getData(FileNameObject.class);
+		addArgument("filter",filterFile.getName());
 		int outputIndex = getParameterAsInt(OUTPUT_LABEL);
 		String outputValue = OUTPUT_CHOICES[outputIndex];
 		addArgument("output",String.valueOf(outputValue));
@@ -142,10 +145,10 @@ public class MothurClassifySeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("matchdist")) return "[filename],[tag],[tag2],match.dist";
-		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
 		if (type.equals("accnos")) return "[filename],[tag],[tag2],flip.accnos";
 		if (type.equals("taxonomy")) return "[filename],[tag],[tag2],taxonomy";
+		if (type.equals("taxsummary")) return "[filename],[tag],[tag2],tax.summary";
+		if (type.equals("matchdist")) return "[filename],[tag],[tag2],match.dist";
 		return super.getOutputPattern(type);
 	}
 }

@@ -23,6 +23,7 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
 	private OutputPort qfileOutPort = getOutputPorts().createPort("qfile");
 	private OutputPort reportOutPort = getOutputPorts().createPort("report");
+	private static final String QFILE_LABEL = "qfile:";
 	private static final String PDIFFS_LABEL = "pdiffs:";
 	private static final String BDIFFS_LABEL = "bdiffs:";
 	private static final String TDIFFS_LABEL = "tdiffs:";
@@ -76,6 +77,8 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 		addArgument("findex",findexFile.getName());
 		FileNameObject rindexFile = rindexInPort.getData(FileNameObject.class);
 		addArgument("rindex",rindexFile.getName());
+		boolean qfileValue = getParameterAsBoolean(QFILE_LABEL);
+		addArgument("qfile",String.valueOf(qfileValue));
 		int pdiffsValue = getParameterAsInt(PDIFFS_LABEL);
 		addArgument("pdiffs",String.valueOf(pdiffsValue));
 		int bdiffsValue = getParameterAsInt(BDIFFS_LABEL);
@@ -127,10 +130,11 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
+		parameterTypes.add(new ParameterTypeBoolean(QFILE_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(PDIFFS_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeInt(BDIFFS_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeInt(TDIFFS_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
-		parameterTypes.add(new ParameterTypeBoolean(CHECKORIENT_LABEL, "TODO: Add description", false, true));
+		parameterTypes.add(new ParameterTypeBoolean(CHECKORIENT_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeCategory(ALIGN_LABEL, "TODO: Add description", ALIGN_CHOICES, ALIGN_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeBoolean(ALLFILES_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(TRIMOVERLAP_LABEL, "TODO: Add description", false, true));
@@ -152,9 +156,9 @@ public class MothurMakeContigsOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("group")) return "[filename],[tag],contigs.groups";
-		if (type.equals("fasta")) return "[filename],[tag],contigs.fasta";
 		if (type.equals("qfile")) return "[filename],[tag],contigs.qual";
 		if (type.equals("report")) return "[filename],[tag],contigs.report";
+		if (type.equals("fasta")) return "[filename],[tag],contigs.fasta";
 		return super.getOutputPattern(type);
 	}
 }

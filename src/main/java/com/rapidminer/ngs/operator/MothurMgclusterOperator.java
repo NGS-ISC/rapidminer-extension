@@ -123,11 +123,11 @@ public class MothurMgclusterOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
-		if (type.equals("sensspec")) return "[filename],[clustertag],sensspec";
 		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
+		if (type.equals("sensspec")) return "[filename],[clustertag],sensspec";
 		if (type.equals("steps")) return "[filename],[clustertag],steps";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
+		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
 		return super.getOutputPattern(type);
 	}
 }

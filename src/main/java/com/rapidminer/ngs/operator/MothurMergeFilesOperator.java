@@ -67,8 +67,9 @@ public class MothurMergeFilesOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("merge")) return "";
 		if (type.equals("fasta")) return "[filename],merged,[extension]";
+		if (type.equals("merge")) return ""; }
+        else { m->mothurOut(";
 		return super.getOutputPattern(type);
 	}
 }

@@ -7,11 +7,6 @@
   <group key="">
     <group key="NGS_group">
       <group key="mothur_group">
-      <operator>
-        <key>mothur_operator_fileset</key>
-        <class>com.rapidminer.ngs.operator.MothurFileSetOperator</class>
-        <icon>icon-operator-fileset.png</icon>
-      </operator>
 	<operator>
 	  <key>mothur_mothurnocommandoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurNoCommandOperator</class>
@@ -96,11 +91,6 @@
 	  <key>mothur_mothurclassifyotuoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurClassifyOtuOperator</class>
 	  <icon>icon-operator-mothurclassifyotuoperator.png</icon>
-	</operator>
-	<operator>
-	  <key>mothur_mothurclassifyrfoperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurClassifyRfOperator</class>
-	  <icon>icon-operator-mothurclassifyrfoperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurclassifyseqsoperator_operator</key>
@@ -233,11 +223,6 @@
 	  <icon>icon-operator-mothurfiltersharedoperator.png</icon>
 	</operator>
 	<operator>
-	  <key>mothur_mothurgetcommandinfooperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurGetCommandinfoOperator</class>
-	  <icon>icon-operator-mothurgetcommandinfooperator.png</icon>
-	</operator>
-	<operator>
 	  <key>mothur_mothurgetcommunitytypeoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurGetCommunitytypeOperator</class>
 	  <icon>icon-operator-mothurgetcommunitytypeoperator.png</icon>
@@ -363,9 +348,9 @@
 	  <icon>icon-operator-mothurlibshuffoperator.png</icon>
 	</operator>
 	<operator>
-	  <key>mothur_mothurlistotulabelsoperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurListOtulabelsOperator</class>
-	  <icon>icon-operator-mothurlistotulabelsoperator.png</icon>
+	  <key>mothur_mothurlistotusoperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurListOtusOperator</class>
+	  <icon>icon-operator-mothurlistotusoperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurlistseqsoperator_operator</key>
@@ -376,6 +361,11 @@
 	  <key>mothur_mothurmakebiomoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurMakeBiomOperator</class>
 	  <icon>icon-operator-mothurmakebiomoperator.png</icon>
+	</operator>
+	<operator>
+	  <key>mothur_mothurmakeclroperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurMakeClrOperator</class>
+	  <icon>icon-operator-mothurmakeclroperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurmakecontigsoperator_operator</key>
@@ -496,11 +486,6 @@
 	  <key>mothur_mothurpairwiseseqsoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurPairwiseSeqsOperator</class>
 	  <icon>icon-operator-mothurpairwiseseqsoperator.png</icon>
-	</operator>
-	<operator>
-	  <key>mothur_mothurparselistoperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurParseListOperator</class>
-	  <icon>icon-operator-mothurparselistoperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurparsimonyoperator_operator</key>
@@ -638,14 +623,14 @@
 	  <icon>icon-operator-mothursetseedoperator.png</icon>
 	</operator>
 	<operator>
+	  <key>mothur_mothursffinfooperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurSffInfoOperator</class>
+	  <icon>icon-operator-mothursffinfooperator.png</icon>
+	</operator>
+	<operator>
 	  <key>mothur_mothursffmultipleoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurSffMultipleOperator</class>
 	  <icon>icon-operator-mothursffmultipleoperator.png</icon>
-	</operator>
-	<operator>
-	  <key>mothur_mothursffinfooperator_operator</key>
-	  <class>com.rapidminer.ngs.operator.MothurSffinfoOperator</class>
-	  <icon>icon-operator-mothursffinfooperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothurshhhflowsoperator_operator</key>
@@ -676,6 +661,11 @@
 	  <key>mothur_mothursplitgroupsoperator_operator</key>
 	  <class>com.rapidminer.ngs.operator.MothurSplitGroupsOperator</class>
 	  <icon>icon-operator-mothursplitgroupsoperator.png</icon>
+	</operator>
+	<operator>
+	  <key>mothur_mothursrainfooperator_operator</key>
+	  <class>com.rapidminer.ngs.operator.MothurSraInfoOperator</class>
+	  <icon>icon-operator-mothursrainfooperator.png</icon>
 	</operator>
 	<operator>
 	  <key>mothur_mothursubsampleoperator_operator</key>

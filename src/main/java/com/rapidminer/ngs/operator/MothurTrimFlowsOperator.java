@@ -28,9 +28,9 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 	private static final String SIGNAL_LABEL = "signal:";
 	private static final String NOISE_LABEL = "noise:";
 	private static final String ALLFILES_LABEL = "allfiles:";
-	private static final String[] ORDER_CHOICES = { "A", "B", "I" };
-	private static final int ORDER_DEFAULT_CHOICE = 0;
-	private static final String ORDER_LABEL = "order:";
+	private static final String[] FLOWORDER_CHOICES = { "A", "B", "I" };
+	private static final int FLOWORDER_DEFAULT_CHOICE = 0;
+	private static final String FLOWORDER_LABEL = "floworder:";
 	private static final String FASTA_LABEL = "fasta:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
@@ -75,9 +75,9 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 		addArgument("noise",String.valueOf(noiseValue));
 		boolean allfilesValue = getParameterAsBoolean(ALLFILES_LABEL);
 		addArgument("allfiles",String.valueOf(allfilesValue));
-		int orderIndex = getParameterAsInt(ORDER_LABEL);
-		String orderValue = ORDER_CHOICES[orderIndex];
-		addArgument("order",String.valueOf(orderValue));
+		int floworderIndex = getParameterAsInt(FLOWORDER_LABEL);
+		String floworderValue = FLOWORDER_CHOICES[floworderIndex];
+		addArgument("floworder",String.valueOf(floworderValue));
 		boolean fastaValue = getParameterAsBoolean(FASTA_LABEL);
 		addArgument("fasta",String.valueOf(fastaValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
@@ -110,7 +110,7 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeDouble(SIGNAL_LABEL, "TODO: Add description", -100000000, 100000000, 0.50, true));
 		parameterTypes.add(new ParameterTypeDouble(NOISE_LABEL, "TODO: Add description", -100000000, 100000000, 0.70, true));
 		parameterTypes.add(new ParameterTypeBoolean(ALLFILES_LABEL, "TODO: Add description", true, true));
-		parameterTypes.add(new ParameterTypeCategory(ORDER_LABEL, "TODO: Add description", ORDER_CHOICES, ORDER_DEFAULT_CHOICE));
+		parameterTypes.add(new ParameterTypeCategory(FLOWORDER_LABEL, "TODO: Add description", FLOWORDER_CHOICES, FLOWORDER_DEFAULT_CHOICE));
 		parameterTypes.add(new ParameterTypeBoolean(FASTA_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -121,9 +121,9 @@ public class MothurTrimFlowsOperator extends MothurGeneratedOperator {
 	@Override
 	public String getOutputPattern(String type) {
 		if (type.equals("file")) return "[filename],flow.files";
+		if (type.equals("fasta")) return "[filename],flow.fasta";
 		if (type.equals("flow")) return "[filename],[tag],flow";
 		if (type.equals("group")) return "[filename],flow.groups";
-		if (type.equals("fasta")) return "[filename],flow.fasta";
 		return super.getOutputPattern(type);
 	}
 }

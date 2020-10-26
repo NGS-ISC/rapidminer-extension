@@ -71,8 +71,8 @@ public class MothurChimeraCcodeOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("mapinfo")) return "[filename],mapinfo";
 		if (type.equals("chimera")) return "[filename],[tag],ccode.chimeras-[filename],ccode.chimeras";
+		if (type.equals("mapinfo")) return "[filename],mapinfo";
 		if (type.equals("accnos")) return "[filename],[tag],ccode.accnos-[filename],ccode.accnos";
 		return super.getOutputPattern(type);
 	}

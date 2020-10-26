@@ -75,11 +75,11 @@ public class MothurSortSeqsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("taxonomy")) return "[filename],sorted,[extension]";
 		if (type.equals("name")) return "[filename],sorted,[extension]";
-		if (type.equals("fasta")) return "[filename],sorted,[extension]";
 		if (type.equals("flow")) return "[filename],sorted,[extension]";
+		if (type.equals("fasta")) return "[filename],sorted,[extension]";
 		if (type.equals("qfile")) return "[filename],sorted,[extension]";
+		if (type.equals("taxonomy")) return "[filename],sorted,[extension]";
 		return super.getOutputPattern(type);
 	}
 }

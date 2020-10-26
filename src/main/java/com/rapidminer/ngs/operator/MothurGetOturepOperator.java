@@ -19,7 +19,6 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 	private OutputPort countOutPort = getOutputPorts().createPort("count");
 	private OutputPort fastaOutPort = getOutputPorts().createPort("fasta");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
-	private static final String LABEL_LABEL = "label:";
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String CUTOFF_LABEL = "cutoff:";
 	private static final String PRECISION_LABEL = "precision:";
@@ -55,8 +54,6 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 		addArgument("group",groupFile.getName());
 		FileNameObject columnFile = columnInPort.getData(FileNameObject.class);
 		addArgument("column",columnFile.getName());
-		String labelValue = getParameterAsString(LABEL_LABEL);
-		addArgument("label",String.valueOf(labelValue));
 		String groupsValue = getParameterAsString(GROUPS_LABEL);
 		addArgument("groups",String.valueOf(groupsValue));
 		int cutoffValue = getParameterAsInt(CUTOFF_LABEL);
@@ -86,7 +83,6 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
-		parameterTypes.add(new ParameterTypeString(LABEL_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(CUTOFF_LABEL, "TODO: Add description", -100000000, 100000000, 10, true));
 		parameterTypes.add(new ParameterTypeInt(PRECISION_LABEL, "TODO: Add description", -100000000, 100000000, 100, true));
@@ -101,9 +97,9 @@ public class MothurGetOturepOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("name")) return "[filename],[tag],rep.names-[filename],[tag],[group],rep.names";
-		if (type.equals("count")) return "[filename],count_table-[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
 		if (type.equals("fasta")) return "[filename],[tag],rep.fasta-[filename],[tag],[group],rep.fasta";
+		if (type.equals("count")) return "[filename],count_table-[filename],[tag],rep.count_table-[filename],[tag],[group],rep.count_table";
+		if (type.equals("name")) return "[filename],[tag],rep.names-[filename],[tag],[group],rep.names";
 		return super.getOutputPattern(type);
 	}
 }

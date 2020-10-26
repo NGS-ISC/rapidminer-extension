@@ -9,6 +9,7 @@ import com.rapidminer.parameter.*;
 
 public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 
+	private InputPort listInPort = getInputPorts().createPort("list");
 	private InputPort flowInPort = getInputPorts().createPort("flow");
 	private InputPort fastaInPort = getInputPorts().createPort("fasta");
 	private InputPort fastqInPort = getInputPorts().createPort("fastq");
@@ -20,11 +21,13 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 	private OutputPort fastqOutPort = getOutputPorts().createPort("fastq");
 	private OutputPort flowOutPort = getOutputPorts().createPort("flow");
 	private OutputPort groupOutPort = getOutputPorts().createPort("group");
+	private OutputPort listOutPort = getOutputPorts().createPort("list");
 	private OutputPort nameOutPort = getOutputPorts().createPort("name");
 	private static final String GROUPS_LABEL = "groups:";
 	private static final String[] FORMAT_CHOICES = { "sanger", "illumina", "solexa", "illumina1.8+" };
 	private static final int FORMAT_DEFAULT_CHOICE = 0;
 	private static final String FORMAT_LABEL = "format:";
+	private static final String PROCESSORS_LABEL = "processors:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String OUTPUTDIR_LABEL = "outputdir:";
@@ -38,6 +41,8 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 	public void doWork() throws OperatorException {
 		super.doWork();
 		clearArguments();
+		FileNameObject listFile = listInPort.getData(FileNameObject.class);
+		addArgument("list",listFile.getName());
 		FileNameObject flowFile = flowInPort.getData(FileNameObject.class);
 		addArgument("flow",flowFile.getName());
 		FileNameObject fastaFile = fastaInPort.getData(FileNameObject.class);
@@ -55,6 +60,8 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 		int formatIndex = getParameterAsInt(FORMAT_LABEL);
 		String formatValue = FORMAT_CHOICES[formatIndex];
 		addArgument("format",String.valueOf(formatValue));
+		int processorsValue = getParameterAsInt(PROCESSORS_LABEL);
+		addArgument("processors",String.valueOf(processorsValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -68,6 +75,7 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 		fastqOutPort.deliver(new FileNameObject(fileName+".fastq","fastq"));
 		flowOutPort.deliver(new FileNameObject(fileName+".flow","flow"));
 		groupOutPort.deliver(new FileNameObject(fileName+".group","group"));
+		listOutPort.deliver(new FileNameObject(fileName+".list","list"));
 		nameOutPort.deliver(new FileNameObject(fileName+".name","name"));
 	}
 
@@ -76,6 +84,7 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 		List<ParameterType> parameterTypes = super.getParameterTypes();
 		parameterTypes.add(new ParameterTypeString(GROUPS_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeCategory(FORMAT_LABEL, "TODO: Add description", FORMAT_CHOICES, FORMAT_DEFAULT_CHOICE));
+		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeString(OUTPUTDIR_LABEL, "TODO: Add description", "", true));
@@ -84,12 +93,13 @@ public class MothurSplitGroupsOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("flow")) return "[filename],[group],flow";
-		if (type.equals("count")) return "[filename],[group],count_table";
 		if (type.equals("group")) return "[filename],[group],groups";
 		if (type.equals("name")) return "[filename],[group],names";
-		if (type.equals("fastq")) return "[filename],[group],fastq";
 		if (type.equals("fasta")) return "[filename],[group],fasta";
+		if (type.equals("fastq")) return "[filename],[group],fastq";
+		if (type.equals("flow")) return "[filename],[group],flow";
+		if (type.equals("list")) return "[filename],[group],list";
+		if (type.equals("count")) return "[filename],[group],count_table";
 		return super.getOutputPattern(type);
 	}
 }

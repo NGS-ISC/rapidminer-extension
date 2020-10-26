@@ -96,8 +96,8 @@ public class MothurSummarySharedOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("phylip")) return "[filename],[calc],[distance],[outputtag],[tag2],dist";
 		if (type.equals("summary")) return "[filename],summary-[filename],[tag],summary";
+		if (type.equals("phylip")) return "[filename],[calc],[distance],[outputtag],[tag2],dist";
 		return super.getOutputPattern(type);
 	}
 }

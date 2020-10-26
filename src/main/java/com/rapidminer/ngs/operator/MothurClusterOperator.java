@@ -35,6 +35,7 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 	private static final String SHOWABUND_LABEL = "showabund:";
 	private static final String TIMING_LABEL = "timing:";
 	private static final String SIM_LABEL = "sim:";
+	private static final String VSEARCH_LABEL = "vsearch:";
 	private static final String SEED_LABEL = "seed:";
 	private static final String INPUTDIR_LABEL = "inputdir:";
 	private static final String PROCESSORS_LABEL = "processors:";
@@ -82,6 +83,8 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 		addArgument("timing",String.valueOf(timingValue));
 		boolean simValue = getParameterAsBoolean(SIM_LABEL);
 		addArgument("sim",String.valueOf(simValue));
+		String vsearchValue = getParameterAsString(VSEARCH_LABEL);
+		addArgument("vsearch",String.valueOf(vsearchValue));
 		int seedValue = getParameterAsInt(SEED_LABEL);
 		addArgument("seed",String.valueOf(seedValue));
 		String inputdirValue = getParameterAsString(INPUTDIR_LABEL);
@@ -112,6 +115,7 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 		parameterTypes.add(new ParameterTypeBoolean(SHOWABUND_LABEL, "TODO: Add description", true, true));
 		parameterTypes.add(new ParameterTypeBoolean(TIMING_LABEL, "TODO: Add description", false, true));
 		parameterTypes.add(new ParameterTypeBoolean(SIM_LABEL, "TODO: Add description", false, true));
+		parameterTypes.add(new ParameterTypeString(VSEARCH_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(SEED_LABEL, "TODO: Add description", -100000000, 100000000, 0, true));
 		parameterTypes.add(new ParameterTypeString(INPUTDIR_LABEL, "TODO: Add description", "", true));
 		parameterTypes.add(new ParameterTypeInt(PROCESSORS_LABEL, "TODO: Add description", -100000000, 100000000, 1, true));
@@ -121,11 +125,11 @@ public class MothurClusterOperator extends MothurGeneratedOperator {
 
 	@Override
 	public String getOutputPattern(String type) {
-		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
-		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
-		if (type.equals("steps")) return "[filename],[clustertag],steps";
 		if (type.equals("rabund")) return "[filename],[clustertag],rabund";
 		if (type.equals("sensspec")) return "[filename],[clustertag],sensspec";
+		if (type.equals("steps")) return "[filename],[clustertag],steps";
+		if (type.equals("list")) return "[filename],[clustertag],list-[filename],[clustertag],[tag2],list";
+		if (type.equals("sabund")) return "[filename],[clustertag],sabund";
 		return super.getOutputPattern(type);
 	}
 }

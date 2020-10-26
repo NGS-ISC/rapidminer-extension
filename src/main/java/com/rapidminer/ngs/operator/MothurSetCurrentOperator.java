@@ -11,6 +11,7 @@ public class MothurSetCurrentOperator extends MothurGeneratedOperator {
 
 	private InputPort flowInPort = getInputPorts().createPort("flow");
 	private InputPort fileInPort = getInputPorts().createPort("file");
+	private InputPort sampleInPort = getInputPorts().createPort("sample");
 	private InputPort biomInPort = getInputPorts().createPort("biom");
 	private InputPort phylipInPort = getInputPorts().createPort("phylip");
 	private InputPort columnInPort = getInputPorts().createPort("column");
@@ -30,6 +31,7 @@ public class MothurSetCurrentOperator extends MothurGeneratedOperator {
 	private InputPort orderInPort = getInputPorts().createPort("order");
 	private InputPort treeInPort = getInputPorts().createPort("tree");
 	private InputPort sharedInPort = getInputPorts().createPort("shared");
+	private InputPort clrInPort = getInputPorts().createPort("clr");
 	private InputPort ordergroupInPort = getInputPorts().createPort("ordergroup");
 	private InputPort countInPort = getInputPorts().createPort("count");
 	private InputPort currentInPort = getInputPorts().createPort("current");
@@ -56,6 +58,8 @@ public class MothurSetCurrentOperator extends MothurGeneratedOperator {
 		addArgument("flow",flowFile.getName());
 		FileNameObject fileFile = fileInPort.getData(FileNameObject.class);
 		addArgument("file",fileFile.getName());
+		FileNameObject sampleFile = sampleInPort.getData(FileNameObject.class);
+		addArgument("sample",sampleFile.getName());
 		FileNameObject biomFile = biomInPort.getData(FileNameObject.class);
 		addArgument("biom",biomFile.getName());
 		FileNameObject phylipFile = phylipInPort.getData(FileNameObject.class);
@@ -94,6 +98,8 @@ public class MothurSetCurrentOperator extends MothurGeneratedOperator {
 		addArgument("tree",treeFile.getName());
 		FileNameObject sharedFile = sharedInPort.getData(FileNameObject.class);
 		addArgument("shared",sharedFile.getName());
+		FileNameObject clrFile = clrInPort.getData(FileNameObject.class);
+		addArgument("clr",clrFile.getName());
 		FileNameObject ordergroupFile = ordergroupInPort.getData(FileNameObject.class);
 		addArgument("ordergroup",ordergroupFile.getName());
 		FileNameObject countFile = countInPort.getData(FileNameObject.class);
